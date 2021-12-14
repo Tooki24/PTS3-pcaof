@@ -8,6 +8,8 @@ services:
     container_name: pts3-php
     volumes:
       - "./:/var/www/html/"
+      - symfonyvar:/var/www/html/projet/var
+      - symfonyvendor:/var/www/html/projet/vendor
   web:
     container_name: pts3-web
     build:
@@ -26,7 +28,11 @@ services:
     ports:
       - "3307:3306" # mysql
     environment:
-      MYSQL_DATABASE: pts3
-      MYSQL_USER: pts3
-      MYSQL_PASSWORD: pts3
-      MYSQL_ROOT_PASSWORD: pts3
+      MYSQL_DATABASE: iut
+      MYSQL_USER: iut
+      MYSQL_PASSWORD: iut
+      MYSQL_ROOT_PASSWORD: iut
+
+volumes:
+  symfonyvar:
+  symfonyvendor:
