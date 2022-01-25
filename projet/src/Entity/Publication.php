@@ -6,6 +6,7 @@ use App\Repository\PublicationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=PublicationRepository::class)
@@ -43,6 +44,15 @@ class Publication
      * @ORM\ManyToMany(targetEntity=Person::class, mappedBy="publications")
      */
     private $people;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\Regex(
+     *     pattern="/^[a-z0-9\-]+$/",
+     *     message="Le slug ne peut contenir que des lettres , nombres ou tirets"
+     * )
+     */
+    private $slug;
 
     public function __construct()
     {
@@ -125,6 +135,18 @@ class Publication
         if ($this->people->removeElement($person)) {
             $person->removePublication($this);
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
