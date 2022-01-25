@@ -4,6 +4,10 @@ namespace App\Controller\Admin;
 
 use App\Entity\Publication;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class PublicationCrudController extends AbstractCrudController
 {
@@ -12,14 +16,14 @@ class PublicationCrudController extends AbstractCrudController
         return Publication::class;
     }
 
-    /*
+
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            TextField::new('titre'),
+            SlugField::new('slug')->setTargetFieldName('titre'),
+            TextEditorField::new('resume'),
+            AssociationField::new('people'),
         ];
     }
-    */
 }
