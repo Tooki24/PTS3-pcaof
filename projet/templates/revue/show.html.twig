@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Revue{% endblock %}
+
+{% block body %}
+    <h1>Revue</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ revue.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ revue.titre }}</td>
+            </tr>
+            <tr>
+                <th>Resume</th>
+                <td>{{ revue.resume }}</td>
+            </tr>
+            <tr>
+                <th>DatePubli</th>
+                <td>{{ revue.datePubli ? revue.datePubli|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>File</th>
+                <td>{{ revue.file }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('revue_index') }}">back to list</a>
+
+    <a href="{{ path('revue_edit', {'id': revue.id}) }}">edit</a>
+
+    {{ include('revue/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Revue index{% endblock %}
+
+{% block body %}
+    <h1>Revue index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Resume</th>
+                <th>DatePubli</th>
+                <th>File</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for revue in revues %}
+            <tr>
+                <td>{{ revue.id }}</td>
+                <td>{{ revue.titre }}</td>
+                <td>{{ revue.resume }}</td>
+                <td>{{ revue.datePubli ? revue.datePubli|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ revue.file }}</td>
+                <td>
+                    <a href="{{ path('revue_show', {'id': revue.id}) }}">show</a>
+                    <a href="{{ path('revue_edit', {'id': revue.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('revue_new') }}">Create new</a>
+{% endblock %}
