@@ -54,9 +54,15 @@ class Publication
      */
     private $slug;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=KeyWords::class, inversedBy="publications")
+     */
+    private $keyWords;
+
     public function __construct()
     {
         $this->people = new ArrayCollection();
+        $this->keyWords = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -147,6 +153,30 @@ class Publication
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|KeyWords[]
+     */
+    public function getKeyWords(): Collection
+    {
+        return $this->keyWords;
+    }
+
+    public function addKeyWord(KeyWords $keyWord): self
+    {
+        if (!$this->keyWords->contains($keyWord)) {
+            $this->keyWords[] = $keyWord;
+        }
+
+        return $this;
+    }
+
+    public function removeKeyWord(KeyWords $keyWord): self
+    {
+        $this->keyWords->removeElement($keyWord);
 
         return $this;
     }

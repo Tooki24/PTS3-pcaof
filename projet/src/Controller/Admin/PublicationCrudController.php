@@ -24,6 +24,9 @@ class PublicationCrudController extends AbstractCrudController
             SlugField::new('slug')->setTargetFieldName('title'),
             TextEditorField::new('resume'),
             AssociationField::new('people'),
+            AssociationField::new('keyWords'),
+            DateTimeField::new('DatePubli');
+
         ];
     }
 }
