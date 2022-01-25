@@ -2,17 +2,17 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Publication;
+use App\Entity\Revue;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
-class PublicationCrudController extends AbstractCrudController
+class RevueCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Publication::class;
+        return Revue::class;
     }
 
-
+    /*
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -21,5 +21,5 @@ class PublicationCrudController extends AbstractCrudController
             TextEditorField::new('description'),
         ];
     }
-
+    */
 }

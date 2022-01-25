@@ -2,8 +2,12 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Article;
+use App\Entity\Colloque;
+use App\Entity\Intervention;
 use App\Entity\Person;
 use App\Entity\Publication;
+use App\Entity\Revue;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -31,5 +35,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Les membres', 'fa_secret fa-user', Person::class);
         yield MenuItem::linkToCrud('Publications', 'fa-file', Publication::class);
+        yield MenuItem::linkToCrud('Colloques', 'fa-file', Colloque::class);
+        yield MenuItem::linkToCrud('Revue', 'fa-file', Revue::class);
+        yield MenuItem::linkToCrud('Article', 'fa-file', Article::class);
+        yield MenuItem::linkToCrud('Interventions', 'fa-file', Intervention::class);
     }
 }
