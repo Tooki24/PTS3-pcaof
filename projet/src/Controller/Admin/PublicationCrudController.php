@@ -20,8 +20,8 @@ class PublicationCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('titre'),
-            SlugField::new('slug')->setTargetFieldName('titre'),
+            TextField::new('title'),
+            SlugField::new('slug')->setTargetFieldName('title'),
             TextEditorField::new('resume'),
             AssociationField::new('people'),
         ];

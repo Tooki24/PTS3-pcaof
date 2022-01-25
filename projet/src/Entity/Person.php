@@ -22,12 +22,12 @@ class Person
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nom;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $prenom;
+    private $firstName;
 
     /**
      * @ORM\ManyToMany(targetEntity=Publication::class, inversedBy="people")
@@ -62,26 +62,26 @@ class Person
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getName(): ?string
     {
-        return $this->nom;
+        return $this->name;
     }
 
-    public function setNom(string $nom): self
+    public function setName(string $name): self
     {
-        $this->nom = $nom;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getPrenom(): ?string
+    public function getFirstName(): ?string
     {
-        return $this->prenom;
+        return $this->firstName;
     }
 
-    public function setPrenom(string $prenom): self
+    public function setFirstName(string $firstName): self
     {
-        $this->prenom = $prenom;
+        $this->firstName = $firstName;
 
         return $this;
     }
@@ -185,6 +185,6 @@ class Person
     public function __toString()
     {
         // TODO: Implement __toString() method.
-        return $this->nom;
+        return $this->name;
     }
 }

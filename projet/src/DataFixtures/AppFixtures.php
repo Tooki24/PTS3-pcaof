@@ -22,17 +22,17 @@ class AppFixtures extends Fixture
 
         //Creation de deux personne
         $person1 = new Person();
-        $person1->setPrenom('Mathis')->setNom('Fumel');
+        $person1->setFirstName('Mathis')->setName('Fumel');
         $manager->persist($person1);
         $person2 = new Person();
-        $person2->setPrenom('Giles')->setNom('Seper');
+        $person2->setFirstName('Giles')->setName('Seper');
         $manager->persist($person2);
         //Creation de 5 Revue avec article colloque, intervention
         for ($i=0; $i<5; $i++)
         {
             $revue = new Revue();
 
-            $revue->setTitre($faker->words(3, true))
+            $revue->setTitle($faker->words(3, true))
                 ->setResume($faker->text(350))
                 ->setDatePubli($faker->dateTimeBetween('-6 month', 'now'))
                 ->setSlug($faker->slug(3))
@@ -42,7 +42,7 @@ class AppFixtures extends Fixture
             {
                 $article = new Article();
 
-                $article->setTitre($faker->words(3, true))
+                $article->setTitle($faker->words(3, true))
                     ->setResume($faker->text(350))
                     ->setDatePubli($faker->dateTimeBetween('-6 month', 'now'))
                     ->setSlug($faker->slug(3))
@@ -57,7 +57,7 @@ class AppFixtures extends Fixture
             for($z=0; $z<4; $z++)
             {
                 $colloque = new Colloque();
-                $colloque->setNom($faker->words(3, true))
+                $colloque->setName($faker->words(3, true))
                     ->setDescription($faker->text(350))
                     ->setDateD($faker->dateTimeBetween('-6 month', '-2 month'))
                     ->setDateF($faker->dateTimeBetween('-2 month', 'now'))
@@ -71,8 +71,8 @@ class AppFixtures extends Fixture
 
                     $intervention->setDescription($faker->text(350))
                         ->setDate($faker->dateTime())
-                        ->setHeureD($faker->dateTime())
-                        ->setHeureF($faker->dateTime())
+                        ->setHourD($faker->dateTime())
+                        ->setHourF($faker->dateTime())
                         ->setColloques($colloque)
                         ->addPerson($person2);
 
@@ -93,7 +93,7 @@ class AppFixtures extends Fixture
         {
             $publication = new Publication();
 
-            $publication->setTitre($faker->words(3, true))
+            $publication->setTitle($faker->words(3, true))
                 ->setResume($faker->text(350))
                 ->setDatePubli($faker->dateTime())
                 ->setFile('test.png')
