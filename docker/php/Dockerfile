@@ -1,10 +1,9 @@
-FROM php:fpm-alpine3.14
+FROM php:8-fpm
 
-# Installer XDebug
-COPY ./docker/php/xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN apk add bash git $PHPIZE_DEPS
-RUN pecl install xdebug
-RUN docker-php-ext-enable xdebug
+RUN apt-get -y update \
+&& apt-get install -y libicu-dev unzip \
+&& docker-php-ext-configure intl \
+&& docker-php-ext-install intl
 
 # Modules pour utiliser MySQL
 RUN docker-php-ext-install mysqli pdo_mysql
