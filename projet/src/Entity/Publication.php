@@ -44,6 +44,11 @@ class Publication
      */
     private $people;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
     public function __construct()
     {
         $this->people = new ArrayCollection();
@@ -125,6 +130,18 @@ class Publication
         if ($this->people->removeElement($person)) {
             $person->removePublication($this);
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

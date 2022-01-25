@@ -54,6 +54,11 @@ class Article
      */
     private $revue;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
     public function __construct()
     {
         $this->people = new ArrayCollection();
@@ -159,6 +164,18 @@ class Article
     public function setRevue(?Revue $revue): self
     {
         $this->revue = $revue;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
