@@ -16,6 +16,9 @@ class RevueController extends AbstractController
         return $this->render('revue/index.html.twig', [
             'controller_name' => 'RevueController',
             'revues' => $revueRepository->findAll(),
+
+            // récupérer le nombre d'articles pour chaque revue
+
         ]);
     }
 
