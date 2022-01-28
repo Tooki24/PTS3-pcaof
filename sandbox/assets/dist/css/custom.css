@@ -1,3 +1,48 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+
+.custom-color {
+    background-color: #004E5A;
+}
+.custom-align {
+    background-color: white;
+    display: flex;
+    height: 20px;
+    border-radius: 20px;
+
+}
+#lien_footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 40em;
+}
+.lien_footer_in {
+    text-decoration: none;
+    color: white;
+    font-family: merriweather;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5em;
+    padding-bottom: 0.5em;
+}
+.lien_footer_in:hover{
+    color: #00CC94;
+}
+.custom-color-bouton {
+    background-color:white ;
+    border-color: white;
+    border-radius: 30em;
+    color: #004E5A;
+    margin-left: 25em;
+    margin-bottom: 2em;
+}
+.custom-color-bouton:hover {
+    background-color: #04414d;
+    border-color: #04414d;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Passion+One&display=swap');
 a {
@@ -47,6 +92,7 @@ a {
 .custom-navbar{
     background-color: #004E5A;
 }
+
 #logo-header{
     margin: 1%;
     width: 20%;
