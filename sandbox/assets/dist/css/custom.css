@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
 
-
 body{
     padding : 0;
     margin: 0;
 }
-.custom-color {
+
+.custom-footer {
     background-color: #004E5A;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 .custom-align {
     background-color: white;
@@ -20,7 +23,6 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin-left: 40em;
 }
 .lien_footer_in {
     text-decoration: none;
@@ -28,23 +30,27 @@ body{
     font-family: merriweather, sans-serif;
     display: flex;
     flex-direction: column;
-    margin-left: 5em;
     padding-bottom: 0.5em;
 }
 .lien_footer_in:hover{
     color: #00CC94;
 }
-.custom-color-bouton {
+#bouton-contact {
     background-color:white ;
     border-color: white;
-    border-radius: 30em;
+    border-radius: 20px;
     color: #004E5A;
-    margin-left: 25em;
-    margin-bottom: 2em;
+    margin-left: 15%;
+    padding-left: 7%;
+    padding-right: 7%;
+    height: 70%;
+    display:flex;
+    align-items: center;
 }
-.custom-color-bouton:hover {
+#bouton-contact:hover {
     background-color: #04414d;
     border-color: #04414d;
+    color: white;
 }
 
 
@@ -131,32 +137,42 @@ border-right: transparent;
 
 
 
-@media screen and (max-width: 800px){
-    #header-title h2{font-size: 1.2em;}
-    #header-title p{font-size: 0.7em;}
+@media screen and (max-width: 800px) {
+    #header-title h2 {
+        font-size: 1.2em;
+    }
+
+    #header-title p {
+        font-size: 0.7em;
+    }
+
     #header-title {
         flex-direction: column;
 
 
     }
-    #header-title a{
+
+    #header-title a {
         justify-content: center;
-        align-items:center;
+        align-items: center;
         display: none;
     }
-    #logo-header{
+
+    #logo-header {
         width: 10em;
     }
 
-    #navbar{
+    #navbar {
         justify-content: space-evenly;
         flex-wrap: wrap;
     }
-    .navbar-select{
-        border-right:transparent;
+
+    .navbar-select {
+        border-right: transparent;
         padding-right: 2%;
         padding-left: 2%;
         font-size: 0.9em;
+    }
 }
 
 
