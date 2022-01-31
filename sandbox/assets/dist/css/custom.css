@@ -1,5 +1,4 @@
-
-
+@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
 
 .custom-color {
@@ -21,7 +20,7 @@
 .lien_footer_in {
     text-decoration: none;
     color: white;
-    font-family: merriweather;
+    font-family: merriweather, sans-serif;
     display: flex;
     flex-direction: column;
     margin-left: 5em;
@@ -43,8 +42,7 @@
     border-color: #04414d;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Passion+One&display=swap');
+
 a {
     text-decoration: none;
 }
@@ -68,7 +66,7 @@ a {
 #header-title h2 {
     margin-bottom: 0;
     padding-bottom: 0;
-    font-family: "Passion One", sans-serif;
+    font-family: Passion One, sans-serif;
     font-weight: bold;
     /*font-size: 2.2em;*/
     color: #004E5A;
@@ -89,14 +87,39 @@ a {
     width:80%;
 }
 
-.custom-navbar{
-    background-color: #004E5A;
-}
 
 #logo-header{
     margin: 1%;
     width: 20%;
 }
+
+#navbar{
+    width: 100%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: #004E5A;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.navbar-select{
+    padding-right: 10%;
+    padding-left:10%;
+    color:white;
+    border-right: solid;
+    border-right-width: 3px;
+    border-right-color: white;
+}
+.navbar-select:hover{
+    color: #00CC94;
+}
+
+
+
+
+
+
 
 @media screen and (max-width: 800px){
     #header-title h2{font-size: 1.2em;}
@@ -104,13 +127,26 @@ a {
     #header-title {
         flex-direction: column;
 
+
     }
     #header-title a{
         justify-content: center;
         align-items:center;
+        display: none;
     }
     #logo-header{
-        width: 8em;
+        width: 10em;
     }
 
+    #navbar{
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    .navbar-select{
+        border-right:transparent;
+        padding-right: 2%;
+        padding-left: 2%;
+    }
 }
+
+
