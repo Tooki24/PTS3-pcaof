@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
 
-.custom-color {
+.custom-footer {
     background-color: #004E5A;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 .custom-align {
     background-color: white;
@@ -15,7 +18,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin-left: 40em;
 }
 .lien_footer_in {
     text-decoration: none;
@@ -23,21 +25,24 @@
     font-family: merriweather, sans-serif;
     display: flex;
     flex-direction: column;
-    margin-left: 5em;
     padding-bottom: 0.5em;
 }
 .lien_footer_in:hover{
     color: #00CC94;
 }
-.custom-color-bouton {
+#bouton-contact {
     background-color:white ;
     border-color: white;
-    border-radius: 30em;
+    border-radius: 20px;
     color: #004E5A;
-    margin-left: 25em;
-    margin-bottom: 2em;
+    margin-left: 15%;
+    padding-left: 7%;
+    padding-right: 7%;
+    height: 70%;
+    display:flex;
+    align-items: center;
 }
-.custom-color-bouton:hover {
+#bouton-contact:hover {
     background-color: #04414d;
     border-color: #04414d;
 }
