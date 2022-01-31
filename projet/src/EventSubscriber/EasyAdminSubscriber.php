@@ -32,9 +32,6 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         if (!($entity instanceof Article)) {
             return;
         }
-        $slug = $this->slugger->slug($entity->getTitre());
-        $entity->setSlug($slug);
-
         $now = new DateTime('now');
         $entity->setDatePubli($now);
 

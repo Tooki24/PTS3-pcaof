@@ -8,6 +8,12 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\FileField;
 
 class PublicationCrudController extends AbstractCrudController
 {
@@ -23,10 +29,19 @@ class PublicationCrudController extends AbstractCrudController
             TextField::new('title'),
             SlugField::new('slug')->setTargetFieldName('title'),
             TextEditorField::new('resume'),
+            TextField::new('imageFile')->setFormtype(VichImageType::class)->hideOnIndex(),
+            ImageField::new('imageName')->setBasePath('/uploads/publication/image')->onlyOnIndex(),
+            TextField::new('pdfFile')->setFormtype(VichFileType::class)->hideOnIndex(),
             AssociationField::new('people'),
             AssociationField::new('keyWords'),
-            DateTimeField::new('DatePubli');
+            DateTimeField::new('datePubli')->onlyOnIndex(),
 
         ];
+    }
+
+    public function configureCrud (Crud $crud): Crud
+    {
+        return $crud
+        -> setDefaultSort(['datePubli' => 'DESC']);
     }
 }

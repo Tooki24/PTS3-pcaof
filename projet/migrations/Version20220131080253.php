@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20220125151027 extends AbstractMigration
+final class Version20220131080253 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,7 +20,6 @@ final class Version20220125151027 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE key_words (id INT AUTO_INCREMENT NOT NULL, word VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE article CHANGE titre title VARCHAR(255) NOT NULL');
         $this->addSql('ALTER TABLE colloque CHANGE nom name VARCHAR(255) NOT NULL');
         $this->addSql('ALTER TABLE intervention ADD hour_d TIME NOT NULL, ADD hour_f TIME NOT NULL, DROP heure_d, DROP heure_f');
@@ -32,7 +31,6 @@ final class Version20220125151027 extends AbstractMigration
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('DROP TABLE key_words');
         $this->addSql('ALTER TABLE article CHANGE title titre VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`');
         $this->addSql('ALTER TABLE colloque CHANGE name nom VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`');
         $this->addSql('ALTER TABLE intervention ADD heure_d TIME NOT NULL, ADD heure_f TIME NOT NULL, DROP hour_d, DROP hour_f');
