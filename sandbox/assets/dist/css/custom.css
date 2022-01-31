@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
 
+
+body{
+    padding : 0;
+    margin: 0;
+}
 .custom-color {
     background-color: #004E5A;
 }
@@ -104,16 +109,21 @@ a {
 
 }
 .navbar-select{
-    padding-right: 10.5%;
-    padding-left:10.5%;
+    padding-right: 10.2%;
+    padding-left:10.2%;
     color:white;
     border-right: solid;
     border-right-width: 3px;
     border-right-color: white;
 }
-.navbar-select:hover{
+.navbar-select:hover {
     color: #00CC94;
 }
+
+#navbar-adherent{
+border-right: transparent;
+}
+
 
 
 
@@ -146,7 +156,7 @@ a {
         border-right:transparent;
         padding-right: 2%;
         padding-left: 2%;
-    }
+        font-size: 0.9em;
 }
 
 
