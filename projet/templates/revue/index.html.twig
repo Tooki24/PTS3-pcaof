@@ -12,8 +12,8 @@
     <h1 class="text-center">Revues</h1>
 
     {% for revue in revues %}
-        <div class="">
-            <h3>N°{{ revue.id }} / {{ revue.titre }}</h3>
+        <div class="m-4">
+            <h3>N°{{ revue.id }} / {{ revue.title }}</h3>
             <h4>{{ revue.getDatePubli()|date('d/m/Y') }}</h4>
         </div>
     {% endfor %}
