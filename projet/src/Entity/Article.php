@@ -134,6 +134,11 @@ class Article
         return $this;
     }
 
+    public function getNbPeople(Article $article)
+    {
+        return count($article->getPeople());
+    }
+
     /**
      * @return Collection|Person[]
      */

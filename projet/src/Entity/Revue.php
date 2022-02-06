@@ -151,9 +151,15 @@ class Revue
     /**
      * @return Collection|Article[]
      */
+
     public function getArticles(): Collection
     {
         return $this->articles;
+    }
+
+    public function getNbArticle(Revue $revue)
+    {
+        return count($revue->getArticles());
     }
 
     public function addArticle(Article $article): self

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RevueController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+        <div class="">
+            <IMG src="{{ asset('img/test.png') }}" alt="image de la revue" width="100px"
+                 height="100px">
+            <h2>N°{{ revue.id }} / {{ revue.titre }}</h2>
+            <h3>{{ revue.getDatePubli()|date('d/m/Y') }}</h3>
+            <h3>Revue de la/les colloques : </h3>
+            {% for colloque in colloques %}
+                <h4> - {{ colloque.nom }}</h4>
+            {% endfor %}
+
+            <h3>Résumé :</h3>
+            <p>{{ revue.resume }}</p>
+
+            <h3>Liste des articles :</h3>
+            {% for article in articles %}
+                <h1>{{ loop.index }}</h1>
+                <h3>{{ article.titre }}</h3>
+                <h3>{{ article.getDatePubli()|date('d/m/Y') }}</h3>
+                <h3>Nombre de personne : {{ article.getNbPeople(article) }}</h3>
+            {% endfor %}
+        </div>
+
+</div>
+{% endblock %}
