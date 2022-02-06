@@ -112,6 +112,7 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 
 }
 .navbar-select{
@@ -130,6 +131,10 @@ a {
 border-right: transparent;
 }
 
+.dropdown button, .dropdown button:hover, .dropdown button:focus{
+    background-color: transparent ;
+    border: none;
+}
 
 
 
@@ -137,7 +142,7 @@ border-right: transparent;
 
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
     #header-title h2 {
         font-size: 1.2em;
     }
