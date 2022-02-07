@@ -11,6 +11,7 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    weigth :100%
 }
 .custom-align {
     background-color: white;
