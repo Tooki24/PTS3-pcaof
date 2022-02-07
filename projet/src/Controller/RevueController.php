@@ -31,4 +31,6 @@ class RevueController extends AbstractController
             'articles'=>$revue->getArticles(),
         ]);
     }
+
+
 }

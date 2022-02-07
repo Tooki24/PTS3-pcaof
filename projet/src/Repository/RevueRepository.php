@@ -21,15 +21,14 @@ class RevueRepository extends ServiceEntityRepository
     }
 
 
-    /*
-    public function findOneBySomeField($value): ?Revue
-    {
+ /**
+  * @return Revue[]
+  */
+    public function lastTree(){
         return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
+            ->orderBy('r.id', 'DESC')
+            ->setMaxResults(3)
             ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getResult();
     }
-    */
 }

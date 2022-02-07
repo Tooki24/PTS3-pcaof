@@ -13,7 +13,7 @@
 
     {% for revue in revues %}
         <a href="{{ path('liste_articles', {'idRevue': revue.id}) }}">
-            <div class="">
+            <div class="m-4">
                 <IMG src="{{ asset('img/test.png') }}" alt="image de la revue" width="100px"
                 height="100px">
                 <h2>N°{{ revue.id }} / {{ revue.titre }}</h2>

@@ -27,12 +27,12 @@ class Intervention
     /**
      * @ORM\Column(type="time")
      */
-    private $heureD;
+    private $hourD;
 
     /**
      * @ORM\Column(type="time")
      */
-    private $heureF;
+    private $hourF;
 
     /**
      * @ORM\Column(type="text")
@@ -71,26 +71,26 @@ class Intervention
         return $this;
     }
 
-    public function getHeureD(): ?\DateTimeInterface
+    public function getHourD(): ?\DateTimeInterface
     {
-        return $this->heureD;
+        return $this->hourD;
     }
 
-    public function setHeureD(\DateTimeInterface $heureD): self
+    public function setHourD(\DateTimeInterface $hourD): self
     {
-        $this->heureD = $heureD;
+        $this->hourD = $hourD;
 
         return $this;
     }
 
-    public function getHeureF(): ?\DateTimeInterface
+    public function getHourF(): ?\DateTimeInterface
     {
-        return $this->heureF;
+        return $this->hourF;
     }
 
-    public function setHeureF(\DateTimeInterface $heureF): self
+    public function setHourF(\DateTimeInterface $hourF): self
     {
-        $this->heureF = $heureF;
+        $this->hourF = $hourF;
 
         return $this;
     }
