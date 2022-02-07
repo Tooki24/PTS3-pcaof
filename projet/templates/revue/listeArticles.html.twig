@@ -12,11 +12,12 @@
         <div class="">
             <IMG src="{{ asset('img/test.png') }}" alt="image de la revue" width="100px"
                  height="100px">
-            <h2>N°{{ revue.id }} / {{ revue.titre }}</h2>
+            <h2>N°{{ revue.id }} / {{ revue.title }}</h2>
             <h3>{{ revue.getDatePubli()|date('d/m/Y') }}</h3>
             <h3>Revue de la/les colloques : </h3>
+
             {% for colloque in colloques %}
-                <h4> - {{ colloque.nom }}</h4>
+                <h4> - {{ colloque.name }}</h4>
             {% endfor %}
 
             <h3>Résumé :</h3>
@@ -24,10 +25,12 @@
 
             <h3>Liste des articles :</h3>
             {% for article in articles %}
-                <h1>{{ loop.index }}</h1>
-                <h3>{{ article.titre }}</h3>
-                <h3>{{ article.getDatePubli()|date('d/m/Y') }}</h3>
-                <h3>Nombre de personne : {{ article.getNbPeople(article) }}</h3>
+                <div class="m-4">
+                    <h1>{{ loop.index }}</h1>
+                    <h3>{{ article.title }}</h3>
+                    <h3>{{ article.getDatePubli()|date('d/m/Y') }}</h3>
+                    <h3>Nombre de personne : {{ article.getNbPeople(article) }}</h3>
+                </div>
             {% endfor %}
         </div>
 

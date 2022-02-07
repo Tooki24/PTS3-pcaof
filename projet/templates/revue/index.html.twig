@@ -16,7 +16,7 @@
             <div class="m-4">
                 <IMG src="{{ asset('img/test.png') }}" alt="image de la revue" width="100px"
                 height="100px">
-                <h2>N°{{ revue.id }} / {{ revue.titre }}</h2>
+                <h2>N°{{ revue.id }} / {{ revue.title }}</h2>
                 <h3>{{ revue.getDatePubli()|date('d/m/Y') }}</h3>
                 <h3>Nombre d'articles : {{ revue.getNbArticle(revue) }}</h3>
             </div>
