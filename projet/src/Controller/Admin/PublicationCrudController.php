@@ -14,6 +14,7 @@ use Vich\UploaderBundle\Form\Type\VichImageType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FileField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 
 class PublicationCrudController extends AbstractCrudController
 {
@@ -32,8 +33,9 @@ class PublicationCrudController extends AbstractCrudController
             TextField::new('imageFile')->setFormtype(VichImageType::class)->hideOnIndex(),
             ImageField::new('imageName')->setBasePath('/uploads/publication/image')->onlyOnIndex(),
             TextField::new('pdfFile')->setFormtype(VichFileType::class)->hideOnIndex(),
-            AssociationField::new('people'),
+            AssociationField::new('people'),//TODO créé un obtion pour créé un nouvelle entitér depuis le crud de la Publication
             AssociationField::new('keyWords'),
+            BooleanField::new('onLine'),
             DateTimeField::new('datePubli')->onlyOnIndex(),
 
         ];

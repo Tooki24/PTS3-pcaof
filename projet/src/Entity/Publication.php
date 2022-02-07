@@ -53,6 +53,11 @@ class Publication
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * NOTE: expression qui verifie si la fin du tring contiens ".pdf" (verification pour eviter d'upload des fichiers non voulus),
+     * @Assert\Regex("
+     *     pattern=/[^\s]+(?=\.(pdf))\./D",
+     *     message="Le fichier choisi dois etre au format PDF"
+     * ) //TODO faire verifier le message d'erreur
      * @var File
      */
     private $pdfName;
@@ -80,7 +85,7 @@ class Publication
      * @Assert\Regex(
      *     pattern="/^[a-z0-9\-]+$/",
      *     message="Le slug ne peut contenir que des lettres , nombres ou tirets"
-     * )
+     * ) //TODO faire verifier le message d'erreur
      */
     private $slug;
 
@@ -88,6 +93,11 @@ class Publication
      * @ORM\ManyToMany(targetEntity=KeyWords::class, inversedBy="publications")
      */
     private $keyWords;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $onLine;
 
     public function __construct()
     {
@@ -261,6 +271,18 @@ class Publication
     public function getPdfFile(): ?File
     {
         return $this->pdfFile;
+    }
+
+    public function getOnLine(): ?bool
+    {
+        return $this->onLine;
+    }
+
+    public function setOnLine(bool $onLine): self
+    {
+        $this->onLine = $onLine;
+
+        return $this;
     }
 
 }

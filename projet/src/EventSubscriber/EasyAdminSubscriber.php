@@ -11,21 +11,15 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 class EasyAdminSubscriber implements EventSubscriberInterface
 {
-    private $slugger;
-
-    public function __construct(SluggerInteface $slugger)
-    {
-        $this->slugger = $this->slugger;
-    }
 
     public static function getSubscribedEvent()
     {
         return [
-            BeforeEntityPersistedEvent::class => ['setArticleSlugAndDate'],
+            BeforeEntityPersistedEvent::class => ['setArticleDate'],
         ];
     }
 
-    public function setArticleSlugAndDate(BeforeEntityPersistedEvent $event)
+    public function setArticleDate(BeforeEntityPersistedEvent $event)
     {
         $entity = $event->getEntityInstance();
 
