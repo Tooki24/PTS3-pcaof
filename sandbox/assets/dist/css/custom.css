@@ -130,10 +130,13 @@ a {
 #navbar-adherent{
 border-right: transparent;
 }
-
 .dropdown button, .dropdown button:hover, .dropdown button:focus{
     background-color: transparent ;
     border: none;
+}
+
+.dropdown button:hover{
+    color: #00CC94;
 }
 
 

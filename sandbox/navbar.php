@@ -6,7 +6,7 @@
         <a id="navbar-publi" class="navbar-select" href="">Publications</a>
             <div class="dropdown navbar-select">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    Adhérents
+                    Association
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" href="#">Association</a></li>
