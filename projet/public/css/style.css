@@ -114,8 +114,8 @@ a {
 
 }
 .navbar-select{
-    padding-right: 10.2%;
-    padding-left:10.2%;
+    padding-right: 9%;
+    padding-left:9%;
     color:white;
     border-right: solid;
     border-right-width: 3px;
@@ -177,7 +177,6 @@ a {
         border-right: transparent;
         padding-right: 2%;
         padding-left: 2%;
-        font-size: 0.9em;
     }
 }
 
