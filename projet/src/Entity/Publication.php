@@ -7,9 +7,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=PublicationRepository::class)
+ * @Vich\Uploadable
  */
 class Publication
 {
@@ -30,11 +33,43 @@ class Publication
      */
     private $resume;
 
+
+    // pour l'image d'illustration--------------------------------------------------------------------------------------------------------------
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @var File
      */
-    private $file;
+    private $imageName;
 
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @Vich\UploadableField(mapping="publication_image", fileNameProperty="imageName")
+     * @var File
+     */
+    private $imageFile;
+
+    //pour le pdf de la publication -------------------------------------------------------------------------------------------------------------
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * NOTE: expression qui verifie si la fin du tring contiens ".pdf" (verification pour eviter d'upload des fichiers non voulus),
+     * @Assert\Regex("
+     *     pattern=/[^\s]+(?=\.(pdf))\./D",
+     *     message="Le fichier choisi dois etre au format PDF"
+     * ) //TODO faire verifier le message d'erreur
+     * @var File
+     */
+    private $pdfName;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @Vich\UploadableField(mapping="publication_pdf", fileNameProperty="pdfName")
+     * @var File
+     */
+    private $pdfFile;
+
+    //pour le reste -------------------------------------------------------------------------------------------------------------
     /**
      * @ORM\Column(type="datetime")
      */
@@ -50,13 +85,24 @@ class Publication
      * @Assert\Regex(
      *     pattern="/^[a-z0-9\-]+$/",
      *     message="Le slug ne peut contenir que des lettres , nombres ou tirets"
-     * )
+     * ) //TODO faire verifier le message d'erreur
      */
     private $slug;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=KeyWords::class, inversedBy="publications")
+     */
+    private $keyWords;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $onLine;
 
     public function __construct()
     {
         $this->people = new ArrayCollection();
+        $this->keyWords = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -88,14 +134,26 @@ class Publication
         return $this;
     }
 
-    public function getFile(): ?string
+    public function getImageName(): ?string
     {
-        return $this->file;
+        return $this->imageName;
     }
 
-    public function setFile(?string $file): self
+    public function setImageName(?string $imageName): self
     {
-        $this->file = $file;
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    public function getPdfName(): ?string
+    {
+        return $this->pdfName;
+    }
+
+    public function setPdfName(?string $pdfName): self
+    {
+        $this->pdfName = $pdfName;
 
         return $this;
     }
@@ -149,5 +207,78 @@ class Publication
         $this->slug = $slug;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|KeyWords[]
+     */
+    public function getKeyWords(): Collection
+    {
+        return $this->keyWords;
+    }
+
+    public function addKeyWord(KeyWords $keyWord): self
+    {
+        if (!$this->keyWords->contains($keyWord)) {
+            $this->keyWords[] = $keyWord;
+        }
+
+        return $this;
+    }
+
+    public function removeKeyWord(KeyWords $keyWord): self
+    {
+        $this->keyWords->removeElement($keyWord);
+
+        return $this;
+    }
+
+
+    public function setOnLine(bool $onLine): self
+    {
+        $this->onLine = $onLine;
+
+        return $this;
+    }
+
+
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        // It is required that at least one field changes if you are using doctrine
+        // otherwise the event listeners won't be called and the file is lost
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->datePubli = new \DateTimeImmutable();
+        }
+
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setPdfFile(?File $pdfFile = null): void
+    {
+        $this->pdfFile = $pdfFile;
+
+        // It is required that at least one field changes if you are using doctrine
+        // otherwise the event listeners won't be called and the file is lost
+
+        if (null !== $pdfFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->datePubli = new \DateTimeImmutable();
+        }
+
+    }
+
+    public function getPdfFile(): ?File
+    {
+        return $this->pdfFile;
     }
 }

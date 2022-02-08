@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=RevueRepository::class)
@@ -58,6 +60,33 @@ class Revue
      * )
      */
     private $slug;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $onLine;
+
+    // pour l'image d'illustration--------------------------------------------------------------------------------------------------------------
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @var File
+     */
+    private $imageName;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @Vich\UploadableField(mapping="revue_image", fileNameProperty="imageName")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $theme;
+
+
 
     public function __construct()
     {
@@ -195,4 +224,49 @@ class Revue
 
         return $this;
     }
+
+    public function getOnLine(): ?bool
+    {
+        return $this->onLine;
+    }
+
+    public function setOnLine(bool $onLine): self
+    {
+        $this->onLine = $onLine;
+
+        return $this;
+    }
+
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        // It is required that at least one field changes if you are using doctrine
+        // otherwise the event listeners won't be called and the file is lost
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->datePubli = new \DateTimeImmutable();
+        }
+
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function getTheme(): ?string
+    {
+        return $this->theme;
+    }
+
+    public function setTheme(?string $theme): self
+    {
+        $this->theme = $theme;
+
+        return $this;
+    }
+
 }

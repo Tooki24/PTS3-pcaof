@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Article;
 use App\Entity\Colloque;
 use App\Entity\Intervention;
+use App\Entity\KeyWords;
 use App\Entity\Person;
 use App\Entity\Publication;
 use App\Entity\Revue;
@@ -30,7 +31,7 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-
+        //TODO ajouter des jolies icones pour chaques categories
         //yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Les membres', 'fa_secret fa-user', Person::class);
@@ -38,6 +39,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Colloques', 'fa-file', Colloque::class);
         yield MenuItem::linkToCrud('Revue', 'fa-file', Revue::class);
         yield MenuItem::linkToCrud('Article', 'fa-file', Article::class);
-        yield MenuItem::linkToCrud('Interventions', 'fa-file', Intervention::class);
+        yield MenuItem::linkToCrud('KeyWords', 'fa-file', KeyWords::class);
     }
 }
