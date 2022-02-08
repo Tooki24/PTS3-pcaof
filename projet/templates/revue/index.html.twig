@@ -9,12 +9,14 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1 class="text-center">Revues</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/var/www/html/projet/src/Controller/RevueController.php'|file_link(0) }}">src/Controller/RevueController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/var/www/html/projet/templates/revue/index.html.twig'|file_link(0) }}">templates/revue/index.html.twig</a></code></li>
-    </ul>
+    {% for revue in revues %}
+        <div class="m-4">
+            <h3>N°{{ revue.id }} / {{ revue.title }}</h3>
+            <h4>{{ revue.getDatePubli()|date('d/m/Y') }}</h4>
+        </div>
+    {% endfor %}
+
 </div>
 {% endblock %}

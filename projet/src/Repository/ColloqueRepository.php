@@ -19,32 +19,14 @@ class ColloqueRepository extends ServiceEntityRepository
         parent::__construct($registry, Colloque::class);
     }
 
-    // /**
-    //  * @return Colloque[] Returns an array of Colloque objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
+    /**
+     * @return Colloque[]
+     */
+    public function lastTwo(){
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+            ->orderBy('c.id', 'DESC')
+            ->setMaxResults(2)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Colloque
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }
