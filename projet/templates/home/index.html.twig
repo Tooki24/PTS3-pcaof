@@ -20,11 +20,12 @@
             BLABLABLABLABLABLABLABLA BLABLABLABLA</li>
     </ul>
 
-    <div class="container">
-        <h1>Derniere publi</h1>
+
 
 
         <div class="col m-4" >
+            <div class="containerLastPubliRevuesAcceuil">
+                <h1 class="lastPubliAcceuil">Derniere publication</h1>
             {% for publication in publications %}
                 <div class="row" style="border: black 1px solid; border-radius: 5%; padding: 20px; margin: 10px">
                     <div class="col">
@@ -37,7 +38,7 @@
                 </div>
             {% endfor %}
 
-            <h1>Derniere Revues</h1>
+            <h1 class="lastPubliAcceuil">Derniere Revues</h1>
 
             {% for revue in revues %}
                 <div class="row" style="border: black 1px solid; border-radius: 5%; padding: 20px; margin: 10px">

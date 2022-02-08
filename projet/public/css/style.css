@@ -180,4 +180,18 @@ a {
     }
 }
 
+.lastPubliAcceuil {
+    color: white;
+    background-color: #004E5A;
+    margin-right: 50%;
+    margin-left: 0;
+    padding-left: 3%;
+    padding-bottom: 1%;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius:30px;
+}
+.containerLastPubliRevuesAcceuil{
+    margin: 0;
+    padding: 0;
+}
 
