@@ -25,11 +25,6 @@
         user-select: none;
       }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
     </style>
 
     
@@ -37,6 +32,14 @@
     <link href="sticky-footer-navbar.css" rel="stylesheet">
   </head>
   <body class="d-flex flex-column h-100">
+  <div id="header-title">
+      <a href="">
+          <h2 > Popular Culture Association of France</h2>
+          <p>Association Française d'Etude des Cultures Populaires</p>
+          <hr id="header-title-bar">
+      </a>
+      <img id="logo-header" src=http://pcaof.com/wp-content/themes/themepcaof/img/logomasquecouleurs.jpg" alt="Logo">
+  </div>
     
 <?php
     include "navbar.php";
