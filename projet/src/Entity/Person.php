@@ -6,7 +6,8 @@ use App\Repository\PersonRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 /**
  * @ORM\Entity(repositoryClass=PersonRepository::class)
  */
@@ -45,16 +46,35 @@ class Person
     private $colloques;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Intervention::class, inversedBy="people")
+     * @ORM\Column(type="boolean")
      */
-    private $interventions;
+    private $isOffice;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $role;
+
+    // pour l'image d'illustration--------------------------------------------------------------------------------------------------------------
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @var File
+     */
+    private $photoName;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @Vich\UploadableField(mapping="person_image", fileNameProperty="photoName")
+     * @var File
+     */
+    private $photoFile;
 
     public function __construct()
     {
         $this->publications = new ArrayCollection();
         $this->articles = new ArrayCollection();
         $this->colloques = new ArrayCollection();
-        $this->interventions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -158,33 +178,52 @@ class Person
         return $this;
     }
 
-    /**
-     * @return Collection|Intervention[]
-     */
-    public function getInterventions(): Collection
-    {
-        return $this->interventions;
-    }
-
-    public function addIntervention(Intervention $intervention): self
-    {
-        if (!$this->interventions->contains($intervention)) {
-            $this->interventions[] = $intervention;
-        }
-
-        return $this;
-    }
-
-    public function removeIntervention(Intervention $intervention): self
-    {
-        $this->interventions->removeElement($intervention);
-
-        return $this;
-    }
-
     public function __toString()
     {
         // TODO: Implement __toString() method.
         return $this->name;
+    }
+
+    public function getIsOffice(): ?bool
+    {
+        return $this->isOffice;
+    }
+
+    public function setIsOffice(bool $isOffice): self
+    {
+        $this->isOffice = $isOffice;
+
+        return $this;
+    }
+
+    public function getRole(): ?string
+    {
+        return $this->role;
+    }
+
+    public function setRole(?string $role): self
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    public function setPhotoFile(?File $photoFile = null): void
+    {
+        $this->photoFile = $photoFile;
+
+        // It is required that at least one field changes if you are using doctrine
+        // otherwise the event listeners won't be called and the file is lost
+
+        if (null !== $photoFile) {         // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->datePubli = new \DateTimeImmutable();
+        }
+
+    }
+
+    public function getPhotoFile(): ?File
+    {
+        return $this->photoFile;
     }
 }

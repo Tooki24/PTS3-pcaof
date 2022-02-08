@@ -7,6 +7,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+
 
 /**
  * @ORM\Entity(repositoryClass=ColloqueRepository::class)
@@ -50,10 +53,6 @@ class Colloque
      */
     private $people;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Intervention::class, mappedBy="colloques")
-     */
-    private $interventions;
 
     /**
      * @ORM\ManyToOne(targetEntity=Revue::class, inversedBy="colloques")
@@ -69,10 +68,40 @@ class Colloque
      */
     private $slug;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * NOTE: expression qui verifie si la fin du tring contiens ".pdf" (verification pour eviter d'upload des fichiers non voulus),
+     * @Assert\Regex("
+     *     pattern=/[^\s]+(?=\.(pdf))\./D",
+     *     message="Le fichier choisi dois etre au format PDF"
+     * ) //TODO faire verifier le message d'erreur
+     * @var File
+     */
+    private $planningPdfName;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @Vich\UploadableField(mapping="colloque_pdf", fileNameProperty="planninPdfName")
+     * @var File
+     */
+    private $planningPdfFile;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isPcaof;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $onLine;
+
+
+
     public function __construct()
     {
         $this->people = new ArrayCollection();
-        $this->interventions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -167,35 +196,6 @@ class Colloque
         return $this;
     }
 
-    /**
-     * @return Collection|Intervention[]
-     */
-    public function getInterventions(): Collection
-    {
-        return $this->interventions;
-    }
-
-    public function addIntervention(Intervention $intervention): self
-    {
-        if (!$this->interventions->contains($intervention)) {
-            $this->interventions[] = $intervention;
-            $intervention->setColloques($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIntervention(Intervention $intervention): self
-    {
-        if ($this->interventions->removeElement($intervention)) {
-            // set the owning side to null (unless already changed)
-            if ($intervention->getColloques() === $this) {
-                $intervention->setColloques(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getRevues(): ?Revue
     {
@@ -219,5 +219,50 @@ class Colloque
         $this->slug = $slug;
 
         return $this;
+    }
+
+    public function getIsPcaof(): ?bool
+    {
+        return $this->isPcaof;
+    }
+
+    public function setIsPcaof(bool $isPcaof): self
+    {
+        $this->isPcaof = $isPcaof;
+
+        return $this;
+    }
+
+    public function getOnLine(): ?bool
+    {
+        return $this->onLine;
+    }
+
+    public function setOnLine(bool $onLine): self
+    {
+        $this->onLine = $onLine;
+
+        return $this;
+    }
+
+
+    public function setPlanningPdfFile(?File $pdfFile = null): void
+    {
+        $this->pdfFile = $pdfFile;
+
+        // It is required that at least one field changes if you are using doctrine
+        // otherwise the event listeners won't be called and the file is lost
+
+        if (null !== $pdfFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->datePubli = new \DateTimeImmutable();
+        }
+
+    }
+
+    public function getPlanningPdfFile(): ?File
+    {
+        return $this->pdfFile;
     }
 }

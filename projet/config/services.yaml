@@ -6,6 +6,12 @@
 parameters:
     publication_images: /uploads/publication/image
     publication_pdf: /uploads/publication/pdf
+    article_images: /uploads/article/image
+    article_pdf: /uploads/article/pdf
+    colloque_pdf: /uploads/colloque/pdf
+    person_images: /uploads/person/image
+    revue_images: /uploads/revue/image
+
 
 services:
     # default configuration for services in *this* file

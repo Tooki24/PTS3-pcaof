@@ -233,6 +233,15 @@ class Publication
         return $this;
     }
 
+
+    public function setOnLine(bool $onLine): self
+    {
+        $this->onLine = $onLine;
+
+        return $this;
+    }
+
+
     public function setImageFile(?File $imageFile = null): void
     {
         $this->imageFile = $imageFile;
@@ -272,17 +281,4 @@ class Publication
     {
         return $this->pdfFile;
     }
-
-    public function getOnLine(): ?bool
-    {
-        return $this->onLine;
-    }
-
-    public function setOnLine(bool $onLine): self
-    {
-        $this->onLine = $onLine;
-
-        return $this;
-    }
-
 }
