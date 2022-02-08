@@ -81,6 +81,11 @@ class Revue
      */
     private $imageFile;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $theme;
+
 
 
     public function __construct()
@@ -244,6 +249,18 @@ class Revue
     public function getImageFile(): ?File
     {
         return $this->imageFile;
+    }
+
+    public function getTheme(): ?string
+    {
+        return $this->theme;
+    }
+
+    public function setTheme(?string $theme): self
+    {
+        $this->theme = $theme;
+
+        return $this;
     }
 
 }

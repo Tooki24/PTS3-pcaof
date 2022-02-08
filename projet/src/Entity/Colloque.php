@@ -48,11 +48,6 @@ class Colloque
      */
     private $description;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Person::class, mappedBy="colloques")
-     */
-    private $people;
-
 
     /**
      * @ORM\ManyToOne(targetEntity=Revue::class, inversedBy="colloques")
@@ -96,6 +91,11 @@ class Colloque
      * @ORM\Column(type="boolean")
      */
     private $onLine;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $theme;
 
 
 
@@ -169,34 +169,6 @@ class Colloque
         return $this;
     }
 
-    /**
-     * @return Collection|Person[]
-     */
-    public function getPeople(): Collection
-    {
-        return $this->people;
-    }
-
-    public function addPerson(Person $person): self
-    {
-        if (!$this->people->contains($person)) {
-            $this->people[] = $person;
-            $person->addColloque($this);
-        }
-
-        return $this;
-    }
-
-    public function removePerson(Person $person): self
-    {
-        if ($this->people->removeElement($person)) {
-            $person->removeColloque($this);
-        }
-
-        return $this;
-    }
-
-
     public function getRevues(): ?Revue
     {
         return $this->revues;
@@ -264,5 +236,17 @@ class Colloque
     public function getPlanningPdfFile(): ?File
     {
         return $this->pdfFile;
+    }
+
+    public function getTheme(): ?string
+    {
+        return $this->theme;
+    }
+
+    public function setTheme(?string $theme): self
+    {
+        $this->theme = $theme;
+
+        return $this;
     }
 }
