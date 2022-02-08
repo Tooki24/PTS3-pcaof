@@ -48,11 +48,6 @@ class Colloque
      */
     private $description;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Person::class, mappedBy="colloques")
-     */
-    private $people;
-
 
     /**
      * @ORM\ManyToOne(targetEntity=Revue::class, inversedBy="colloques")
@@ -173,34 +168,6 @@ class Colloque
 
         return $this;
     }
-
-    /**
-     * @return Collection|Person[]
-     */
-    public function getPeople(): Collection
-    {
-        return $this->people;
-    }
-
-    public function addPerson(Person $person): self
-    {
-        if (!$this->people->contains($person)) {
-            $this->people[] = $person;
-            $person->addColloque($this);
-        }
-
-        return $this;
-    }
-
-    public function removePerson(Person $person): self
-    {
-        if ($this->people->removeElement($person)) {
-            $person->removeColloque($this);
-        }
-
-        return $this;
-    }
-
 
     public function getRevues(): ?Revue
     {

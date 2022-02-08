@@ -40,10 +40,6 @@ class Person
      */
     private $articles;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Colloque::class, inversedBy="people")
-     */
-    private $colloques;
 
     /**
      * @ORM\Column(type="boolean")
@@ -74,7 +70,6 @@ class Person
     {
         $this->publications = new ArrayCollection();
         $this->articles = new ArrayCollection();
-        $this->colloques = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -153,31 +148,7 @@ class Person
 
         return $this;
     }
-
-    /**
-     * @return Collection|Colloque[]
-     */
-    public function getColloques(): Collection
-    {
-        return $this->colloques;
-    }
-
-    public function addColloque(Colloque $colloque): self
-    {
-        if (!$this->colloques->contains($colloque)) {
-            $this->colloques[] = $colloque;
-        }
-
-        return $this;
-    }
-
-    public function removeColloque(Colloque $colloque): self
-    {
-        $this->colloques->removeElement($colloque);
-
-        return $this;
-    }
-
+    
     public function __toString()
     {
         // TODO: Implement __toString() method.
