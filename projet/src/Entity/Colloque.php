@@ -97,6 +97,11 @@ class Colloque
      */
     private $onLine;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $theme;
+
 
 
     public function __construct()
@@ -264,5 +269,17 @@ class Colloque
     public function getPlanningPdfFile(): ?File
     {
         return $this->pdfFile;
+    }
+
+    public function getTheme(): ?string
+    {
+        return $this->theme;
+    }
+
+    public function setTheme(?string $theme): self
+    {
+        $this->theme = $theme;
+
+        return $this;
     }
 }
