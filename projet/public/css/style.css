@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+
 body{
     padding : 0;
     margin: 0;
@@ -114,8 +117,8 @@ a {
 
 }
 .navbar-select{
-    padding-right: 9%;
-    padding-left:9%;
+    padding-right: 10.2%;
+    padding-left:10.2%;
     color:white;
     border-right: solid;
     border-right-width: 3px;
@@ -126,7 +129,7 @@ a {
 }
 
 #navbar-adherent{
-    border-right: transparent;
+border-right: transparent;
 }
 .dropdown button, .dropdown button:hover, .dropdown button:focus{
     background-color: transparent ;
@@ -177,6 +180,7 @@ a {
         border-right: transparent;
         padding-right: 2%;
         padding-left: 2%;
+        font-size: 0.9em;
     }
 }
 
