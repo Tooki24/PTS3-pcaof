@@ -134,9 +134,9 @@ class Article
         return $this;
     }
 
-    public function getNbPeople(Article $article)
+    public function getNbPeople()
     {
-        return count($article->getPeople());
+        return count($this->getPeople());
     }
 
     /**
