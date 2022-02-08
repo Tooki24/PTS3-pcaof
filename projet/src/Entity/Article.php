@@ -6,6 +6,7 @@ use App\Repository\ArticleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
@@ -22,7 +23,7 @@ class Article
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $titre;
+    private $title;
 
     /**
      * @ORM\Column(type="text")
@@ -54,6 +55,15 @@ class Article
      */
     private $revue;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\Regex(
+     *     pattern="/^[a-z0-9\-]+$/",
+     *     message="Le slug ne peut contenir que des lettres , nombres ou tirets"
+     * )
+     */
+    private $slug;
+
     public function __construct()
     {
         $this->people = new ArrayCollection();
@@ -64,14 +74,14 @@ class Article
         return $this->id;
     }
 
-    public function getTitre(): ?string
+    public function getTitle(): ?string
     {
-        return $this->titre;
+        return $this->title;
     }
 
-    public function setTitre(string $titre): self
+    public function setTitle(string $title): self
     {
-        $this->titre = $titre;
+        $this->title = $title;
 
         return $this;
     }
@@ -159,6 +169,18 @@ class Article
     public function setRevue(?Revue $revue): self
     {
         $this->revue = $revue;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
