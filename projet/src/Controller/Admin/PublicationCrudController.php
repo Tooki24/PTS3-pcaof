@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Publication;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -29,15 +30,15 @@ class PublicationCrudController extends AbstractCrudController
         return [
             TextField::new('title'),
             SlugField::new('slug')->setTargetFieldName('title'),
-            TextEditorField::new('resume'),
+            TextField::new('resume'),
             TextField::new('imageFile')->setFormtype(VichImageType::class)->hideOnIndex(),
             ImageField::new('imageName')->setBasePath('/uploads/publication/image')->onlyOnIndex(),
             TextField::new('pdfFile')->setFormtype(VichFileType::class)->hideOnIndex(),
-            AssociationField::new('people'),//TODO créé un obtion pour créé un nouvelle entitér depuis le crud de la Publication
+            AssociationField::new('people')->renderAsNativeWidget(),
+            //TODO créé un obtion pour créé un nouvelle entitér depuis le crud de la Publication
             AssociationField::new('keyWords'),
             BooleanField::new('onLine'),
             DateTimeField::new('datePubli')->onlyOnIndex(),
-
         ];
     }
 
