@@ -42,9 +42,9 @@ class PublicationCrudController extends AbstractCrudController
         ];
     }
 
-    public function configureCrud (Crud $crud): Crud
+    public function configureCrud(Crud $crud): Crud
     {
         return $crud
-        -> setDefaultSort(['datePubli' => 'DESC']);
+            ->setDefaultSort(['datePubli' => 'DESC']);
     }
 }

@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
+ * @Vich\Uploadable
  */
 class Article
 {
@@ -267,6 +268,15 @@ class Article
         $this->onLine = $onLine;
 
         return $this;
+    }
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    public function getPdfName(): ?string
+    {
+        return $this->pdfName;
     }
 
 }
