@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=ColloqueRepository::class)
+ * @Vich\Uploadable
  */
 class Colloque
 {
@@ -77,7 +78,7 @@ class Colloque
 
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
-     * @Vich\UploadableField(mapping="colloque_pdf", fileNameProperty="planninPdfName")
+     * @Vich\UploadableField(mapping="colloque_pdf", fileNameProperty="planningPdfName")
      * @var File
      */
     private $planningPdfFile;
@@ -96,7 +97,6 @@ class Colloque
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $theme;
-
 
 
     public function __construct()
@@ -235,7 +235,19 @@ class Colloque
 
     public function getPlanningPdfFile(): ?File
     {
-        return $this->pdfFile;
+        return $this->planningPdfFile;
+    }
+
+    public function setPlanningPdfName(?string $planningPdfName): self
+    {
+        $this->planningPdfName = $planningPdfName;
+
+        return $this;
+    }
+
+    public function getPlanningPdfName(): ?string
+    {
+        return $this->planningPdfName;
     }
 
     public function getTheme(): ?string
@@ -249,4 +261,8 @@ class Colloque
 
         return $this;
     }
+
+
+
+
 }

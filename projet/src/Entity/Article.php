@@ -230,7 +230,13 @@ class Article
             // otherwise the event listeners won't be called and the file is lost
             $this->datePubli = new \DateTimeImmutable();
         }
+    }
 
+    public function setImageName(?string $imageName): self
+    {
+        $this->imageName = $imageName;
+
+        return $this;
     }
 
     public function getImageFile(): ?File
@@ -256,6 +262,13 @@ class Article
     public function getPdfFile(): ?File
     {
         return $this->pdfFile;
+    }
+
+    public function setPdfName(?string $pdfName): self
+    {
+        $this->pdfName = $pdfName;
+
+        return $this;
     }
 
     public function getOnLine(): ?bool

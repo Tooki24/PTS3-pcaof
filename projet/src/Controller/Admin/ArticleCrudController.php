@@ -33,8 +33,8 @@ class ArticleCrudController extends AbstractCrudController
             TextField::new('imageFile')->setFormtype(VichImageType::class)->hideOnIndex(),
             ImageField::new('imageName')->setBasePath('/uploads/publication/image')->onlyOnIndex(),
             TextField::new('pdfFile')->setFormtype(VichImageType::class)->hideOnIndex(),
-            AssociationField::new('people'),
-            AssociationField::new('revue'),
+            AssociationField::new('people')>renderAsNativeWidget(),
+            AssociationField::new('revue')>renderAsNativeWidget(),
             BooleanField::new('Online'),
 
             DateTimeField::new('datePubli')->onlyOnIndex()
