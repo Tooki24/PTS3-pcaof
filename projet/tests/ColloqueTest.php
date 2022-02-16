@@ -21,7 +21,7 @@ class ColloqueTest extends TestCase
             ->setDateD($date)
             ->setDateF($date)
             ->setSlug('slug')
-            ->setLieu('LR')
+            ->setPlace('LR')
             ->setRevues($revue);
 
         $this->assertTrue($colloque->getName() === 'Titre');
@@ -29,7 +29,7 @@ class ColloqueTest extends TestCase
         $this->assertTrue($colloque->getDateD() === $date);
         $this->assertTrue($colloque->getDateF() === $date);
         $this->assertTrue($colloque->getSlug() === 'slug');
-        $this->assertTrue($colloque->getLieu() === 'LR');
+        $this->assertTrue($colloque->getPlace() === 'LR');
         $this->assertTrue($colloque->getRevues() === $revue);
 
     }
@@ -44,7 +44,7 @@ class ColloqueTest extends TestCase
             ->setDateD($date)
             ->setDateF($date)
             ->setSlug('slug')
-            ->setLieu('LR')
+            ->setPlace('LR')
             ->setRevues($revue);
 
         $this->assertFalse($colloque->getName() === 'Titres');
@@ -52,7 +52,7 @@ class ColloqueTest extends TestCase
         $this->assertFalse($colloque->getDateD() === new \DateTime());
         $this->assertFalse($colloque->getDateF() === new \DateTime());
         $this->assertFalse($colloque->getSlug() === 'slugs');
-        $this->assertFalse($colloque->getLieu() === 'LRs');
+        $this->assertFalse($colloque->getPlace() === 'LRs');
         $this->assertFalse($colloque->getRevues() === new Revue());
     }
     public function testEmpty()

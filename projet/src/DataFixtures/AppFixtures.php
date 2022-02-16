@@ -61,7 +61,7 @@ class AppFixtures extends Fixture
                     ->setDescription($faker->text(350))
                     ->setDateD($faker->dateTimeBetween('-6 month', '-2 month'))
                     ->setDateF($faker->dateTimeBetween('-2 month', 'now'))
-                ->setLieu("LR")->setSlug($faker->slug(3));
+                ->setPlace("LR")->setSlug($faker->slug(3));
 
                 $colloque->addPerson($person2);
                 // On crée des intervention pour la colloque

@@ -42,7 +42,7 @@ class Colloque
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $lieu;
+    private $place;
 
     /**
      * @ORM\Column(type="text")
@@ -98,10 +98,16 @@ class Colloque
      */
     private $theme;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=KeyWords::class, inversedBy="colloques")
+     */
+    private $keyWords;
+
 
     public function __construct()
     {
         $this->people = new ArrayCollection();
+        $this->keyWords = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -145,14 +151,14 @@ class Colloque
         return $this;
     }
 
-    public function getLieu(): ?string
+    public function getPlace(): ?string
     {
-        return $this->lieu;
+        return $this->place;
     }
 
-    public function setLieu(string $lieu): self
+    public function setPlace(string $place): self
     {
-        $this->lieu = $lieu;
+        $this->place = $place;
 
         return $this;
     }
@@ -258,6 +264,30 @@ class Colloque
     public function setTheme(?string $theme): self
     {
         $this->theme = $theme;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|KeyWords[]
+     */
+    public function getKeyWords(): Collection
+    {
+        return $this->keyWords;
+    }
+
+    public function addKeyWord(KeyWords $keyWord): self
+    {
+        if (!$this->keyWords->contains($keyWord)) {
+            $this->keyWords[] = $keyWord;
+        }
+
+        return $this;
+    }
+
+    public function removeKeyWord(KeyWords $keyWord): self
+    {
+        $this->keyWords->removeElement($keyWord);
 
         return $this;
     }

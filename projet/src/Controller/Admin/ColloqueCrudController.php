@@ -32,11 +32,12 @@ class ColloqueCrudController extends AbstractCrudController
             SlugField::new('slug')->setTargetFieldName('name'),
             DateField::new('dateD'),
             DateField::new('dateF'),
-            TextField::new('lieu'),
+            TextField::new('place'),
             TextField::new('description'),
             TextField::new('theme'),
             //AssociationField::new('revue')->renderAsNativeWidget(),
             TextField::new('planningPdfFile')->setFormtype(VichFileType::class)->hideOnIndex(),
+            AssociationField::new('keyWords'),
             BooleanField::new('isPcaof'),
             BooleanField::new('onLine'),
         ];

@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=RevueRepository::class)
+ * @Vich\Uploadable
  */
 class Revue
 {
@@ -249,6 +250,18 @@ class Revue
     public function getImageFile(): ?File
     {
         return $this->imageFile;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    public function setImageName(?string $imageName): self
+    {
+        $this->imageName = $imageName;
+
+        return $this;
     }
 
     public function getTheme(): ?string

@@ -292,4 +292,10 @@ class Article
         return $this->pdfName;
     }
 
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->title;
+    }
+
 }
