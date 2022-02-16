@@ -8,24 +8,24 @@
         Bannier
     </div>
      <!-- TEXT ASSO -->
+    <div class=" container blocAvecToutDedans">
+    <div class="blocPresentationAcceuil">
     <p class="text-black text">
-        PCAoF (Popular Culture Association of France est une asso
-        qui regroupe des chercheurs et des amateurs et passionnés de culutre populaire
+        PCAoF (Popular Culture Association of France) est une association qui regroupe des chercheurs et des amateurs et passionnés de culture populaire.
     </p>
-    <h1 class="">Objectifs de l'association</h1>
+    <p class="titreObj">Objectifs de l'association</p>
     <ul>
-        <li>BLABLABLABLA BLABLABLABLA BLABLABLABLA BLABLABLABLA
-            BLABLABLABLA BLABLABLABLA BLABLABLABLA</li>
-        <li>BLABLABLABLA BLABLABLABLA BLABLABLABLA
-            BLABLABLABLABLABLABLABLA BLABLABLABLA</li>
+        <li>promouvoir et de développer les études et la recherche sur les cultures populaires (trans- et inter- nationales, disciplinaires, etc.)</li>
+        <li>organiser des manifestations scientifiques et/ou grand public (colloques, séminaires, expositions, conférences, documentaires…)</li>
+        <li>publier, de diffuser ou d’éditer des ouvrages scientifiques, essais, articles, comptes rendus, œuvres de fiction, traductions…</li>
     </ul>
-
-
-
-
-        <div class="col m-4" >
-            <div class="containerLastPubliRevuesAcceuil">
-                <h1 class="lastPubliAcceuil">Derniere publication</h1>
+    </div>
+            <div class="container LastPubliRevuesAcceuil">
+                <div class="blocLastPubliAcceuil">
+                    <div class ="blocBleuLastPubliAcceuil">
+                <p class="lastPubliAcceuil">Derniere publication</p>
+                    </div>
+                    <p>blalbalalblablalbalblalba</p>
             {% for publication in publications %}
                 <div class="row" style="border: black 1px solid; border-radius: 5%; padding: 20px; margin: 10px">
                     <div class="col">
@@ -37,9 +37,13 @@
                     </div>
                 </div>
             {% endfor %}
+                </div>
 
-            <h1 class="lastPubliAcceuil">Derniere Revues</h1>
-
+                <div class="blocLastRevueAcceuil">
+                    <div class ="blocBleuLastRevueAcceuil">
+            <p class="lastRevueAcceuil">Derniere Revues</p>
+                    </div>
+            <p>blalbalbalbalblaablbal</p>
             {% for revue in revues %}
                 <div class="row" style="border: black 1px solid; border-radius: 5%; padding: 20px; margin: 10px">
                     <div class="col">
@@ -51,11 +55,14 @@
                     </div>
                 </div>
             {% endfor %}
+                </div>
         </div>
-    </div>
 
-    <div class="container">
-        <h2>Colloque à venir</h2>
+    <div class="blocLastColoqueAcceuil ">
+        <div class  ="blocBleuLastColoqueAcceuil">
+        <p class="lastColoqueAcceuil">Colloque à venir</p>
+        </div>
+        <p>blalblbalblalbalblablbal</p>
         {% for colloque in colloques %}
         <div class="container mt-4">
             <h1 class="text-center">{{ colloque.name }}</h1>
@@ -66,6 +73,7 @@
             <a class="align-top"><button type="button" class="btn btn-primary">Voir PLUS</button></a>
         </div>
         {% endfor %}
+    </div>
     </div>
 
 {% endblock %}

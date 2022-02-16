@@ -184,18 +184,89 @@ border-right: transparent;
     }
 }
 
-.lastPubliAcceuil {
+.blocBleuLastPubliAcceuil    {
     color: white;
     background-color: #004E5A;
-    margin-right: 50%;
-    margin-left: 0;
     padding-left: 3%;
-    padding-bottom: 1%;
     border-top-right-radius: 30px;
     border-bottom-right-radius:30px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
 }
-.containerLastPubliRevuesAcceuil{
+.LastPubliRevuesAcceuil {
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
 }
+.blocBleuLastRevueAcceuil {
+    color: white;
+    background-color: #004E5A;
+    padding-left: 3%;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+.lastRevueAcceuil{
+    margin: 0;
+}
+.lastPubliAcceuil{
+    margin: 0;
+}
+.blocPresentationAcceuil{
+    padding : 5%;
+}
+.titreObj{
+    color: #004E5A;
+    font-size: 25px;
+    font-weight: bold;
+}
+.blocAvecToutDedans{
+    box-shadow: 0px 0px 5px #4b5563;
+    margin: 20px;
+    padding: 0;
+    border-radius:15px ;
+}
+.blocLastRevueAcceuil p{
+    display: flex;
+    justify-content: center;
+    width: 35vw;
+}
+.blocLastPubliAcceuil p{
+    display: flex;
+    justify-content: center;
+    width: 35vw;
+}
+.blocBleuLastColoqueAcceuil{
+    color: white;
+    background-color: #004E5A;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius:30px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.lastColoqueAcceuil{
+    margin: 0;
+}
+.blocLastColoqueAcceuil{
+    width: 35vw;
+}
+.blocLastColoqueAcceuil p{
+    display: flex;
+    justify-content: center;
+}
+
 
