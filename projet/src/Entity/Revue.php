@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=RevueRepository::class)
+ * @Vich\Uploadable
  */
 class Revue
 {
@@ -37,10 +38,6 @@ class Revue
      */
     private $datePubli;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $file;
 
     /**
      * @ORM\OneToMany(targetEntity=Colloque::class, mappedBy="revues")
@@ -131,18 +128,6 @@ class Revue
     public function setDatePubli(\DateTimeInterface $datePubli): self
     {
         $this->datePubli = $datePubli;
-
-        return $this;
-    }
-
-    public function getFile(): ?string
-    {
-        return $this->file;
-    }
-
-    public function setFile(?string $file): self
-    {
-        $this->file = $file;
 
         return $this;
     }
@@ -249,6 +234,18 @@ class Revue
     public function getImageFile(): ?File
     {
         return $this->imageFile;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    public function setImageName(?string $imageName): self
+    {
+        $this->imageName = $imageName;
+
+        return $this;
     }
 
     public function getTheme(): ?string

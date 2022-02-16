@@ -29,9 +29,15 @@ class KeyWords
      */
     private $publications;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Colloque::class, mappedBy="keyWords")
+     */
+    private $colloques;
+
     public function __construct()
     {
         $this->publications = new ArrayCollection();
+        $this->colloques = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -82,5 +88,32 @@ class KeyWords
     {
         // TODO: Implement __toString() method.
         return $this->Word;
+    }
+
+    /**
+     * @return Collection|Colloque[]
+     */
+    public function getColloques(): Collection
+    {
+        return $this->colloques;
+    }
+
+    public function addColloque(Colloque $colloque): self
+    {
+        if (!$this->colloques->contains($colloque)) {
+            $this->colloques[] = $colloque;
+            $colloque->addKeyWord($this);
+        }
+
+        return $this;
+    }
+
+    public function removeColloque(Colloque $colloque): self
+    {
+        if ($this->colloques->removeElement($colloque)) {
+            $colloque->removeKeyWord($this);
+        }
+
+        return $this;
     }
 }

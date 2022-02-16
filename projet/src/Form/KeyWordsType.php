@@ -2,30 +2,30 @@
 
 namespace App\Form;
 
-use App\Entity\Colloque;
+use App\Entity\KeyWords;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ColloqueType extends AbstractType
+class KeyWordsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('dateD')
-            ->add('dateF')
-            ->add('nom')
-            ->add('lieu')
-            ->add('description')
-            ->add('people')
-            ->add('revues')
+            ->add('Word')
+            ->add('publications')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Colloque::class,
+            'data_class' => KeyWords::class,
         ]);
+    }
+
+    public function getParent()
+    {
+      return TextType::class;
     }
 }
