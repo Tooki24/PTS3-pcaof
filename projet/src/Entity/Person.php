@@ -164,7 +164,8 @@ class Person
     public function __toString()
     {
         // TODO: Implement __toString() method.
-        return $this->name;
+        $nom = $this->firstName ." ". $this->name;
+        return $nom;
     }
 
     public function getIsOffice(): ?bool

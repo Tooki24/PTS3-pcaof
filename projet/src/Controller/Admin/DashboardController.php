@@ -9,6 +9,7 @@ use App\Entity\KeyWords;
 use App\Entity\Person;
 use App\Entity\Publication;
 use App\Entity\Revue;
+use App\Entity\Admin;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -40,5 +41,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Revue', 'fa-file', Revue::class);
         yield MenuItem::linkToCrud('Article', 'fa-file', Article::class);
         yield MenuItem::linkToCrud('KeyWords', 'fa-file', KeyWords::class);
+        //yield MenuItem::linkToCrud('les administateurs','fa-file', Admin::class);
     }
 }
