@@ -38,10 +38,6 @@ class Revue
      */
     private $datePubli;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $file;
 
     /**
      * @ORM\OneToMany(targetEntity=Colloque::class, mappedBy="revues")
@@ -132,18 +128,6 @@ class Revue
     public function setDatePubli(\DateTimeInterface $datePubli): self
     {
         $this->datePubli = $datePubli;
-
-        return $this;
-    }
-
-    public function getFile(): ?string
-    {
-        return $this->file;
-    }
-
-    public function setFile(?string $file): self
-    {
-        $this->file = $file;
 
         return $this;
     }

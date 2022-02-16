@@ -31,7 +31,7 @@ class ArticleCrudController extends AbstractCrudController
             SlugField::new('slug')->setTargetFieldName('title'),
             TextField::new('resume'),
             TextField::new('imageFile')->setFormtype(VichImageType::class)->hideOnIndex(),
-            ImageField::new('imageName')->setBasePath('/uploads/publication/image')->onlyOnIndex(),
+            ImageField::new('imageName')->setBasePath('/uploads/article/image')->onlyOnIndex(),
             TextField::new('pdfFile')->setFormtype(VichImageType::class)->hideOnIndex(),
             AssociationField::new('people')>renderAsNativeWidget(),
             AssociationField::new('revue')>renderAsNativeWidget(),
