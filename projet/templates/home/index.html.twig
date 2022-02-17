@@ -61,10 +61,10 @@
             <h4>Theme ...</h4>
             <p>{{ colloque.description|u.truncate(200, ' ...', false) }}</p>
             <p>Du {{ colloque.dateD|date('d/m/Y') }} au {{ colloque.dateF|date('d/m/Y') }}</p>
-            <p>Lieu : {{ colloque.lieu }}</p>
+            <p>Lieu : {{ colloque.place }}</p>
             <a class="align-top"><button type="button" class="btn btn-primary">Voir PLUS</button></a>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 
 {% endblock %}

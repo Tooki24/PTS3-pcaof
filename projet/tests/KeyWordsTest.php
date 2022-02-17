@@ -32,6 +32,10 @@ class KeyWordsTest extends TestCase
 
         $this->assertEmpty($keyWord->getId());
         $this->assertEmpty($keyWord->getWord());
+        $this->assertEmpty($keyWord->getColloques());
+        $this->assertEmpty($keyWord->getPublications());
+
+
 
     }
 }

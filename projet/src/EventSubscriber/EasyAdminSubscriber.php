@@ -15,20 +15,22 @@ class EasyAdminSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvent()
     {
         return [
-            BeforeEntityPersistedEvent::class => ['setArticleDate'],
+            BeforeEntityPersistedEvent::class => ['setDate'],
         ];
     }
 
-    public function setArticleDate(BeforeEntityPersistedEvent $event)
+    public function setDate(BeforeEntityPersistedEvent $event)
     {
         $entity = $event->getEntityInstance();
 
-        if (!($entity instanceof Article)) {
+        /*
+        if (!($entity instanceof Article) or !($entity instanceof publication)) {
             return;
         }
+        */
         $now = new DateTime('now');
         $entity->setDatePubli($now);
-
-
     }
+
+
 }

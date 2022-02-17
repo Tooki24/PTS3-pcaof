@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=ColloqueRepository::class)
+ * @Vich\Uploadable
  */
 class Colloque
 {
@@ -41,7 +42,7 @@ class Colloque
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $lieu;
+    private $place;
 
     /**
      * @ORM\Column(type="text")
@@ -77,7 +78,7 @@ class Colloque
 
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
-     * @Vich\UploadableField(mapping="colloque_pdf", fileNameProperty="planninPdfName")
+     * @Vich\UploadableField(mapping="colloque_pdf", fileNameProperty="planningPdfName")
      * @var File
      */
     private $planningPdfFile;
@@ -97,11 +98,16 @@ class Colloque
      */
     private $theme;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=KeyWords::class, inversedBy="colloques")
+     */
+    private $keyWords;
 
 
     public function __construct()
     {
         $this->people = new ArrayCollection();
+        $this->keyWords = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -145,14 +151,14 @@ class Colloque
         return $this;
     }
 
-    public function getLieu(): ?string
+    public function getPlace(): ?string
     {
-        return $this->lieu;
+        return $this->place;
     }
 
-    public function setLieu(string $lieu): self
+    public function setPlace(string $place): self
     {
-        $this->lieu = $lieu;
+        $this->place = $place;
 
         return $this;
     }
@@ -235,7 +241,19 @@ class Colloque
 
     public function getPlanningPdfFile(): ?File
     {
-        return $this->pdfFile;
+        return $this->planningPdfFile;
+    }
+
+    public function setPlanningPdfName(?string $planningPdfName): self
+    {
+        $this->planningPdfName = $planningPdfName;
+
+        return $this;
+    }
+
+    public function getPlanningPdfName(): ?string
+    {
+        return $this->planningPdfName;
     }
 
     public function getTheme(): ?string
@@ -249,4 +267,32 @@ class Colloque
 
         return $this;
     }
+
+    /**
+     * @return Collection|KeyWords[]
+     */
+    public function getKeyWords(): Collection
+    {
+        return $this->keyWords;
+    }
+
+    public function addKeyWord(KeyWords $keyWord): self
+    {
+        if (!$this->keyWords->contains($keyWord)) {
+            $this->keyWords[] = $keyWord;
+        }
+
+        return $this;
+    }
+
+    public function removeKeyWord(KeyWords $keyWord): self
+    {
+        $this->keyWords->removeElement($keyWord);
+
+        return $this;
+    }
+
+
+
+
 }

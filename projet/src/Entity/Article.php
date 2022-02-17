@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
+ * @Vich\Uploadable
  */
 class Article
 {
@@ -234,7 +235,13 @@ class Article
             // otherwise the event listeners won't be called and the file is lost
             $this->datePubli = new \DateTimeImmutable();
         }
+    }
 
+    public function setImageName(?string $imageName): self
+    {
+        $this->imageName = $imageName;
+
+        return $this;
     }
 
     public function getImageFile(): ?File
@@ -262,6 +269,13 @@ class Article
         return $this->pdfFile;
     }
 
+    public function setPdfName(?string $pdfName): self
+    {
+        $this->pdfName = $pdfName;
+
+        return $this;
+    }
+
     public function getOnLine(): ?bool
     {
         return $this->onLine;
@@ -272,6 +286,21 @@ class Article
         $this->onLine = $onLine;
 
         return $this;
+    }
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    public function getPdfName(): ?string
+    {
+        return $this->pdfName;
+    }
+
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->title;
     }
 
 }

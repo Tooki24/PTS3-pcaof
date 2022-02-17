@@ -2,14 +2,18 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\PersonRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
+
+
 /**
  * @ORM\Entity(repositoryClass=PersonRepository::class)
+ * @Vich\Uploadable
  */
 class Person
 {
@@ -65,6 +69,14 @@ class Person
      * @var File
      */
     private $photoFile;
+
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
+
 
     public function __construct()
     {
@@ -152,7 +164,8 @@ class Person
     public function __toString()
     {
         // TODO: Implement __toString() method.
-        return $this->name;
+        $nom = $this->firstName ." ". $this->name;
+        return $nom;
     }
 
     public function getIsOffice(): ?bool
@@ -196,5 +209,29 @@ class Person
     public function getPhotoFile(): ?File
     {
         return $this->photoFile;
+    }
+
+    public function getPhotoName(): ?string
+    {
+        return $this->photoName;
+    }
+
+    public function setPhotoName(?string $imageName): self
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
     }
 }

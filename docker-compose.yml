@@ -32,6 +32,14 @@ services:
       MYSQL_USER: iut
       MYSQL_PASSWORD: iut
       MYSQL_ROOT_PASSWORD: iut
+  maildev:
+    image: maildev/maildev
+    container_name: pts3-maildevProjet
+    command: bin/maildev --web 80 --smtp 25 --hide-extensions STARTTLS
+    ports:
+      - "8081:80"
+    restart: always
+
 
 volumes:
   symfonyvar:
