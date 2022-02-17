@@ -105,6 +105,11 @@ class Revue
     {
         $this->title = $title;
 
+        if (null !== $title) {
+            //set la date auto des la creation de l'entitée
+            $this->datePubli = new \DateTimeImmutable();
+        }
+
         return $this;
     }
 
