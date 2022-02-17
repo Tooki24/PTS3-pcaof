@@ -4,6 +4,14 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    publication_images: /uploads/publication/image
+    publication_pdf: /uploads/publication/pdf
+    article_images: /uploads/article/image
+    article_pdf: /uploads/article/pdf
+    colloque_pdf: /uploads/colloque/pdf
+    person_images: /uploads/person/image
+    revue_images: /uploads/revue/image
+
 
 services:
     # default configuration for services in *this* file

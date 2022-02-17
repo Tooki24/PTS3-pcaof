@@ -5,12 +5,15 @@ namespace App\DataFixtures;
 use App\Entity\Article;
 use App\Entity\Colloque;
 use App\Entity\Intervention;
+use App\Entity\KeyWords;
 use App\Entity\Person;
 use App\Entity\Publication;
 use App\Entity\Revue;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
+use Symfony\Component\HttpFoundation\File\File;
+
 
 class AppFixtures extends Fixture
 {
@@ -19,13 +22,12 @@ class AppFixtures extends Fixture
         //Creation du faker PHP pour generer des fake data
         $faker = Factory::create('fr FR');
 
-
         //Creation de deux personne
         $person1 = new Person();
-        $person1->setFirstName('Mathis')->setName('Fumel');
+        $person1->setFirstName('Mathis')->setName('Fumel')->setIsOffice(true)->setRole("Admin");
         $manager->persist($person1);
         $person2 = new Person();
-        $person2->setFirstName('Giles')->setName('Seper');
+        $person2->setFirstName('Giles')->setName('Seper')->setIsOffice(false)->setRole(null);;
         $manager->persist($person2);
         //Creation de 5 Revue avec article colloque, intervention
         for ($i=0; $i<5; $i++)
@@ -36,7 +38,9 @@ class AppFixtures extends Fixture
                 ->setResume($faker->text(350))
                 ->setDatePubli($faker->dateTimeBetween('-6 month', 'now'))
                 ->setSlug($faker->slug(3))
-                ->setFile('test.jpg');
+                ->setFile('test.jpg')
+                ->setOnLine(true)
+                ->setTheme($faker->text(35));
             //Création 6 Article
             for ($y=0; $y<6; $y++)
             {
@@ -47,41 +51,14 @@ class AppFixtures extends Fixture
                     ->setDatePubli($faker->dateTimeBetween('-6 month', 'now'))
                     ->setSlug($faker->slug(3))
                     ->setDocPDF('test.pdf')
-                    ->setRevue($revue);
+                    ->setRevue($revue)
+                    ->setOnLine(false);
                 $article->addPerson($person1);
 
                 $manager->persist($article);
                 $revue->addArticle($article);
             }
-            //Creation 4 colloque
-            for($z=0; $z<4; $z++)
-            {
-                $colloque = new Colloque();
-                $colloque->setName($faker->words(3, true))
-                    ->setDescription($faker->text(350))
-                    ->setDateD($faker->dateTimeBetween('-6 month', '-2 month'))
-                    ->setDateF($faker->dateTimeBetween('-2 month', 'now'))
-                ->setLieu("LR")->setSlug($faker->slug(3));
 
-                $colloque->addPerson($person2);
-                // On crée des intervention pour la colloque
-                for($a=0; $a<3; $a++)
-                {
-                    $intervention = new Intervention();
-
-                    $intervention->setDescription($faker->text(350))
-                        ->setDate($faker->dateTime())
-                        ->setHourD($faker->dateTime())
-                        ->setHourF($faker->dateTime())
-                        ->setColloques($colloque)
-                        ->addPerson($person2);
-
-                    $manager->persist($intervention);
-                    $colloque->addIntervention($intervention);
-                }
-                $manager->persist($colloque);
-                $revue->addColloque($colloque);
-            }
             $manager->persist($revue);
         }
 
@@ -96,8 +73,22 @@ class AppFixtures extends Fixture
             $publication->setTitle($faker->words(3, true))
                 ->setResume($faker->text(350))
                 ->setDatePubli($faker->dateTime())
-                ->setFile('test.png')
-                ->setSlug($faker->slug(3));
+                ->setPdfName("test.pdf")
+                ->setSlug($faker->slug(3))
+                ->setOnLine(true)
+                ->setImageName("image.png");
+
+            //Crée 3 Key Word
+            for($y=0; $y<2;$y++)
+            {
+                $keyWord = new KeyWords();
+
+                $keyWord->setWord($faker->words(3, true));
+
+                $keyWord->addPublication($publication);
+
+                $manager->persist($keyWord);
+            }
 
             $publication->addPerson($person1);
             $manager->persist($publication);
