@@ -11,26 +11,38 @@
 <div class="example-wrapper">
     <h1>Colloque(s) à venir</h1>
     {% for colloque in colloquesAsc %}
-        {% if (colloque.dateD|date('Y-m-d') >= 'now'|date('Y-m-d')) %}
-            <div class="m-5 p-2 border">
-                <p>{{ colloque.name }}</p>
-                <p>Du {{ colloque.dateD|date('d/m/Y') }} au {{ colloque.dateF|date('d/m/Y') }}</p>
-                <p>à {{ colloque.lieu }}</p>
-                <p>Thème : </p>
-            </div>
-        {%  endif %}
+        {% if colloque.getOnLine() == 1 %}
+            {% if (colloque.dateD|date('Y-m-d') >= 'now'|date('Y-m-d')) %}
+                <div class="m-5 p-2 border">
+                    <p>{{ colloque.name }}</p>
+                    <p>Du {{ colloque.dateD|date('d/m/Y') }} au {{ colloque.dateF|date('d/m/Y') }}</p>
+                    <p>à {{ colloque.lieu }}</p>
+                    <p>Thème : {{ colloque.theme }}</p>
+                    {% if colloque.getIsPcaof() == 1 %}
+                        <img src="{{ asset('img/test.png') }}" alt="image de la revue" width="100px"
+                             height="100px">
+                    {% endif%}
+                </div>
+            {%  endif %}
+        {% endif %}
     {% endfor %}
 
     <h1>Colloques déjà réalisées</h1>
     {% for colloque in colloquesDesc %}
-        {% if (colloque.dateD|date('Y-m-d') < 'now'|date('Y-m-d')) %}
-            <div class="m-5 p-2 border">
-                <p>{{ colloque.name }}</p>
-                <p>Du {{ colloque.dateD|date('d/m/Y') }} au {{ colloque.dateF|date('d/m/Y') }}</p>
-                <p>à {{ colloque.lieu }}</p>
-                <p>Thème : </p>
-            </div>
-        {%  endif %}
+        {% if colloque.getOnLine() == 1 %}
+            {% if (colloque.dateD|date('Y-m-d') < 'now'|date('Y-m-d')) %}
+                <div class="m-5 p-2 border">
+                    <p>{{ colloque.name }}</p>
+                    <p>Du {{ colloque.dateD|date('d/m/Y') }} au {{ colloque.dateF|date('d/m/Y') }}</p>
+                    <p>à {{ colloque.lieu }}</p>
+                    <p>Thème : {{ colloque.theme }}</p>
+                    {% if colloque.getIsPcaof() == 1 %}
+                        <img src="{{ asset('img/test.png') }}" alt="image de la revue" width="100px"
+                             height="100px">
+                    {% endif%}
+                </div>
+            {%  endif %}
+        {% endif %}
     {% endfor %}
 </div>
 {% endblock %}

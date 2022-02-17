@@ -19,6 +19,14 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
+    public function articlesOnLine(){
+        return $this->createQueryBuilder('r')
+            ->orderBy('r.datePubli', 'DESC')
+            ->where('r.onLine = true')
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Article[] Returns an array of Article objects
     //  */

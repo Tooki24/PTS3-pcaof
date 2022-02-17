@@ -12,15 +12,16 @@
     <h1 class="text-center">Revues</h1>
 
     {% for revue in revues %}
-        <a href="{{ path('liste_articles', {'idRevue': revue.id}) }}">
-            <div class="m-4">
-                <IMG src="{{ asset('img/test.png') }}" alt="image de la revue" width="100px"
-                height="100px">
-                <h2>N°{{ loop.index }} / {{ revue.title }}</h2>
-                <h3>{{ revue.getDatePubli()|date('d/m/Y') }}</h3>
-                <h3>Nombre d'articles : {{ revue.getNbArticle(revue) }}</h3>
-            </div>
-        </a>
+            <a href="{{ path('detail_revue', {'idRevue': revue.id}) }}">
+                <div class="m-4">
+                    <IMG src="{{ asset('img/test.png') }}" alt="image de la revue" width="100px"
+                    height="100px">
+                    <h2>N°{{ loop.index }} / {{ revue.title }}</h2>
+                    <h3>{{ revue.getDatePubli()|date('d/m/Y') }}</h3>
+                    <h3>Nombre d'articles : {{ revue.getNbArticle(revue) }}</h3>
+                    <h3>Thème : {{ revue.theme }}</h3>
+                </div>
+            </a>
     {% endfor %}
 
 </div>
