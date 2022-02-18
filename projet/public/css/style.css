@@ -238,15 +238,12 @@ border-right: transparent;
     padding: 0;
     border-radius:15px ;
 }
-.blocLastRevueAcceuil p{
+
+.lastNomAcceuil{
+    width: 35vw;
+    margin: 0;
     display: flex;
     justify-content: center;
-    width: 35vw;
-}
-.blocLastPubliAcceuil p{
-    display: flex;
-    justify-content: center;
-    width: 35vw;
 }
 .blocBleuLastColoqueAcceuil{
     color: white;
@@ -258,15 +255,42 @@ border-right: transparent;
     font-size: 18px;
     font-weight: bold;
 }
-.lastColoqueAcceuil{
-    margin: 0;
-}
-.blocLastColoqueAcceuil{
+.blocBleuLastColoqueAcceuil{
     width: 35vw;
 }
-.blocLastColoqueAcceuil p{
-    display: flex;
-    justify-content: center;
+@media screen and (max-width: 900px)
+{
+    .LastPubliRevuesAcceuil{
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    .blocLastPubliAcceuil p{
+        display: flex;
+        flex-wrap: nowrap;
+        width: 90vw;
+    }
+    .blocBleuLastRevueAcceuil{
+        border-radius:0px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .blocBleuLastColoqueAcceuil{
+        width: 100vw;
+        border-radius:0px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .blocBleuLastPubliAcceuil{
+        border-radius:0px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .blocAvecToutDedans{
+        box-shadow: 0px 0px 0px #4b5563;
+        margin: 0px;
+    }
+    .blocBleuLastColoqueAcceuil{
+        display: flex;
+        justify-content: center;
+    }
 }
-
-
