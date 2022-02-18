@@ -184,7 +184,10 @@ border-right: transparent;
     }
 }
 
-.blocBleuLastPubliAcceuil    {
+
+/*Accueil*/
+
+.blocBleuLastPubliAccueil    {
     color: white;
     background-color: #004E5A;
     padding-left: 3%;
@@ -197,7 +200,7 @@ border-right: transparent;
     display: flex;
     justify-content: center;
 }
-.LastPubliRevuesAcceuil {
+.LastPubliRevuesAccueil {
     margin: 0;
     padding: 0;
     display: flex;
@@ -260,7 +263,7 @@ border-right: transparent;
 }
 @media screen and (max-width: 900px)
 {
-    .LastPubliRevuesAcceuil{
+    .LastPubliRevuesAccueil{
         display: flex;
         flex-flow: column nowrap;
     }
@@ -280,7 +283,7 @@ border-right: transparent;
         padding-left: 0;
         padding-right: 0;
     }
-    .blocBleuLastPubliAcceuil{
+    .blocBleuLastPubliAccueil{
         border-radius:0px;
         padding-left: 0;
         padding-right: 0;
