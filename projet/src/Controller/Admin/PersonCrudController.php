@@ -34,7 +34,6 @@ class PersonCrudController extends AbstractCrudController
             FormField::addPanel(''),
             TextField::new('name'),
             TextField::new('firstName'),
-            SlugField::new('slug')->setTargetFieldName('name'),
             booleanField::new('isOffice'),
 
             FormField::addPanel('à completer seulement le membres fais partie bureau de PCAOF'),//TODO faire verifier l'orthographe
