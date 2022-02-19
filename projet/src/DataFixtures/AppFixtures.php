@@ -9,6 +9,7 @@ use App\Entity\KeyWords;
 use App\Entity\Person;
 use App\Entity\Publication;
 use App\Entity\Revue;
+use App\Entity\Admin;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
@@ -21,6 +22,12 @@ class AppFixtures extends Fixture
     {
         //Creation du faker PHP pour generer des fake data
         $faker = Factory::create('fr FR');
+
+        //Creation de l'admin
+        $theAdmin = new Admin();
+        $theAdmin->setUsername('admin');
+        $theAdmin->setPassword('$2y$13$BM7XXOufCzTOrQ8pMPPWduzxLR21zDOhbLKasDzy2E3Rf1la7qhmO');//hash : admin123
+        $manager->persist($theAdmin);
 
         //Creation de deux personne
         $person1 = new Person();
@@ -38,7 +45,7 @@ class AppFixtures extends Fixture
                 ->setResume($faker->text(350))
                 ->setDatePubli($faker->dateTimeBetween('-6 month', 'now'))
                 ->setSlug($faker->slug(3))
-                ->setFile('test.jpg')
+                ->setImageName('test.jpg')
                 ->setOnLine(true)
                 ->setTheme($faker->text(35));
             //Création 6 Article
