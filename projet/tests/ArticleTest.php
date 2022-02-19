@@ -20,6 +20,9 @@ class ArticleTest extends TestCase
             ->setSlug('slug')
             ->setFile('file/')
             ->setDocPDF('DocPDF')
+            ->setImageName('ImageName')
+            ->setOnLine(1)
+            ->setPdfName("PDFName")
             ->setRevue($revue);
 
         $this->assertTrue($article->getTitle() === 'Titre');
@@ -28,6 +31,9 @@ class ArticleTest extends TestCase
         $this->assertTrue($article->getSlug() === 'slug');
         $this->assertTrue($article->getFile() === 'file/');
         $this->assertTrue($article->getDocPDF() === 'DocPDF');
+        $this->assertTrue($article->getPdfName() === "PDFName");
+        $this->assertTrue($article->getImageName() === 'ImageName');
+        $this->assertTrue($article->getOnLine()=== true);
         $this->assertTrue($article->getRevue() === $revue);
 
     }
@@ -43,7 +49,10 @@ class ArticleTest extends TestCase
             ->setSlug('slug')
             ->setFile('file/')
             ->setDocPDF('DocPDF')
-            ->setRevue($revue);
+            ->setRevue($revue)
+        ->setPdfName("PDFName")
+        ->setImageName("ImgName")
+        ->setOnLine(1);
 
         $this->assertFalse($article->getTitle() === 'Titres');
         $this->assertFalse($article->getDatePubli() === new \DateTime());
@@ -52,6 +61,10 @@ class ArticleTest extends TestCase
         $this->assertFalse($article->getFile() === 'file/s');
         $this->assertFalse($article->getDocPDF() === 'DocPDFs');
         $this->assertFalse($article->getRevue() === new Revue());
+        $this->assertFalse($article->getPdfName() === "PDF");
+        $this->assertFalse($article->getImageName() === "img");
+        $this->assertFalse($article->getOnLine() === 0);
+
     }
     public function testEmpty()
     {
@@ -61,10 +74,14 @@ class ArticleTest extends TestCase
         $this->assertEmpty($article->getResume());
         $this->assertEmpty($article->getDatePubli());
         $this->assertEmpty($article->getSlug());
-        $this->assertEmpty($article->getFile());
-        $this->assertEmpty($article->getDocPDF());
         $this->assertEmpty($article->getRevue());
         $this->assertEmpty($article->getId());
         $this->assertEmpty($article->getPeople());
+        $this->assertEmpty($article->getOnLine());
+        $this->assertEmpty($article->getImageName());
+        $this->assertEmpty($article->getPdfName());
+        $this->assertEmpty($article->getImageFile());
+        $this->assertEmpty($article->getPdfFile());
+
     }
 }

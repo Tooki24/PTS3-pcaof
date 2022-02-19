@@ -14,15 +14,22 @@ class RevueTest extends TestCase
 
         $revue->setTitle('desc')
             ->setResume('resume')
-            ->setFile('file')
             ->setSlug('slug')
-            ->setDatePubli($date);
+            ->setDatePubli($date)
+            ->setOnLine(1)
+            ->setImageName('ImgName')
+            ->setTheme('theme')
+            ->setImageFile(null);
 
         $this->assertTrue($revue->getTitle() === 'desc');
         $this->assertTrue($revue->getResume() === 'resume');
         $this->assertTrue($revue->getSlug() === 'slug');
-        $this->assertTrue($revue->getFile() === 'file');
         $this->assertTrue($revue->getDatePubli() === $date);
+        $this->assertTrue($revue->getOnLine() == 1);
+        $this->assertTrue($revue->getImageName() === 'ImgName');
+        $this->assertTrue($revue->getTheme() === 'theme');
+        $this->assertTrue($revue->getImageFile() === null);
+
 
     }
     public function testIsFalse()
@@ -32,15 +39,20 @@ class RevueTest extends TestCase
 
         $revue->setTitle('desc')
             ->setResume('resume')
-            ->setFile('file')
             ->setSlug('slug')
-            ->setDatePubli($date);
+            ->setDatePubli($date)
+            ->setOnLine(1)
+            ->setImageName('ImgName')
+            ->setTheme('theme')
+            ->setImageFile(null);
 
         $this->assertFalse($revue->getTitle() === 'descs');
         $this->assertFalse($revue->getResume() === 'resumes');
         $this->assertFalse($revue->getSlug() === 'slugs');
-        $this->assertFalse($revue->getFile() === 'files');
         $this->assertFalse($revue->getDatePubli() === new \DateTime());
+        $this->assertFalse($revue->getOnLine() == 0);
+        $this->assertFalse($revue->getImageName() === 'ImgNames');
+        $this->assertFalse($revue->getTheme() === 'themes');
 
     }
     public function testEmpty()
@@ -51,7 +63,12 @@ class RevueTest extends TestCase
         $this->assertEmpty($revue->getTitle());
         $this->assertEmpty($revue->getResume());
         $this->assertEmpty($revue->getSlug());
-        $this->assertEmpty($revue->getFile());
+        $this->assertEmpty($revue->getImageFile());
+        $this->assertEmpty($revue->getTheme());
+        $this->assertEmpty($revue->getImageName());
+        $this->assertEmpty($revue->getOnLine());
+        $this->assertEmpty($revue->getColloques());
+        $this->assertEmpty($revue->getArticles());
         $this->assertEmpty($revue->getDatePubli());
     }
 }
