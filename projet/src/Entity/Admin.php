@@ -37,6 +37,11 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $eMail;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,5 +110,17 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getEMail(): ?string
+    {
+        return $this->eMail;
+    }
+
+    public function setEMail(string $eMail): self
+    {
+        $this->eMail = $eMail;
+
+        return $this;
     }
 }

@@ -26,6 +26,7 @@ class AppFixtures extends Fixture
         //Creation de l'admin
         $theAdmin = new Admin();
         $theAdmin->setUsername('admin');
+        $theAdmin->setEMail('admin@example.com');
         $theAdmin->setPassword('$2y$13$BM7XXOufCzTOrQ8pMPPWduzxLR21zDOhbLKasDzy2E3Rf1la7qhmO');//hash : admin123
         $manager->persist($theAdmin);
 
