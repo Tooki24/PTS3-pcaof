@@ -23,13 +23,12 @@ class EasyAdminSubscriber implements EventSubscriberInterface
     {
         $entity = $event->getEntityInstance();
 
-        /*
         if (!($entity instanceof Article) or !($entity instanceof publication)) {
             return;
         }
-        */
+
         $now = new DateTime('now');
-        $entity->setDatePubli($now);
+        $entity->setDatePubli(new \DateTimeImmutable());
     }
 
 

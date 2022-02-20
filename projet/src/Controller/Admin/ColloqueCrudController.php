@@ -36,7 +36,7 @@ class ColloqueCrudController extends AbstractCrudController
             TextField::new('description'),
             TextField::new('theme'),
             //AssociationField::new('revue')->renderAsNativeWidget(),
-            TextField::new('planningPdfFile')->setFormtype(VichFileType::class)->hideOnIndex(),
+            TextField::new('planningPdfFile')->setFormtype(VichFileType::class),
             AssociationField::new('keyWords'),
             BooleanField::new('isPcaof'),
             BooleanField::new('onLine'),

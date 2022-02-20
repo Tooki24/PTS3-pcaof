@@ -33,7 +33,8 @@ class PublicationCrudController extends AbstractCrudController
             TextField::new('resume'),
             TextField::new('imageFile')->setFormtype(VichImageType::class)->hideOnIndex(),
             ImageField::new('imageName')->setBasePath('/uploads/publication/image')->onlyOnIndex(),
-            TextField::new('pdfFile')->setFormtype(VichFileType::class)->hideOnIndex(),
+            TextField::new('pdfFile')->setFormtype(VichFileType::class),
+            TextField::new('pdfName')->onlyOnIndex(),
             AssociationField::new('people'),
             //TODO créé un obtion pour créé un nouvelle entitér depuis le crud de la Publication
             AssociationField::new('keyWords'),
