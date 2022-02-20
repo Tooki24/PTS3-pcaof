@@ -2,14 +2,14 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Intervention;
+use App\Entity\Admin;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
-class InterventionCrudController extends AbstractCrudController
+class AdminCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Intervention::class;
+        return Admin::class;
     }
 
     /*

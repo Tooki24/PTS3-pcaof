@@ -22,10 +22,21 @@ class ColloqueRepository extends ServiceEntityRepository
     /**
      * @return Colloque[]
      */
-    public function lastTwo(){
+    public function dateAsc(){
         return $this->createQueryBuilder('c')
-            ->orderBy('c.id', 'DESC')
-            ->setMaxResults(2)
+            ->orderBy('c.datePubli', 'ASC')
+            ->where('c.onLine = true')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @return Colloque[]
+     */
+    public function dateDesc()
+    {
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.dateD', 'DESC')
             ->getQuery()
             ->getResult();
     }

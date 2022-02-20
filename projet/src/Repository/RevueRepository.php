@@ -21,13 +21,13 @@ class RevueRepository extends ServiceEntityRepository
     }
 
 
- /**
-  * @return Revue[]
-  */
-    public function lastTree(){
+    /**
+     * @return Revue[]
+     */
+    public function revuesOnLine(){
         return $this->createQueryBuilder('r')
-            ->orderBy('r.id', 'DESC')
-            ->setMaxResults(3)
+            ->orderBy('r.datePubli', 'DESC')
+            ->where('r.onLine = true')
             ->getQuery()
             ->getResult();
     }

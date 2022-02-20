@@ -2,13 +2,18 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\PersonRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+
 
 /**
  * @ORM\Entity(repositoryClass=PersonRepository::class)
+ * @Vich\Uploadable
  */
 class Person
 {
@@ -39,22 +44,44 @@ class Person
      */
     private $articles;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Colloque::class, inversedBy="people")
-     */
-    private $colloques;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Intervention::class, inversedBy="people")
+     * @ORM\Column(type="boolean")
      */
-    private $interventions;
+    private $isOffice;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $role;
+
+    // pour l'image d'illustration--------------------------------------------------------------------------------------------------------------
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @var File
+     */
+    private $photoName;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @Vich\UploadableField(mapping="person_image", fileNameProperty="photoName")
+     * @var File
+     */
+    private $photoFile;
+
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
+
 
     public function __construct()
     {
         $this->publications = new ArrayCollection();
         $this->articles = new ArrayCollection();
-        $this->colloques = new ArrayCollection();
-        $this->interventions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -133,58 +160,78 @@ class Person
 
         return $this;
     }
-
-    /**
-     * @return Collection|Colloque[]
-     */
-    public function getColloques(): Collection
-    {
-        return $this->colloques;
-    }
-
-    public function addColloque(Colloque $colloque): self
-    {
-        if (!$this->colloques->contains($colloque)) {
-            $this->colloques[] = $colloque;
-        }
-
-        return $this;
-    }
-
-    public function removeColloque(Colloque $colloque): self
-    {
-        $this->colloques->removeElement($colloque);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Intervention[]
-     */
-    public function getInterventions(): Collection
-    {
-        return $this->interventions;
-    }
-
-    public function addIntervention(Intervention $intervention): self
-    {
-        if (!$this->interventions->contains($intervention)) {
-            $this->interventions[] = $intervention;
-        }
-
-        return $this;
-    }
-
-    public function removeIntervention(Intervention $intervention): self
-    {
-        $this->interventions->removeElement($intervention);
-
-        return $this;
-    }
-
+    
     public function __toString()
     {
         // TODO: Implement __toString() method.
-        return $this->name;
+        $nom = $this->firstName ." ". $this->name;
+        return $nom;
+    }
+
+    public function getIsOffice(): ?bool
+    {
+        return $this->isOffice;
+    }
+
+    public function setIsOffice(bool $isOffice): self
+    {
+        $this->isOffice = $isOffice;
+
+        return $this;
+    }
+
+    public function getRole(): ?string
+    {
+        return $this->role;
+    }
+
+    public function setRole(?string $role): self
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    public function setPhotoFile(?File $photoFile = null): void
+    {
+        $this->photoFile = $photoFile;
+
+        // It is required that at least one field changes if you are using doctrine
+        // otherwise the event listeners won't be called and the file is lost
+
+        if (null !== $photoFile) {         // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->datePubli = new \DateTimeImmutable();
+        }
+
+    }
+
+    public function getPhotoFile(): ?File
+    {
+        return $this->photoFile;
+    }
+
+    public function getPhotoName(): ?string
+    {
+        return $this->photoName;
+    }
+
+    public function setPhotoName(?string $imageName): self
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
     }
 }

@@ -11,33 +11,26 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 class EasyAdminSubscriber implements EventSubscriberInterface
 {
-    private $slugger;
-
-    public function __construct(SluggerInteface $slugger)
-    {
-        $this->slugger = $this->slugger;
-    }
 
     public static function getSubscribedEvent()
     {
         return [
-            BeforeEntityPersistedEvent::class => ['setArticleSlugAndDate'],
+            BeforeEntityPersistedEvent::class => ['setDate'],
         ];
     }
 
-    public function setArticleSlugAndDate(BeforeEntityPersistedEvent $event)
+    public function setDate(BeforeEntityPersistedEvent $event)
     {
         $entity = $event->getEntityInstance();
 
-        if (!($entity instanceof Article)) {
+        /*
+        if (!($entity instanceof Article) or !($entity instanceof publication)) {
             return;
         }
-        $slug = $this->slugger->slug($entity->getTitre());
-        $entity->setSlug($slug);
-
+        */
         $now = new DateTime('now');
         $entity->setDatePubli($now);
-
-
     }
+
+
 }

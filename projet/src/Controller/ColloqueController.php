@@ -2,17 +2,20 @@
 
 namespace App\Controller;
 
+use App\Repository\ColloqueRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ColloqueController extends AbstractController
 {
-    #[Route('/colloque', name: 'colloque')]
-    public function index(): Response
+    #[Route('/colloques', name: 'colloques')]
+    public function index(ColloqueRepository $colloqueRepository): Response
     {
         return $this->render('colloque/index.html.twig', [
             'controller_name' => 'ColloqueController',
+            'colloquesAsc'=> $colloqueRepository->dateAsc(),
+            'colloquesDesc'=> $colloqueRepository->dateDesc(),
         ]);
     }
 }

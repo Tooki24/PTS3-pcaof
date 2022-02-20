@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\RevueRepository;
+use App\Repository\PersonRepository;
+use App\Repository\ArticleRepository;
 
 class RevueController extends AbstractController
 {
@@ -15,21 +17,31 @@ class RevueController extends AbstractController
     {
         return $this->render('revue/index.html.twig', [
             'controller_name' => 'RevueController',
-            'revues' => $revueRepository->findAll(),
-
-            // récupérer le nombre d'articles pour chaque revue
-
+            'revues' => $revueRepository->revuesOnLine(),
         ]);
     }
 
-    #[Route('/revues/liste_articles/{idRevue}', name: 'liste_articles')]
-    public function list_articles(RevueRepository $revueRepository, int $idRevue): Response
+    #[Route('/revues/details/{idRevue}', name: 'detail_revue')]
+    public function list_articles(ArticleRepository $articleRepository,RevueRepository $revueRepository, int $idRevue): Response
     {
         $revue = $revueRepository->find($idRevue);
-        return $this->render('revue/index.html.twig', [
+        $articles = $revue->getArticles();
+        $colloques = $revue->getColloques();
+
+        foreach ($articles as $article)
+            if(!$article->getOnLine())
+                $articles->removeElement($article);
+
+        foreach ($colloques as $colloque)
+            if(!$colloque->getOnLine())
+                $colloques->removeElement($colloque);
+
+
+        return $this->render('revue/listeArticles.html.twig', [
             'controller_name' => 'RevueController',
             'revue' => $revue,
-            'articles'=>$revue->getArticles(),
+            'colloques'=> $colloques,
+            'articles' => $articles,
         ]);
     }
 
