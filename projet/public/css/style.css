@@ -187,18 +187,25 @@ border-right: transparent;
 
 /*Accueil*/
 
-.blocBleuLastPubliAccueil    {
+.blocBleu{
     color: white;
     background-color: #004E5A;
     padding-left: 3%;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius:30px;
     padding-bottom: 15px;
     padding-top: 15px;
     font-size: 18px;
     font-weight: bold;
     display: flex;
+    width: 35vw;
     justify-content: center;
+}
+#blocBleuRevue{
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+}
+#blocBleuColloque , #blocBleuPubli{
+    border-top-right-radius: 30px;
+    border-bottom-right-radius:30px;
 }
 .LastPubliRevuesAccueil {
     margin: 0;
@@ -207,19 +214,6 @@ border-right: transparent;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: nowrap;
-}
-.blocBleuLastRevueAcceuil {
-    color: white;
-    background-color: #004E5A;
-    padding-left: 3%;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    padding-bottom: 15px;
-    padding-top: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
 }
 .lastRevueAcceuil{
     margin: 0;
@@ -248,19 +242,6 @@ border-right: transparent;
     display: flex;
     justify-content: center;
 }
-.blocBleuLastColoqueAcceuil{
-    color: white;
-    background-color: #004E5A;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius:30px;
-    padding-bottom: 15px;
-    padding-top: 15px;
-    font-size: 18px;
-    font-weight: bold;
-}
-.blocBleuLastColoqueAcceuil{
-    width: 35vw;
-}
 @media screen and (max-width: 900px)
 {
     .LastPubliRevuesAccueil{
@@ -272,28 +253,16 @@ border-right: transparent;
         flex-wrap: nowrap;
         width: 90vw;
     }
-    .blocBleuLastRevueAcceuil{
-        border-radius:0px;
+    .blocBleu{
         padding-left: 0;
         padding-right: 0;
+        width: 100%;
     }
-    .blocBleuLastColoqueAcceuil{
-        width: 100vw;
-        border-radius:0px;
-        padding-left: 0;
-        padding-right: 0;
-    }
-    .blocBleuLastPubliAccueil{
-        border-radius:0px;
-        padding-left: 0;
-        padding-right: 0;
+    #blocBleuPubli,#blocBleuColloque,#blocBleuRevue{
+        border-radius:0;
     }
     .blocAvecToutDedans{
         box-shadow: 0px 0px 0px #4b5563;
         margin: 0px;
-    }
-    .blocBleuLastColoqueAcceuil{
-        display: flex;
-        justify-content: center;
     }
 }
