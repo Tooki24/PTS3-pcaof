@@ -28,18 +28,18 @@ class ColloqueCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('name'),
+            TextField::new('name','Nom'),
             SlugField::new('slug')->setTargetFieldName('name'),
-            DateField::new('dateD'),
-            DateField::new('dateF'),
-            TextField::new('place'),
-            TextField::new('description'),
-            TextField::new('theme'),
+            DateField::new('dateD','Date de debut'),
+            DateField::new('dateF','Date de fin'),
+            TextField::new('place','Lieu'),
+            TextField::new('description','Description'),
+            TextField::new('theme','Theme'),
             //AssociationField::new('revue')->renderAsNativeWidget(),
-            TextField::new('planningPdfFile')->setFormtype(VichFileType::class),
-            AssociationField::new('keyWords'),
-            BooleanField::new('isPcaof'),
-            BooleanField::new('onLine'),
+            TextField::new('planningPdfFile','Le planning au format PDF')->setFormtype(VichFileType::class),
+            AssociationField::new('keyWords','Mot(s)-clé(s)'),
+            BooleanField::new('isPcaof','Colloque organisée pas PCAOF'),
+            BooleanField::new('onLine','En ligne'),
         ];
     }
 
