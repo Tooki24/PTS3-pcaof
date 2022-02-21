@@ -5,13 +5,14 @@ body{
     padding : 0;
     margin: 0;
 }
+/*footer*/
 
 .custom-footer {
     background-color: #004E5A;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    weigth :100%
+    align-items:center;
 }
 .custom-align {
     background-color: white;
@@ -36,14 +37,13 @@ body{
 .lien_footer_in:hover{
     color: #00CC94;
 }
-#bouton-contact {
+#bouton-contact{
     background-color:white ;
     border-color: white;
     border-radius: 20px;
     color: #004E5A;
     margin-left: 15%;
-    padding-left: 7%;
-    padding-right: 7%;
+    padding:0.5% 7%;
     height: 70%;
     display:flex;
     align-items: center;
@@ -59,6 +59,7 @@ a {
     text-decoration: none;
 }
 
+/*header*/
 #header-title {
     margin-left :1%;
     display: flex;
@@ -105,6 +106,8 @@ a {
     width: 20%;
 }
 
+/*navbar*/
+
 #navbar{
     width: 100%;
     padding-top: 1em;
@@ -117,8 +120,8 @@ a {
 
 }
 .navbar-select{
-    padding-right: 10.2%;
-    padding-left:10.2%;
+    padding-right: 9%;
+    padding-left:9%;
     color:white;
     border-right: solid;
     border-right-width: 3px;
@@ -141,48 +144,6 @@ border-right: transparent;
 }
 
 
-
-
-
-
-
-@media screen and (max-width: 900px) {
-    #header-title h2 {
-        font-size: 1.2em;
-    }
-
-    #header-title p {
-        font-size: 0.7em;
-    }
-
-    #header-title {
-        flex-direction: column;
-
-
-    }
-
-    #header-title a {
-        justify-content: center;
-        align-items: center;
-        display: none;
-    }
-
-    #logo-header {
-        width: 10em;
-    }
-
-    #navbar {
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-    }
-
-    .navbar-select {
-        border-right: transparent;
-        padding-right: 2%;
-        padding-left: 2%;
-        font-size: 0.9em;
-    }
-}
 
 
 /*Accueil*/
@@ -218,8 +179,42 @@ border-right: transparent;
 .lastRevueAcceuil{
     margin: 0;
 }
+
+#revue-home{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    color: #004E5A;
+    border-radius: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin:5% 10%;
+    -webkit-box-shadow: 0px 0px 8px 5px rgba(186,186,186,0.5);
+    box-shadow: 0px 0px 8px 5px rgba(186,186,186,0.5);
+
+}
+#revue-home-img{
+    width:30%;
+}
+
+#revue-home:hover{
+    background-color: rgba(0, 78, 90, 0.3);
+
+}
+
+#revue-home-text{
+    display: flex;
+    justify-content: space-evenly;
+
+}
 .lastPubliAcceuil{
     margin: 0;
+}
+.publi-home{
+    border: black 1px solid;
+    border-radius: 5%;
+    padding: 20px;
+    margin: 10px;
 }
 .blocPresentationAcceuil{
     padding : 5%;
@@ -231,7 +226,7 @@ border-right: transparent;
 }
 .blocAvecToutDedans{
     box-shadow: 0px 0px 5px #4b5563;
-    margin: 20px;
+    margin: 20px auto;
     padding: 0;
     border-radius:15px ;
 }
@@ -242,8 +237,52 @@ border-right: transparent;
     display: flex;
     justify-content: center;
 }
+
+
+
+
+
+
 @media screen and (max-width: 900px)
 {
+
+    #header-title h2 {
+        font-size: 1.2em;
+    }
+
+    #header-title p {
+        font-size: 0.7em;
+    }
+
+    #header-title {
+        flex-direction: column;
+
+
+    }
+
+    #header-title a {
+        justify-content: center;
+        align-items: center;
+        display: none;
+    }
+
+    #logo-header {
+        width: 10em;
+        margin:15px auto;
+    }
+
+    #navbar {
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .navbar-select {
+        border-right: transparent;
+        padding-right: 2%;
+        padding-left: 2%;
+        font-size: 0.9em;
+    }
+
     .LastPubliRevuesAccueil{
         display: flex;
         flex-flow: column nowrap;
@@ -265,4 +304,5 @@ border-right: transparent;
         box-shadow: 0px 0px 0px #4b5563;
         margin: 0px;
     }
+
 }
