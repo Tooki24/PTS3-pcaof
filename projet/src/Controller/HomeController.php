@@ -17,10 +17,12 @@ class HomeController extends AbstractController
                           RevueRepository $revueRepository,
                           ColloqueRepository $colloqueRepository): Response
     {
+    $revue = $revueRepository->lastOne();
+    $colloque = $colloqueRepository->lastOne();
         return $this->render('home/index.html.twig', [
             'publications' => $publicationRepository->lastTree(),
-            'revues' => $revueRepository->lastTree(),
-            'colloques' => $colloqueRepository->lastTwo()
+            'revue' => $revue,
+            'colloque' => $colloque
         ]);
     }
 }

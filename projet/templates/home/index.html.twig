@@ -1,70 +1,74 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}<title>Popular Culture Association of France</title>{% endblock %}
 
 {% block body %}
-
-    <div class="container m-4" style="height: 200px; border: 1px solid black">
-        Bannier
-    </div>
-     <!-- TEXT ASSO -->
-    <p class="text-black text">
-        PCAoF (Popular Culture Association of France est une asso
-        qui regroupe des chercheurs et des amateurs et passionnés de culutre populaire
-    </p>
-    <h1 class="">Objectifs de l'association</h1>
-    <ul>
-        <li>BLABLABLABLA BLABLABLABLA BLABLABLABLA BLABLABLABLA
-            BLABLABLABLA BLABLABLABLA BLABLABLABLA</li>
-        <li>BLABLABLABLA BLABLABLABLA BLABLABLABLA
-            BLABLABLABLABLABLABLABLA BLABLABLABLA</li>
-    </ul>
-
-    <div class="container">
-        <h1>Derniere publi</h1>
-
-
-        <div class="col m-4" >
-            {% for publication in publications %}
-                <div class="row" style="border: black 1px solid; border-radius: 5%; padding: 20px; margin: 10px">
-                    <div class="col">
-                        <h2>{{ publication.title }}</h2>
-                        <p>{{ publication.datePubli|date('d/m/Y') }}</p>
-                    </div>
-                    <div class="col d-flex justify-content-center align-items-center">
-                        <h1>{{ publication.id }}</h1>
-                    </div>
-                </div>
-            {% endfor %}
-
-            <h1>Derniere Revues</h1>
-
-            {% for revue in revues %}
-                <div class="row" style="border: black 1px solid; border-radius: 5%; padding: 20px; margin: 10px">
-                    <div class="col">
-                        <h2>{{ revue.title }}</h2>
-                        <p>{{ revue.datePubli|date('d/m/Y') }}</p>
-                    </div>
-                    <div class="col d-flex justify-content-center align-items-center">
-                        <h1>{{ revue.id }}</h1>
-                    </div>
-                </div>
-            {% endfor %}
+    <div class=" container ">
+        <div class="blocPresentationAcceuil  p-4">
+            <p class="text-black text">PCAoF (Popular Culture Association of France) est une association qui regroupe des chercheurs et des amateurs et passionnés de culture populaire.</p>
+            <p class="titreObj">Objectifs de l'association</p>
+            <ul>
+                <li>promouvoir et de développer les études et la recherche sur les cultures populaires (trans- et inter- nationales, disciplinaires, etc.)</li>
+                <li>organiser des manifestations scientifiques et/ou grand public (colloques, séminaires, expositions, conférences, documentaires…)</li>
+                <li>publier, de diffuser ou d’éditer des ouvrages scientifiques, essais, articles, comptes rendus, œuvres de fiction, traductions…</li>
+            </ul>
         </div>
-    </div>
-
-    <div class="container">
-        <h2>Colloque à venir</h2>
-        {% for colloque in colloques %}
-        <div class="container mt-4">
-            <h1 class="text-center">{{ colloque.name }}</h1>
-            <h4>Theme ...</h4>
-            <p>{{ colloque.description|u.truncate(200, ' ...', false) }}</p>
-            <p>Du {{ colloque.dateD|date('d/m/Y') }} au {{ colloque.dateF|date('d/m/Y') }}</p>
-            <p>Lieu : {{ colloque.place }}</p>
-            <a class="align-top"><button type="button" class="btn btn-primary">Voir PLUS</button></a>
+        {# Publication #}
+        <div class="container LastPubliRevuesAccueil">
+            <div class="blocLastPubliAcceuil">
+                <div class ="blocBleu" id="blocBleuPubli">
+                    <p class="lastNomAcceuil">Dernières publications</p>
+                </div>
+                {% for publication in publications %}
+                    <div class="publi-home">
+                        <div class="col">
+                            <h2>{{ publication.title }}</h2>
+                            <p>{{ publication.datePubli|date('d/m/Y') }}</p>
+                        </div>
+                        <div class="col d-flex justify-content-center align-items-center">
+                            <h1>{{ publication.id }}</h1>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {# Revue #}
+            <div class="blocLastRevueAcceuil">
+                <div class="blocBleu" id="blocBleuRevue">
+                    <p class="lastNomAcceuil">Dernière Revue</p>
+                </div>
+                {% if revue is not null %}
+                    <a href="" id="revue-home">
+                        <div id="revue-home-text">
+                            <h1>{{ revue.id }}</h1>
+                            <div id="revue-home-block1">
+                                <h2>{{ revue.title }}</h2>
+                                <p>{{ revue.datePubli|date('d/m/Y') }}</p>
+                            </div>
+                        </div>
+                        {% if revue.imageFile is not null %}
+                            <img id="revue-home-img" src="{{ vich_uploader_asset(revue, 'imageFile') }}" alt="Logo revue">
+                        {% endif %}
+                    </a>
+                {% endif %}
+            </div>
         </div>
-        {% endfor %}
-    </div>
+        {# Colloque #}
+        <div class="blocLastColoqueAcceuil ">
+            <div class  ="blocBleu" id="blocBleuColloque">
+                <p class="lastNomAcceuil">Colloque à venir</p>
+            </div>
+            {% if colloque is not null %}
+                <div class="container mt-4">
+                    <h1 class="text-center">{{ colloque.name }} </h1>
+                    <h4>Theme ...</h4>
+                    <p>{{ colloque.description|u.truncate(200, ' ...', false) }}</p>
+                    <p>Du {{ colloque.dateD|date('d/m/Y') }} au {{ colloque.dateF|date('d/m/Y') }}</p>
+                    <p>Lieu : {{ colloque.lieu }}</p>
+                    <a class="align-top"><button type="button" class="btn btn-primary">Voir PLUS</button></a>
+                </div>
+            {% endif %}
 
+        </div>
+        <br>
+    </div>
 {% endblock %}

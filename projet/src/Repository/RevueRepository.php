@@ -22,13 +22,16 @@ class RevueRepository extends ServiceEntityRepository
 
 
  /**
-  * @return Revue[]
+  * @return Revue
   */
-    public function lastTree(){
-        return $this->createQueryBuilder('r')
-            ->orderBy('r.id', 'DESC')
-            ->setMaxResults(3)
+    public function lastOne(){
+        $revue = $this->createQueryBuilder('r')
+            ->orderBy('r.datePubli', 'DESC')
+            ->setMaxResults(1)
             ->getQuery()
             ->getResult();
+
+        return empty(!$revue) ? $revue[0] : null;
+
     }
 }
