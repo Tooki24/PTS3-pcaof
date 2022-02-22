@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ColloqueController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+        <h2>{{ colloque.name }}</h2>
+
+        {% if colloque.getIsPcaof() is not null %}
+                <img src="{{ asset('img/logo/logoColor.png') }}" alt="logo pcaof">
+        {% endif%}
+
+        <p>{{ colloque.description }}</p>
+
+        {% if (colloque.dateD|date('Y-m-d') >= 'now'|date('Y-m-d')) %}
+                <p>Cet événement est prévu à {{ colloque.place }} du {{ colloque.dateD|date('d-m') }} au
+                        {{ colloque.dateD|date('d-m-Y') }}</p>
+        {% else %}
+                <p>Cet événement était prévu à {{ colloque.place }} du {{ colloque.dateD|date('d/m/Y') }} au
+                        {{ colloque.dateF|date('d/m/Y') }}</p>
+        {% endif %}
+
+</div>
+{% endblock %}

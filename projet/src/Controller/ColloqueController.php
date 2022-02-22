@@ -18,4 +18,13 @@ class ColloqueController extends AbstractController
             'colloquesDesc'=> $colloqueRepository->dateDesc(),
         ]);
     }
+
+    #[Route('/colloques/{slug}', name: 'details_colloque')]
+    public function details(ColloqueRepository $colloqueRepository,string $slug): Response
+    {
+        return $this->render('colloque/details_colloque.html.twig', [
+            'controller_name' => 'ColloqueController',
+            'colloque' => $colloqueRepository->findOneBy(['slug' => $slug]),
+        ]);
+    }
 }
