@@ -36,6 +36,7 @@ class RevueRepository extends ServiceEntityRepository
     */
     public function lastOne(){
         $revue = $this->createQueryBuilder('r')
+            ->where("r.onLine = true")
             ->orderBy('r.datePubli', 'DESC')
             ->setMaxResults(1)
             ->getQuery()
