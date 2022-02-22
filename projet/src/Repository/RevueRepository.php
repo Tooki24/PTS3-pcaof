@@ -21,14 +21,17 @@ class RevueRepository extends ServiceEntityRepository
     }
 
 
-    /**
-     * @return Revue[]
-     */
-    public function revuesOnLine(){
-        return $this->createQueryBuilder('r')
+ /**
+  * @return Revue
+  */
+    public function lastOne(){
+        $revue = $this->createQueryBuilder('r')
             ->orderBy('r.datePubli', 'DESC')
-            ->where('r.onLine = true')
+            ->setMaxResults(1)
             ->getQuery()
             ->getResult();
+
+        return empty(!$revue) ? $revue[0] : null;
+
     }
 }

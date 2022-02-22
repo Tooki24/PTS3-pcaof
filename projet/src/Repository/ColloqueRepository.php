@@ -20,24 +20,15 @@ class ColloqueRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return Colloque[]
+     * @return Colloque
      */
-    public function dateAsc(){
-        return $this->createQueryBuilder('c')
-            ->orderBy('c.dateD', 'ASC')
-            ->where('c.onLine = true')
-            ->getQuery()
-            ->getResult();
-    }
-
-    /**
-     * @return Colloque[]
-     */
-    public function dateDesc()
-    {
-        return $this->createQueryBuilder('c')
+    public function lastOne(){
+        $colloque = $this->createQueryBuilder('c')
             ->orderBy('c.dateD', 'DESC')
+            ->setMaxResults(2)
             ->getQuery()
             ->getResult();
+
+        return empty(!$colloque) ? $colloque[0] : null;
     }
 }

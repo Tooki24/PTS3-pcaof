@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        {% block title %}{% endblock %}
+
         <!-- Meta -->
         <meta charset="UTF-8">
 
@@ -33,7 +35,7 @@
 
     <!-- SCRIPT JS -->
         <script src="{{ asset('js/scripts.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
     </body>
 </html>
