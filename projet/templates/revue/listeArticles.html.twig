@@ -30,6 +30,11 @@
                         <h3>{{ article.title }}</h3>
                         <h3>{{ article.getDatePubli()|date('d/m/Y') }}</h3>
                         <h3>Nombre de personne : {{ article.getNbPeople() }}</h3>
+                        {% if article.pdfName is not null %}
+                            <a href="{{asset (vich_uploader_asset (article, 'pdfFile'))}}" download>
+                                <img src="{{ asset('img/telecharger.png') }}" width="50px">
+                            </a>
+                        {% endif %}
                     </div>
             {% endfor %}
         </div>

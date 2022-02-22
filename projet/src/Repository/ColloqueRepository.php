@@ -20,6 +20,30 @@ class ColloqueRepository extends ServiceEntityRepository
     }
 
     /**
+     * @return Colloque[]
+     * @return Colloque
+     */
+    public function dateAsc(){
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.dateD', 'ASC')
+            ->where('c.onLine = true')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @return Colloque[]
+     */
+    public function dateDesc()
+    {
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.dateD', 'DESC')
+            ->where('c.onLine = true')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
      * @return Colloque
      */
     public function lastOne(){

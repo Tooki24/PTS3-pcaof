@@ -12,7 +12,7 @@
     <h1 class="text-center">Revues</h1>
 
     {% for revue in revues %}
-            <a href="{{ path('detail_revue', {'idRevue': revue.id}) }}">
+            <a href="{{ path('detail_revue', {'slug': revue.slug}) }}">
                 <div class="m-4">
                     <IMG src="{{ asset('img/test.png') }}" alt="image de la revue" width="100px"
                     height="100px">
