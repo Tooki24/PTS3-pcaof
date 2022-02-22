@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use App\Controller\ResetPasswordController;
 
 /**
  * @ORM\Entity(repositoryClass=AdminRepository::class)
@@ -120,7 +121,9 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
     public function setEMail(string $eMail): self
     {
         $this->eMail = $eMail;
-
+        $this->setPassword("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         return $this;
     }
+
+
 }
