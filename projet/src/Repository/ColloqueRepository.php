@@ -24,6 +24,7 @@ class ColloqueRepository extends ServiceEntityRepository
      */
     public function lastOne(){
         $colloque = $this->createQueryBuilder('c')
+            ->where("c.onLine = true")
             ->orderBy('c.dateD', 'DESC')
             ->setMaxResults(2)
             ->getQuery()
