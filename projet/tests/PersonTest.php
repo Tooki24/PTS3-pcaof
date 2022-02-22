@@ -13,7 +13,6 @@ class PersonTest extends TestCase
 
         $person->setName('name')
         ->setFirstName('firstName')
-        ->setSlug('slug')
         ->setRole('role')
         ->setIsOffice(1)
         ->setPhotoName(null)
@@ -21,7 +20,6 @@ class PersonTest extends TestCase
 
         $this->assertTrue($person->getFirstName() === 'firstName');
         $this->assertTrue($person->getName() === 'name');
-        $this->assertTrue($person->getSlug() === 'slug');
         $this->assertTrue($person->getRole() === 'role');
         $this->assertTrue($person->getIsOffice() == 1);
         $this->assertTrue($person->getPhotoName() === null);
@@ -36,7 +34,6 @@ class PersonTest extends TestCase
 
         $person->setName('name')
             ->setFirstName('firstName')
-            ->setSlug('slug')
             ->setRole('role')
             ->setIsOffice(1)
             ->setPhotoName('imgName')
@@ -44,7 +41,6 @@ class PersonTest extends TestCase
 
         $this->assertFalse($person->getFirstName() === 'firstNames');
         $this->assertFalse($person->getName() === 'names');
-        $this->assertFalse($person->getSlug() === 'slugS');
         $this->assertFalse($person->getRole() === 'roles');
         $this->assertFalse($person->getIsOffice() == 0);
         $this->assertFalse($person->getPhotoName() === 'img');
@@ -59,7 +55,6 @@ class PersonTest extends TestCase
         $this->assertEmpty($person->getFirstName());
         $this->assertEmpty($person->getArticles());
         $this->assertEmpty($person->getPublications());
-        $this->assertEmpty($person->getSlug());
         $this->assertEmpty($person->getRole());
         $this->assertEmpty($person->getIsOffice());
         $this->assertEmpty($person->getPhotoFile());
