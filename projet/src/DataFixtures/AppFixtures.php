@@ -4,7 +4,6 @@ namespace App\DataFixtures;
 
 use App\Entity\Article;
 use App\Entity\Colloque;
-use App\Entity\Intervention;
 use App\Entity\KeyWords;
 use App\Entity\Person;
 use App\Entity\Publication;
@@ -13,7 +12,6 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 use Symfony\Component\HttpFoundation\File\File;
-
 
 class AppFixtures extends Fixture
 {
@@ -29,7 +27,7 @@ class AppFixtures extends Fixture
         $person2 = new Person();
         $person2->setFirstName('Giles')->setName('Seper')->setIsOffice(false)->setRole(null);;
         $manager->persist($person2);
-        //Creation de 5 Revue avec article colloque, intervention
+        //Creation de 5 Revue avec article, colloque
         for ($i=0; $i<5; $i++)
         {
             $revue = new Revue();
@@ -37,10 +35,11 @@ class AppFixtures extends Fixture
             $revue->setTitle($faker->words(3, true))
                 ->setResume($faker->text(350))
                 ->setDatePubli($faker->dateTimeBetween('-6 month', 'now'))
-                ->setSlug($faker->slug(3))
-                ->setFile('test.jpg')
+                ->setSlug($faker->slug(15))
+                ->setImageName('test.jpg')
                 ->setOnLine(true)
                 ->setTheme($faker->text(35));
+
             //Création 6 Article
             for ($y=0; $y<6; $y++)
             {
@@ -49,7 +48,7 @@ class AppFixtures extends Fixture
                 $article->setTitle($faker->words(3, true))
                     ->setResume($faker->text(350))
                     ->setDatePubli($faker->dateTimeBetween('-6 month', 'now'))
-                    ->setSlug($faker->slug(3))
+                    ->setSlug($faker->slug(15))
                     ->setDocPDF('test.pdf')
                     ->setRevue($revue)
                     ->setOnLine(false);
@@ -74,7 +73,7 @@ class AppFixtures extends Fixture
                 ->setResume($faker->text(350))
                 ->setDatePubli($faker->dateTime())
                 ->setPdfName("test.pdf")
-                ->setSlug($faker->slug(3))
+                ->setSlug($faker->slug(15))
                 ->setOnLine(true)
                 ->setImageName("image.png");
 

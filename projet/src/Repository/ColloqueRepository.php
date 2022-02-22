@@ -24,7 +24,7 @@ class ColloqueRepository extends ServiceEntityRepository
      */
     public function dateAsc(){
         return $this->createQueryBuilder('c')
-            ->orderBy('c.datePubli', 'ASC')
+            ->orderBy('c.dateD', 'ASC')
             ->where('c.onLine = true')
             ->getQuery()
             ->getResult();
