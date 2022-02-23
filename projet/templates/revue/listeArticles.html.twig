@@ -10,10 +10,11 @@
 
 <div class="example-wrapper">
         <div class="">
-            <IMG src="{{ asset('img/test.png') }}" alt="image de la revue" width="100px"
-                 height="100px">
-            <h2>N°{{ revue.id }} / {{ revue.title }}</h2>
-            <h3>{{ revue.getDatePubli()|date('d/m/Y') }}</h3>
+            {% if revue.imageName is not null %}
+                <IMG src="{{ vich_uploader_asset(revue,'imageFile') }}" alt="image de la revue : {{ revue.imageName }}" width="150px">
+            {% endif %}
+            <h2>{{ revue.title }}</h2>
+            <h3>{{ revue.DatePubli()|date('d/m/Y') }}</h3>
             <h3>Revue de la/les colloques : </h3>
 
             {% for colloque in colloques %}
@@ -25,12 +26,19 @@
 
             <h3>Liste des articles :</h3>
             {% for article in articles %}
+                <a href="{{ path('details_article', {'slug': article.slug}) }}">
                     <div class="m-4">
                         <h1>{{ loop.index }}</h1>
                         <h3>{{ article.title }}</h3>
                         <h3>{{ article.getDatePubli()|date('d/m/Y') }}</h3>
                         <h3>Nombre de personne : {{ article.getNbPeople() }}</h3>
+                        {% if article.pdfName is not null %}
+                            <a href="{{asset (vich_uploader_asset (article, 'pdfFile'))}}" download>
+                                <img src="{{ asset('img/telecharger.png') }}" width="50px">
+                            </a>
+                        {% endif %}
                     </div>
+                </a>
             {% endfor %}
         </div>
 

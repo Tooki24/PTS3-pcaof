@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Pcaof{% endblock %}
+{% block title %}<title>Popular Culture Association of France</title>{% endblock %}
 
 {% block body %}
     <div class=" container blocAvecToutDedans">
-        <div class="blocPresentationAcceuil">
+        <div class="blocPresentationAcceuil ">
             <p class="text-black text">PCAoF (Popular Culture Association of France) est une association qui regroupe des chercheurs et des amateurs et passionnés de culture populaire.</p>
             <p class="titreObj">Objectifs de l'association</p>
             <ul>
@@ -13,27 +13,27 @@
                 <li>publier, de diffuser ou d’éditer des ouvrages scientifiques, essais, articles, comptes rendus, œuvres de fiction, traductions…</li>
             </ul>
         </div>
-{# Publication #}
+        {# Publication #}
         <div class="container LastPubliRevuesAccueil">
             <div class="blocLastPubliAcceuil">
                 <div class ="blocBleu" id="blocBleuPubli">
                     <p class="lastNomAcceuil">Dernières publications</p>
                 </div>
                 {% for publication in publications %}
-                <a href="" id="publi-home" class="publi-hover">
-                    <div class="publi-home-text">
+                    <a href="" id="publi-home" class="publi-hover">
+                        <div class="publi-home-text">
                             <h2 id="titre-publi">{{ publication.title }}</h2>
                             <p>{{ publication.datePubli|date('d/m/Y') }}</p>
-                    </div>
-                </a>
+                        </div>
+                    </a>
                 {% endfor %}
+            </div>
+            {# Revue #}
+            <div class="blocLastRevueAcceuil">
+                <div class="blocBleu" id="blocBleuRevue">
+                    <p class="lastNomAcceuil">Dernière Revue</p>
                 </div>
-{# Revue #}
-                <div class="blocLastRevueAcceuil">
-                    <div class="blocBleu" id="blocBleuRevue">
-                        <p class="lastNomAcceuil">Dernière Revue</p>
-                    </div>
-                    {% for revue in revues %}
+                {% if revue is not null %}
                     <a href="" id="revue-home">
                         <div id="revue-home-text">
                             <h1>{{ revue.id }}</h1>
@@ -42,26 +42,30 @@
                                 <p>{{ revue.datePubli|date('d/m/Y') }}</p>
                             </div>
                         </div>
-                        <img id="revue-home-img" src="http://assets.stickpng.com/images/58a050065583a1291368eeb4.png" alt="Logo revue">
+                        {% if revue.imageName is not null %}
+                            <img id="revue-home-img" src="{{ vich_uploader_asset(revue, 'imageFile') }}" alt="Logo revue">
+                        {% endif %}
                     </a>
-                {% endfor %}
-                </div>
+                {% endif %}
+            </div>
         </div>
-{# Colloque #}
+        {# Colloque #}
         <div class="blocLastColoqueAcceuil ">
             <div class  ="blocBleu" id="blocBleuColloque">
                 <p class="lastNomAcceuil">Colloque à venir</p>
             </div>
-            {% for colloque in colloques %}
+            {% if colloque is not null %}
                 <div class="container mt-4">
                     <h1 class="text-center">{{ colloque.name }} </h1>
                     <h4>Theme ...</h4>
                     <p>{{ colloque.description|u.truncate(200, ' ...', false) }}</p>
                     <p>Du {{ colloque.dateD|date('d/m/Y') }} au {{ colloque.dateF|date('d/m/Y') }}</p>
-                    <p>Lieu : {{ colloque.lieu }}</p>
+                    <p>Lieu : {{ colloque.place }}</p>
                     <a class="align-top"><button type="button" class="btn btn-primary">Voir PLUS</button></a>
                 </div>
-            {% endfor %}
+            {% endif %}
+
         </div>
+        <br>
     </div>
 {% endblock %}

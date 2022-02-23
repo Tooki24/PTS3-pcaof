@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Publication;
-use App\Entity\Revue;
 use App\Repository\ColloqueRepository;
 use App\Repository\PersonRepository;
 use App\Repository\PublicationRepository;
@@ -19,10 +17,12 @@ class HomeController extends AbstractController
                           RevueRepository $revueRepository,
                           ColloqueRepository $colloqueRepository): Response
     {
+    $revue = $revueRepository->lastOne();
+    $colloque = $colloqueRepository->lastOne();
         return $this->render('home/index.html.twig', [
-            'publications' => $publicationRepository->findAll(),
-            'revues' => $revueRepository->findAll(),
-            'colloques' => $colloqueRepository->findAll()
+            'publications' => $publicationRepository->lastTree(),
+            'revue' => $revue,
+            'colloque' => $colloque
         ]);
     }
 }

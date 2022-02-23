@@ -20,14 +20,39 @@ class RevueRepository extends ServiceEntityRepository
         parent::__construct($registry, Revue::class);
     }
 
-
     /**
      * @return Revue[]
      */
-    public function revuesOnLine(){
+    public function revuesOnLine()
+    {
         return $this->createQueryBuilder('r')
-            ->orderBy('r.datePubli', 'DESC')
             ->where('r.onLine = true')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+    * @return Revue
+    */
+    public function lastOne(){
+        $revue = $this->createQueryBuilder('r')
+            ->where("r.onLine = true")
+            ->orderBy('r.datePubli', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult();
+
+        return empty(!$revue) ? $revue[0] : null;
+
+    }
+
+    /**
+     * @return Revue
+     */
+    public function findSlug($slug){
+        $revue = $this->createQueryBuilder('r')
+            ->setParameter('slug',$slug)
+            ->where('r.slug = slug')
             ->getQuery()
             ->getResult();
     }

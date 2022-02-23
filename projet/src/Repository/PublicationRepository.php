@@ -26,7 +26,8 @@ class PublicationRepository extends ServiceEntityRepository
      */
     public function lastTree(){
         return $this->createQueryBuilder('p')
-                    ->orderBy('p.id', 'DESC')
+                    ->where("p.onLine = true")
+                    ->orderBy('p.datePubli', 'DESC')
                     ->setMaxResults(3)
                     ->getQuery()
                     ->getResult();

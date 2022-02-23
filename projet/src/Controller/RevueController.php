@@ -21,10 +21,11 @@ class RevueController extends AbstractController
         ]);
     }
 
-    #[Route('/revues/details/{idRevue}', name: 'detail_revue')]
-    public function list_articles(ArticleRepository $articleRepository,RevueRepository $revueRepository, int $idRevue): Response
+    #[Route('/revues/details/{slug}', name: 'detail_revue')]
+    public function list_articles(ArticleRepository $articleRepository,RevueRepository $revueRepository, string $slug): Response
     {
-        $revue = $revueRepository->find($idRevue);
+        $revue = $revueRepository->findOneBy(['slug' => $slug]);
+
         $articles = $revue->getArticles();
         $colloques = $revue->getColloques();
 

@@ -132,7 +132,7 @@ a {
 }
 
 #navbar-adherent{
-border-right: transparent;
+    border-right: transparent;
 }
 .dropdown button, .dropdown button:hover, .dropdown button:focus{
     background-color: transparent ;
@@ -325,3 +325,16 @@ border-right: transparent;
     }
 
 }
+
+
+/* Style Page co et reset MDP*/
+.btn-co{
+    background-color: #04414d;
+    color: white;
+    transition: 0.5s;
+}
+.btn-co:hover{
+    background-color: #00CC94;
+}
+
+

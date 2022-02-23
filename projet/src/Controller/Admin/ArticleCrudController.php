@@ -27,18 +27,17 @@ class ArticleCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title'),
+            TextField::new('title','Titre'),
             SlugField::new('slug')->setTargetFieldName('title'),
-            TextField::new('resume'),
-            TextField::new('imageFile')->setFormtype(VichImageType::class)->hideOnIndex(),
-            ImageField::new('imageName')->setBasePath('/uploads/article/image')->onlyOnIndex(),
-            TextField::new('pdfFile')->setFormtype(VichImageType::class),
-            TextField::new('pdfName')->onlyOnIndex(),
-            AssociationField::new('people'),
-            AssociationField::new('revue'),
-            BooleanField::new('Online'),
-
-            DateTimeField::new('datePubli')->onlyOnIndex()
+            TextField::new('resume','Résumé'),
+            TextField::new('imageFile','Image d\'illustration')->setFormtype(VichImageType::class)->hideOnIndex(),
+            ImageField::new('imageName','Image d\'illustration')->setBasePath('/uploads/article/image')->onlyOnIndex(),
+            TextField::new('pdfFile','L\'article Au format PDF')->setFormtype(VichImageType::class),
+            TextField::new('pdfName','Le PDF')->onlyOnIndex(),
+            AssociationField::new('people','le(s) Auteur(s)de l\'article' ),
+            AssociationField::new('revue','La revue de l\'article'),
+            BooleanField::new('Online','En ligne'),
+            DateTimeField::new('datePubli','date de création/modification')->onlyOnIndex()
         ];
     }
 

@@ -1,39 +1,17 @@
-
-
-    <!doctype html>
-    <html lang="en" class="h-100">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-        <meta name="generator" content="Hugo 0.88.1">
-        <title>Sticky Footer Navbar Template · Bootstrap v5.1</title>
-        <style>
-            .bd-placeholder-img {
-                font-size: 1.125rem;
-                text-anchor: middle;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                user-select: none;
-            }
-
-        </style>
-    </head>
-    <header>
+<header>
     <div id="header-title">
-        <a href="">
+        <a href={{ path('home') }}>
             <h2 > Popular Culture Association of France</h2>
             <p>Association Française d'Etude des Cultures Populaires</p>
             <hr id="header-title-bar">
         </a>
-        <img id="logo-header" src=http://pcaof.com/wp-content/themes/themepcaof/img/logomasquecouleurs.jpg" alt="Logo">
+        <img id="logo-header" src="{{ asset('img/logo/logoColor.png') }}" alt="Logo">
     </div>
     <div id="navbar">
         <a id="navbar-revues" class="navbar-select" href="">Revues</a>
         <a id="navbar-colloque" class="navbar-select" href="">Colloques</a>
         <a id="navbar-publi" class="navbar-select" href="">Publications</a>
-        <div id="navbar-adherent" class="dropdown navbar-select" >
+        <div id="navbar-adherent" class="dropdown navbar-select">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 Association
             </button>

@@ -1,43 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Article index{% endblock %}
+{% block title %}Hello ArticleController!{% endblock %}
 
 {% block body %}
-    <h1>Article index</h1>
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Resume</th>
-                <th>DatePubli</th>
-                <th>File</th>
-                <th>DocPDF</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr>
-                <td>{{ article.id }}</td>
-                <td>{{ article.titre }}</td>
-                <td>{{ article.resume }}</td>
-                <td>{{ article.datePubli ? article.datePubli|date('Y-m-d') : '' }}</td>
-                <td>{{ article.file }}</td>
-                <td>{{ article.docPDF }}</td>
-                <td>
-                    <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
+<div class="example-wrapper">
+    <h2>{{ article.title }}</h2>
+    <p>Fait le {{ article.datePubli|date('d/m/Y') }}</p>
+    <p>Par
+        {% for person in article.getPeople() %}
+            {{ person.name }} {{ person.firstName}},
         {% endfor %}
-        </tbody>
-    </table>
+    </p>
+    <h3>Résumé</h3>
+    <p>{{ article.resume }}</p>
 
-    <a href="{{ path('article_new') }}">Create new</a>
+    {% if article.pdfName is not null %}
+        <a href="{{asset (vich_uploader_asset (article, 'pdfFile'))}}" target="_blank"><p>Lire l'article</p></a>
+    {% endif %}
+
+    {% if article.pdfName is not null %}
+        <a href="{{asset (vich_uploader_asset (article, 'pdfFile'))}}" download>
+            <img src="{{ asset('img/telecharger.png') }}" width="50px">
+        </a>
+    {% endif %}
+</div>
 {% endblock %}
