@@ -25,9 +25,10 @@
                         {{ colloque.dateF|date('d/m/Y') }}</p>
         {% endif %}
 
-        <a>Y contribuer</a>
+        <a href="{{ path('contact') }}">Y contribuer</a>
 
         {% if colloque.planningPdfName is not null %}
+                <iframe width="100%" height="500px" src="{{asset (vich_uploader_asset (colloque, 'planningPdfFile'))}}"></iframe>
                 <a href="{{asset (vich_uploader_asset (colloque, 'planningPdfFile'))}}" download>
                         <img src="{{ asset('img/telecharger.png') }}" width="50px">
                 </a>
