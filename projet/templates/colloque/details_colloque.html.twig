@@ -18,11 +18,11 @@
         <p>{{ colloque.description }}</p>
 
         {% if (colloque.dateD|date('Y-m-d') >= 'now'|date('Y-m-d')) %}
-                <p>Cet événement est prévu à {{ colloque.place }} du {{ colloque.dateD|date('d-m') }} au
-                        {{ colloque.dateD|date('d-m-Y') }}</p>
+                <p>Cet événement est prévu à {{ colloque.place }} du {{ colloque.dateD|format_datetime(locale='fr',pattern="d MMMM Y") }} au
+                        {{ colloque.dateD|format_datetime(locale='fr',pattern="d MMMM Y") }}</p>
         {% else %}
-                <p>Cet événement était prévu à {{ colloque.place }} du {{ colloque.dateD|date('d/m/Y') }} au
-                        {{ colloque.dateF|date('d/m/Y') }}</p>
+                <p>Cet événement était prévu à {{ colloque.place }} du {{ colloque.dateD|format_datetime(locale='fr',pattern="d MMMM Y") }} au
+                        {{ colloque.dateF|format_datetime(locale='fr',pattern="d MMMM Y") }}</p>
         {% endif %}
 
         <a href="{{ path('contact') }}">Y contribuer</a>

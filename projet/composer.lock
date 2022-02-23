@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3777249dc32c3fe6c148924ffe7f505b",
+    "content-hash": "f488eab4956dcdb7da9ea89959833ef0",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -7757,16 +7757,16 @@
         },
         {
             "name": "symfonycasts/reset-password-bundle",
-            "version": "v1.12.0",
+            "version": "v1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SymfonyCasts/reset-password-bundle.git",
-                "reference": "ade9fad9f4355268aec1bd40773601f872a1672b"
+                "reference": "6e926da7fb2031ef38a385a994ea3a52b436dc8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SymfonyCasts/reset-password-bundle/zipball/ade9fad9f4355268aec1bd40773601f872a1672b",
-                "reference": "ade9fad9f4355268aec1bd40773601f872a1672b",
+                "url": "https://api.github.com/repos/SymfonyCasts/reset-password-bundle/zipball/6e926da7fb2031ef38a385a994ea3a52b436dc8c",
+                "reference": "6e926da7fb2031ef38a385a994ea3a52b436dc8c",
                 "shasum": ""
             },
             "require": {
@@ -7801,9 +7801,9 @@
             "description": "Symfony bundle that adds password reset functionality.",
             "support": {
                 "issues": "https://github.com/SymfonyCasts/reset-password-bundle/issues",
-                "source": "https://github.com/SymfonyCasts/reset-password-bundle/tree/v1.12.0"
+                "source": "https://github.com/SymfonyCasts/reset-password-bundle/tree/v1.13.0"
             },
-            "time": "2022-02-14T16:17:09+00:00"
+            "time": "2022-02-23T14:48:27+00:00"
         },
         {
             "name": "twig/extra-bundle",
@@ -7883,6 +7883,75 @@
                 }
             ],
             "time": "2022-01-04T13:58:53+00:00"
+        },
+        {
+            "name": "twig/intl-extra",
+            "version": "v3.3.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/intl-extra.git",
+                "reference": "8dca6f4c5a00cdd3c43b6bd080f50d32aca33a84"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/intl-extra/zipball/8dca6f4c5a00cdd3c43b6bd080f50d32aca33a84",
+                "reference": "8dca6f4c5a00cdd3c43b6bd080f50d32aca33a84",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3",
+                "symfony/intl": "^4.4|^5.0|^6.0",
+                "twig/twig": "^2.7|^3.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^4.4.9|^5.0.9|^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Twig\\Extra\\Intl\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "A Twig extension for Intl",
+            "homepage": "https://twig.symfony.com",
+            "keywords": [
+                "intl",
+                "twig"
+            ],
+            "support": {
+                "source": "https://github.com/twigphp/intl-extra/tree/v3.3.5"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/twig/twig",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-01-02T10:02:25+00:00"
         },
         {
             "name": "twig/string-extra",
@@ -8216,9 +8285,6 @@
             "require": {
                 "php": "^7.1 || ^8.0"
             },
-            "replace": {
-                "myclabs/deep-copy": "self.version"
-            },
             "require-dev": {
                 "doctrine/collections": "^1.0",
                 "doctrine/common": "^2.6",
@@ -8493,16 +8559,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.11",
+            "version": "9.2.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "665a1ac0a763c51afc30d6d130dac0813092b17f"
+                "reference": "c011a0b6aaa4acd2f39b7f51fb4ad4442b6ec631"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/665a1ac0a763c51afc30d6d130dac0813092b17f",
-                "reference": "665a1ac0a763c51afc30d6d130dac0813092b17f",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/c011a0b6aaa4acd2f39b7f51fb4ad4442b6ec631",
+                "reference": "c011a0b6aaa4acd2f39b7f51fb4ad4442b6ec631",
                 "shasum": ""
             },
             "require": {
@@ -8558,7 +8624,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.11"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.12"
             },
             "funding": [
                 {
@@ -8566,7 +8632,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-02-18T12:46:09+00:00"
+            "time": "2022-02-23T06:30:26+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -8811,16 +8877,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.5.14",
+            "version": "9.5.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "1883687169c017d6ae37c58883ca3994cfc34189"
+                "reference": "dc738383c519243b0a967f63943a848d3fd861aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1883687169c017d6ae37c58883ca3994cfc34189",
-                "reference": "1883687169c017d6ae37c58883ca3994cfc34189",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/dc738383c519243b0a967f63943a848d3fd861aa",
+                "reference": "dc738383c519243b0a967f63943a848d3fd861aa",
                 "shasum": ""
             },
             "require": {
@@ -8836,7 +8902,7 @@
                 "phar-io/version": "^3.0.2",
                 "php": ">=7.3",
                 "phpspec/prophecy": "^1.12.1",
-                "phpunit/php-code-coverage": "^9.2.7",
+                "phpunit/php-code-coverage": "^9.2.12",
                 "phpunit/php-file-iterator": "^3.0.5",
                 "phpunit/php-invoker": "^3.1.1",
                 "phpunit/php-text-template": "^2.0.3",
@@ -8898,7 +8964,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.14"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.15"
             },
             "funding": [
                 {
@@ -8910,7 +8976,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-02-18T12:54:07+00:00"
+            "time": "2022-02-23T08:53:20+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -10475,5 +10541,5 @@
         "ext-iconv": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }
