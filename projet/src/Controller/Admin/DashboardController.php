@@ -35,12 +35,12 @@ class DashboardController extends AbstractDashboardController
         //TODO ajouter des jolies icones pour chaques categories
         //yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Les membres', 'fa_secret fa-user', Person::class);
-        yield MenuItem::linkToCrud('Publications', 'fa-file', Publication::class);
-        yield MenuItem::linkToCrud('Colloques', 'fa-file', Colloque::class);
-        yield MenuItem::linkToCrud('Revue', 'fa-file', Revue::class);
-        yield MenuItem::linkToCrud('Article', 'fa-file', Article::class);
-        yield MenuItem::linkToCrud('KeyWords', 'fa-file', KeyWords::class);
-        yield MenuItem::linkToCrud('les administateurs','fa-file', Admin::class);
+        yield MenuItem::linkToCrud('Les membres', 'fa fa_secret fa-user', Person::class);
+        yield MenuItem::linkToCrud('Publications', 'fa fa-file', Publication::class);
+        yield MenuItem::linkToCrud('Colloques', 'fa fa-solid fa-calendar', Colloque::class);
+        yield MenuItem::linkToCrud('Revue', 'fa fa-file', Revue::class);
+        yield MenuItem::linkToCrud('Article', 'fa fa-solid fa-newspaper', Article::class);
+        yield MenuItem::linkToCrud('KeyWords', 'fa fa-file', KeyWords::class);
+        yield MenuItem::linkToCrud('Paramétre','fa fa-solid fa-gear', Admin::class);
     }
 }
