@@ -12,9 +12,10 @@ class ArticleController extends AbstractController
     #[Route('/article/{slug}', name: 'details_article')]
     public function index(ArticleRepository $articleRepository, string $slug): Response
     {
+        $articles = $articleRepository->findOneBy(['slug' => $slug]);
         return $this->render('article/index.html.twig', [
             'controller_name' => 'ArticleController',
-            'article' => $articleRepository->findOneBy(['slug' => $slug]),
+            'article' => $articles,
         ]);
     }
 }

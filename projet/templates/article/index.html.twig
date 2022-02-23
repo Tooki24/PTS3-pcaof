@@ -19,7 +19,9 @@
     <h3>Résumé</h3>
     <p>{{ article.resume }}</p>
 
-    <a href="{{asset (vich_uploader_asset (article, 'pdfFile'))}}" target="_blank"><p>Lire l'article</p></a>
+    {% if article.pdfName is not null %}
+        <a href="{{asset (vich_uploader_asset (article, 'pdfFile'))}}" target="_blank"><p>Lire l'article</p></a>
+    {% endif %}
 
     {% if article.pdfName is not null %}
         <a href="{{asset (vich_uploader_asset (article, 'pdfFile'))}}" download>
