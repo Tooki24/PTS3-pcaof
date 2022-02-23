@@ -20,15 +20,12 @@
                     <p class="lastNomAcceuil">Dernières publications</p>
                 </div>
                 {% for publication in publications %}
-                    <div class="publi-home">
-                        <div class="col">
-                            <h2>{{ publication.title }}</h2>
+                <a href="" id="publi-home" class="publi-hover">
+                    <div class="publi-home-text">
+                            <h2 id="titre-publi">{{ publication.title }}</h2>
                             <p>{{ publication.datePubli|date('d/m/Y') }}</p>
-                        </div>
-                        <div class="col d-flex justify-content-center align-items-center">
-                            <h1>{{ publication.id }}</h1>
-                        </div>
                     </div>
+                </a>
                 {% endfor %}
                 </div>
 {# Revue #}
