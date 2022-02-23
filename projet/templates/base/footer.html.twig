@@ -1,7 +1,18 @@
-<footer class="footer mt-auto py-3 custom-footer ">
-    <div id="lien_footer">
-        <a class="lien_footer_in" href="">Mentions légales</a>
-        <a class="lien_footer_in" href="">Plan du site</a>
+<footer class="footer">
+    <div class="mt-auto py-3 main-footer">
+        <div id="lien_footer">
+            <a class="lien_footer_in" href="{{ path("about") }}">Mentions légales</a>
+            <a class="lien_footer_in" href="">Plan du site</a>
+        </div>
+        <a id="bouton-contact" href="{{ path('contact') }}">Contact</a>
     </div>
-    <a id="bouton-contact" href="{{ path('contact') }}">Contact</a>
+    <div class="back-footer d-flex justify-content-around align-items-center">
+        <div>
+            <a href="https://www.facebook.com/Popular-Culture-Association-of-France-240165316556260/" target="_blank"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/pcaofrance/" target="_blank"><i class="bi bi-instagram"></i></a>
+        </div>
+        <p>Copyright © PCAoF – 2022</p>
+        <a href="mailto:pcaofrance@gmail.com">pcaofrance@gmail.com</a>
+    </div>
+
 </footer>

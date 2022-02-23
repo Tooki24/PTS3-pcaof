@@ -6,12 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AdherantsController extends AbstractController
+class AboutController extends AbstractController
 {
-    #[Route('/devenir-adherants', name: 'adherants')]
+    #[Route('/mentions-legales', name: 'about')]
     public function index(): Response
     {
-        return $this->render('adherants/index.html.twig', [
-        ]);
+        return $this->render('about/mentions-legales.html.twig');
     }
 }

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PublicationController!{% endblock %}
+{% block title %}<title>Publication | PCAoF</title>{% endblock %}
 
 {% block body %}
 <style>
@@ -9,12 +9,23 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/var/www/html/projet/src/Controller/PublicationController.php'|file_link(0) }}">src/Controller/PublicationController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/var/www/html/projet/templates/publication/index.html.twig'|file_link(0) }}">templates/publication/index.html.twig</a></code></li>
-    </ul>
+    {% for publication in publications %}
+        <div class="mb-4 mt-2">
+            <a href="{{ path('details_publication', {'slug': publication.slug}) }}">
+                <h3>{{ publication.title }}</h3>
+                <p>{{ publication.datePubli|format_datetime(locale='fr',pattern="d MMMM Y") }}</p>
+                <p>De
+                    {% for auteur in publication.getPeople %}
+                     {{ auteur.firstName }} {{ auteur.name }},
+                    {%  endfor %}
+                </p>
+                {% if publication.pdfName is not null %}
+                    <a href="{{asset (vich_uploader_asset (publication, 'pdfFile'))}}" download>
+                        <img src="{{ asset('img/telecharger.png') }}" width="50px">
+                    </a>
+                {% endif %}
+            </a>
+        </div>
+    {% endfor %}
 </div>
 {% endblock %}

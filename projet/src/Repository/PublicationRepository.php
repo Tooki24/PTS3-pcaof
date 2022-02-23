@@ -32,4 +32,15 @@ class PublicationRepository extends ServiceEntityRepository
                     ->getQuery()
                     ->getResult();
     }
+
+    /**
+     * @return Publication[]
+     */
+    public function dateDesc(){
+        return $this->createQueryBuilder('p')
+            ->where("p.onLine = true")
+            ->orderBy('p.datePubli', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 }

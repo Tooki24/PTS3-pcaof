@@ -29,7 +29,8 @@ class ColloqueController extends AbstractController
         return $this->render('colloque/details_colloque.html.twig', [
             'controller_name' => 'ColloqueController',
             'colloque' => $colloque,
-            'revue' => $revueRepository->find($colloque->getRevues()),
+            'revue' => $colloque->getRevues()
+
         ]);
     }
 }
