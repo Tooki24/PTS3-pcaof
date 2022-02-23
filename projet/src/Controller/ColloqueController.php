@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\ColloqueRepository;
+use App\Repository\RevueRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,11 +21,15 @@ class ColloqueController extends AbstractController
     }
 
     #[Route('/colloques/{slug}', name: 'details_colloque')]
-    public function details(ColloqueRepository $colloqueRepository,string $slug): Response
+    public function details(RevueRepository $revueRepository,
+                            ColloqueRepository $colloqueRepository,
+                            string $slug): Response
     {
+        $colloque = $colloqueRepository->findOneBy(['slug' => $slug]);
         return $this->render('colloque/details_colloque.html.twig', [
             'controller_name' => 'ColloqueController',
-            'colloque' => $colloqueRepository->findOneBy(['slug' => $slug]),
+            'colloque' => $colloque,
+            'revue' => $revueRepository->find($colloque->getRevues()),
         ]);
     }
 }

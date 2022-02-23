@@ -25,5 +25,17 @@
                         {{ colloque.dateF|date('d/m/Y') }}</p>
         {% endif %}
 
+        <a>Y contribuer</a>
+
+        {% if colloque.planningPdfName is not null %}
+                <a href="{{asset (vich_uploader_asset (colloque, 'planningPdfFile'))}}" download>
+                        <img src="{{ asset('img/telecharger.png') }}" width="50px">
+                </a>
+        {% endif %}
+
+        {% if colloque.revues is not null %}
+                <p><a href="{{ path('detail_revue',{'slug': revue.slug}) }}">Voir la revue</a></p>
+        {% endif %}
+
 </div>
 {% endblock %}
