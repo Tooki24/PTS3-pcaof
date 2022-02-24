@@ -11,7 +11,7 @@ h1{
 p, h2, h3, h4, h5, h6{
     font-family: 'Merriweather', serif;
 }
-            /******************footer********************/
+/******************footer********************/
 .main-footer {
     background-color: #004E5A;
     display: flex;
@@ -168,10 +168,6 @@ a {
 .dropdown button:hover{
     color: #00CC94;
 }
-
-
-
-
 /*Accueil*/
 
 .blocBleu{
@@ -269,88 +265,74 @@ a {
     margin: 20px auto;
     padding: 0;
     border-radius:15px ;
+    width: 80vw;
 }
-
+.dateAccueil{
+    display: flex;
+    justify-content: center;
+}
 .lastNomAcceuil{
     width: 35vw;
     margin: 0;
     display: flex;
     justify-content: center;
 }
-#titre-publi{
+.titre-publi-revue{
     font-size: 25px;
+    display: flex;
+    justify-content: center;
+}
+.colloque-home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #004E5A;
+    border-radius: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin: 5% 10%;
+    -webkit-box-shadow: 0px 0px 8px 5px rgba(186, 186, 186, 0.5);
+    box-shadow: 0px 0px 8px 5px rgba(186, 186, 186, 0.5);
+}
+.bouton-colloque-home{
+    text-decoration: none;
+    background-color: #004E5A ;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 3%;
+    padding:1.5% 7%;
+    height: 70%;
+    display:flex;
+    align-items: center;
+    transition: 0.5s;
+    border: solid #004E5A 1.50px;
+}
+.bouton-colloque-home:hover {
+    background-color: white;
+    border: solid #004E5A 1.50px;
+    color: #004E5A;
+}
+.bloc-theme-date-place-home{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 100%;
+}
+.bloc-date-place-home{
+    display: flex;
+    flex-flow: column nowrap;
+    font-size: 80%;
+}
+.nom-colloque{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+#place-home{
+    color: #6999A0;
 }
 
-
-
-
-
-@media screen and (max-width: 900px)
-{
-
-    #header-title h2 {
-        font-size: 1.2em;
-    }
-
-    #header-title p {
-        font-size: 0.7em;
-    }
-
-    #header-title {
-        flex-direction: column;
-
-
-    }
-
-    #header-title a {
-        justify-content: center;
-        align-items: center;
-        display: none;
-    }
-
-    #logo-header {
-        width: 10em;
-        margin:15px auto;
-    }
-
-    #navbar {
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-    }
-
-    .navbar-select {
-        border-right: transparent;
-        padding-right: 2%;
-        padding-left: 2%;
-        font-size: 0.9em;
-    }
-
-    .LastPubliRevuesAccueil{
-        display: flex;
-        flex-flow: column nowrap;
-    }
-    .blocLastPubliAcceuil p{
-        display: flex;
-        flex-wrap: nowrap;
-        width: 90vw;
-    }
-    .blocBleu{
-        padding-left: 0;
-        padding-right: 0;
-        width: 100%;
-    }
-    #blocBleuPubli,#blocBleuColloque,#blocBleuRevue{
-        border-radius:0;
-    }
-    .blocAvecToutDedans{
-        box-shadow: 0px 0px 0px #4b5563;
-        margin: 0px;
-    }
-    .publi-home-text{
-        width: 100%;
-    }
-
-}
 
 /*Style Page Mentions Légales*/
 
@@ -383,8 +365,6 @@ a {
     color: #0e7490;
 }
 
-
-
 /* Style Page co et reset MDP*/
 .btn-co{
     background-color: #04414d;
@@ -393,6 +373,63 @@ a {
 }
 .btn-co:hover{
     background-color: #00CC94;
+}
+
+@media screen and (max-width: 900px)
+{
+    #header-title h2 {
+        font-size: 1.2em;
+    }
+    #header-title p {
+        font-size: 0.7em;
+    }
+    #header-title {
+        flex-direction: column;
+    }
+    #header-title a {
+        justify-content: center;
+        align-items: center;
+        display: none;
+    }
+    #logo-header {
+        width: 10em;
+        margin:15px auto;
+    }
+    #navbar {
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    .navbar-select {
+        border-right: transparent;
+        padding-right: 2%;
+        padding-left: 2%;
+        font-size: 0.9em;
+    }
+    .LastPubliRevuesAccueil{
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    .blocLastPubliAcceuil p{
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+    .blocBleu{
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+    }
+    #blocBleuPubli,#blocBleuColloque,#blocBleuRevue{
+        border-radius:0;
+    }
+    .blocAvecToutDedans{
+        box-shadow: 0px 0px 0px #4b5563;
+        margin: 0px;
+        width: 100%;
+    }
+    .publi-home-text{
+        width: 100%;
+    }
 }
 
 
