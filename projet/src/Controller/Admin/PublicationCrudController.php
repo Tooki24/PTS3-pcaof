@@ -29,16 +29,16 @@ class PublicationCrudController extends AbstractCrudController
     {
         return [
             TextField::new('title'),
-            SlugField::new('slug')->setTargetFieldName('title'),
-            TextField::new('resume'),
+            SlugField::new('slug')->setTargetFieldName('title')->setTemplatePath('admin/field_custom.html.twig'),
+            TextEditorField::new('resume', 'Résumé'),
             TextField::new('imageFile')->setFormtype(VichImageType::class)->hideOnIndex(),
-            ImageField::new('imageName')->setBasePath('/uploads/publication/image')->onlyOnIndex(),
-            TextField::new('pdfFile')->setFormtype(VichFileType::class),
-            TextField::new('pdfName')->onlyOnIndex(),
-            AssociationField::new('people'),
+            ImageField::new('imageName', 'Image')->setBasePath('/uploads/publication/image')->onlyOnIndex(),
+            TextField::new('pdfFile', 'L\'article Au format PDF')->setFormtype(VichFileType::class)->hideOnIndex(),
+            TextField::new('pdfName', 'PDF')->onlyOnIndex(),
+            AssociationField::new('people', 'Auteur'),
             //TODO créé un obtion pour créé un nouvelle entitér depuis le crud de la Publication
-            AssociationField::new('keyWords'),
-            BooleanField::new('onLine'),
+            AssociationField::new('keyWords', 'Mot(s)-clé(s)'),
+            BooleanField::new('onLine', 'En ligne'),
             DateTimeField::new('datePubli')->onlyOnIndex(),
         ];
     }

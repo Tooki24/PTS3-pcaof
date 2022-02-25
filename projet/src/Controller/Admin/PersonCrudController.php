@@ -32,9 +32,9 @@ class PersonCrudController extends AbstractCrudController
     {
         return [
             FormField::addPanel(''),
-            TextField::new('name'),
-            TextField::new('firstName'),
-            booleanField::new('isOffice'),
+            TextField::new('name', 'Nom'),
+            TextField::new('firstName', 'Prénom'),
+            booleanField::new('isOffice', 'Membre PCAoF'),
             FormField::addPanel('à completer seulement le membres fais partie bureau de PCAOF'),//TODO faire verifier l'orthographe
             TextField::new('role'),
             TextField::new('photoFile')->setFormtype(VichImageType::class)->hideOnIndex(),

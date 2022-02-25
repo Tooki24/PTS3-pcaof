@@ -56,4 +56,16 @@ class RevueRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    // Requette for Easy Amdin
+
+    /**
+     * @return int|mixed|string
+     */
+    public function countAll(){
+        $queryBuilder = $this->createQueryBuilder('r');
+        $queryBuilder->select('COUNT(r.id) as value');
+
+        return $queryBuilder->getQuery()->getOneOrNullResult();
+    }
 }
