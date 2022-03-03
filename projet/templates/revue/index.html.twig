@@ -17,10 +17,14 @@
                     {% if revue.imageName is not null %}
                         <IMG src="{{ vich_uploader_asset(revue,'imageFile') }}" alt="image de la revue : {{ revue.imageName }}" width="150px">
                     {% endif %}
-                    <h2>N°{{ loop.index }} / {{ revue.title }}</h2>
-                    <h3>{{ revue.getDatePubli()|date('d/m/Y') }}</h3>
-                    <h3>Nombre d'articles : {{ revue.getNbArticle(revue) }}</h3>
-                    <h3>Thème : {{ revue.theme }}</h3>
+                    <div>
+                        <h2>N°{{ loop.index }} / {{ revue.title }}</h2>
+                        <div>
+                            <h3>{{ revue.getDatePubli()|date('d/m/Y') }}</h3>
+                            <h3>Nombre d'articles : {{ revue.getNbArticle(revue) }}</h3>
+                            <h3>Thème : {{ revue.theme }}</h3>
+                        </div>
+                    </div>
                 </div>
             </a>
     {% endfor %}
