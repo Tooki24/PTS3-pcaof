@@ -134,6 +134,7 @@ a {
 /*navbar*/
 
 #navbar{
+    height: 4em;
     width: 100%;
     padding-top: 1em;
     padding-bottom: 1em;
@@ -160,14 +161,16 @@ a {
 #navbar-adherent{
     border-right: transparent;
 }
-.dropdown button, .dropdown button:hover, .dropdown button:focus{
-    background-color: transparent ;
-    border: none;
+
+#menuDrop{
+    width: 100%;
 }
 
-.dropdown button:hover{
-    color: #00CC94;
+
+#menuDrop li {
+    text-align: center;
 }
+
 /*Accueil*/
 
 .blocBleu{

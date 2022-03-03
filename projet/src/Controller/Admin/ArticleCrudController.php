@@ -28,16 +28,16 @@ class ArticleCrudController extends AbstractCrudController
     {
         return [
             TextField::new('title','Titre'),
-            SlugField::new('slug')->setTargetFieldName('title'),
-            TextField::new('resume','Résumé'),
-            TextField::new('imageFile','Image d\'illustration')->setFormtype(VichImageType::class)->hideOnIndex(),
-            ImageField::new('imageName','Image d\'illustration')->setBasePath('/uploads/article/image')->onlyOnIndex(),
-            TextField::new('pdfFile','L\'article Au format PDF')->setFormtype(VichImageType::class),
-            TextField::new('pdfName','Le PDF')->onlyOnIndex(),
-            AssociationField::new('people','le(s) Auteur(s)de l\'article' ),
-            AssociationField::new('revue','La revue de l\'article'),
+            SlugField::new('slug')->setTargetFieldName('title')->setTemplatePath('admin/field_custom.html.twig'),
+            TextEditorField::new('resume','Résumé'),
+            TextField::new('imageFile','Image')->setFormtype(VichImageType::class)->hideOnIndex(),
+            ImageField::new('imageName','Image')->setBasePath('/uploads/article/image')->onlyOnIndex(),
+            TextField::new('pdfFile','L\'article Au format PDF')->setFormtype(VichImageType::class)->hideOnIndex(),
+            TextField::new('pdfName','PDF')->onlyOnIndex(),
+            AssociationField::new('people','Auteur(s)' ),
+            AssociationField::new('revue','Titre de la revue'),
             BooleanField::new('Online','En ligne'),
-            DateTimeField::new('datePubli','date de création/modification')->onlyOnIndex()
+            DateTimeField::new('Date','date de création/modification')->onlyOnIndex()
         ];
     }
 

@@ -43,4 +43,16 @@ class PublicationRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    // Requette for EasyAdmin
+
+    /**
+     * @return int|mixed|string
+     */
+    public function countAll(){
+        $queryBuilder = $this->createQueryBuilder('p');
+        $queryBuilder->select('COUNT(p.id) as value');
+
+        return $queryBuilder->getQuery()->getOneOrNullResult();
+    }
 }

@@ -10,12 +10,12 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FileField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 
 class RevueCrudController extends AbstractCrudController
 {
@@ -25,19 +25,21 @@ class RevueCrudController extends AbstractCrudController
     }
 
 
+
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title'),
-            SlugField::new('slug')->setTargetFieldName('title'),
-            TextField::new('theme'),
-            TextField::new('resume'),
-            DateTimeField::new('datePubli')->onlyOnIndex(),
+            TextField::new('title', 'Titre'),
+            SlugField::new('slug')->setTargetFieldName('title')
+                                    ->setTemplatePath('admin/field_custom.html.twig'),
+            TextEditorField::new('resume', 'Résumé'),
+            DateTimeField::new('datePubli', 'Date publi')->onlyOnIndex(),
+            TextField::new('theme', 'Thème'),
             AssociationField::new('colloques'),
             AssociationField::new('articles'),
-            TextField::new('imageFile')->setFormtype(VichImageType::class)->hideOnIndex(),
-            ImageField::new('imageName')->setBasePath('/uploads/revue/image')->onlyOnIndex(),
-            booleanField::new('onLine'),
+            TextField::new('imageFile')->setFormtype(VichImageType::class)->setLabel('Images')->hideOnIndex(),
+            ImageField::new('imageName', 'Image')->setBasePath('/uploads/revue/image')->onlyOnIndex(),
+            booleanField::new('onLine', 'En ligne'),
 
         ];
     }

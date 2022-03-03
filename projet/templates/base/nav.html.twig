@@ -1,26 +1,52 @@
 <header>
-    <div id="header-title">
-        <a href={{ path('home') }}>
-            <h2 > Popular Culture Association of France</h2>
-            <p>Association Française d'Etude des Cultures Populaires</p>
-            <hr id="header-title-bar">
-        </a>
-        <img id="logo-header" src="{{ asset('img/logo/logoColor.png') }}" alt="Logo">
-    </div>
-    <div id="navbar">
-        <a id="navbar-revues" class="navbar-select" href="{{ path('revues') }}">Revues</a>
-        <a id="navbar-colloque" class="navbar-select" href="{{ path('colloques') }}">Colloques</a>
-        <a id="navbar-publi" class="navbar-select" href="">Publications</a>
-        <div id="navbar-adherent" class="dropdown navbar-select">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Association
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Association</a></li>
-                <li><a class="dropdown-item" href="#">Bureau</a></li>
-                <li><a class="dropdown-item" href="{{path("adherants") }}">Devenir adhérent</a></li>
-            </ul>
+        <div id="header-title">
+            <a href={{ path('home') }}>
+                <h2 > Popular Culture Association of France</h2>
+                <p>Association Française d'Etude des Cultures Populaires</p>
+                <hr id="header-title-bar">
+            </a>
+            <img id="logo-header" src="{{ asset('img/logo/logoColor.png') }}" alt="Logo">
         </div>
+        <div id="navbar">
 
-    </div>
+            <a  class="navbar-select" href="{{ path('revues') }}">Revues</a>
+            <a  class="navbar-select" href="{{ path('colloques') }}">Colloques</a>
+            <a  class="navbar-select" href="">Publications</a>
+            <div class="dropdown navbar-select">
+                <button class="btn dropdown-toggle text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Association
+                </button>
+
+                <ul class="dropdown-menu " id="menuDrop" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">Association</a></li>
+                    <li><a class="dropdown-item" href="#">Bureau</a></li>
+                    <li><a class="dropdown-item" href="{{path("adherants") }}">Devenir adhérent</a></li>
+                </ul>
+            </div>
+
+
+        </div>
 </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

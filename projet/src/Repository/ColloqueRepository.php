@@ -56,4 +56,16 @@ class ColloqueRepository extends ServiceEntityRepository
 
         return empty(!$colloque) ? $colloque[0] : null;
     }
+
+    // Requette for EasyAdmin
+
+    /**
+     * @return int|mixed|string
+     */
+    public function countAll(){
+        $queryBuilder = $this->createQueryBuilder('c');
+        $queryBuilder->select('COUNT(c.id) as value');
+
+        return $queryBuilder->getQuery()->getOneOrNullResult();
+    }
 }
