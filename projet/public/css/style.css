@@ -84,7 +84,7 @@ a {
     text-decoration: none;
 }
 
-/*header*/
+/*****************header***************/
 #header-title {
     margin-left :1%;
     display: flex;
@@ -189,7 +189,11 @@ a {
     border-bottom-left-radius: 30px;
     border-top-left-radius: 30px;
 }
-#blocBleuColloque , #blocBleuPubli{
+
+.blocBleuColloque{
+    margin-top:30px;
+}
+.blocBleuColloque , .blocBleuPubli{
     border-top-right-radius: 30px;
     border-bottom-right-radius:30px;
 }
@@ -422,7 +426,7 @@ a {
         padding-right: 0;
         width: 100%;
     }
-    #blocBleuPubli,#blocBleuColloque,#blocBleuRevue{
+    .blocBleuPubli,.blocBleuColloque,#blocBleuRevue{
         border-radius:0;
     }
     .blocAvecToutDedans{

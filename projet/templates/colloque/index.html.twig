@@ -8,13 +8,14 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
+    <h1 class="blocBleu blocBleuColloque">Colloque(s) à venir</h1>
 <div class="example-wrapper">
-    <h1>Colloque(s) à venir</h1>
+
     {% for colloque in colloquesAsc %}
         {% if colloque.getOnLine() == 1 %}
             {% if (colloque.dateD|date('Y-m-d') >= 'now'|date('Y-m-d')) %}
                 <a href="{{ path('details_colloque', {'slug': colloque.slug}) }}">
-                <div class="m-5 p-2 border">
+                <div class="bloc-revue">
                     <p>{{ colloque.name }}</p>
                     <p>Du {{ colloque.dateD|format_datetime(locale='fr',pattern="d MMMM Y") }} au
                         {{ colloque.dateF|format_datetime(locale='fr',pattern="d MMMM Y") }}</p>
