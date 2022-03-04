@@ -1,0 +1,40 @@
+body{
+    background-color: rgba(223, 227, 234, 0.51);
+    background-size: cover;
+}
+@media (min-width: 1024px) {
+    .main-sidebar{
+        height: unset;
+        padding: 0;
+        position: absolute;
+        z-index: 1000;
+        width: unset;
+    }
+}
+#responsive-header-logo img{
+    width: 40%;
+}
+.sidebar{
+    background-color: #c0cdce;
+}
+#main-menu .menu .menu-item{
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.content-header{
+    background-color: rgba(223, 227, 234, 0);
+}
+
+.border-left-primary {
+    border-left: 0.25rem solid #4e73df!important;
+}
+.border-left-success {
+    border-left: 0.25rem solid #1cc88a!important;
+}
+.border-left-info {
+    border-left: 0.25rem solid #36b9cc!important;
+}
+.border-left-warning {
+    border-left: 0.25rem solid #f6c23e!important;
+}

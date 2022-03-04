@@ -17,13 +17,14 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\FileField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 
+
+
 class RevueCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
         return Revue::class;
     }
-
 
 
     public function configureFields(string $pageName): iterable

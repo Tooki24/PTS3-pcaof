@@ -31,7 +31,7 @@ class PublicationCrudController extends AbstractCrudController
             TextField::new('title'),
             SlugField::new('slug')->setTargetFieldName('title')->setTemplatePath('admin/field_custom.html.twig'),
             TextEditorField::new('resume', 'Résumé'),
-            TextField::new('imageFile')->setFormtype(VichImageType::class)->hideOnIndex(),
+            TextField::new('imageFile', 'Image')->setFormtype(VichImageType::class)->hideOnIndex(),
             ImageField::new('imageName', 'Image')->setBasePath('/uploads/publication/image')->onlyOnIndex(),
             TextField::new('pdfFile', 'L\'article Au format PDF')->setFormtype(VichFileType::class)->hideOnIndex(),
             TextField::new('pdfName', 'PDF')->onlyOnIndex(),

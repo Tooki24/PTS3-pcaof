@@ -32,7 +32,7 @@ class ArticleCrudController extends AbstractCrudController
             TextEditorField::new('resume','Résumé'),
             TextField::new('imageFile','Image')->setFormtype(VichImageType::class)->hideOnIndex(),
             ImageField::new('imageName','Image')->setBasePath('/uploads/article/image')->onlyOnIndex(),
-            TextField::new('pdfFile','L\'article Au format PDF')->setFormtype(VichImageType::class)->hideOnIndex(),
+            TextField::new('pdfFile','L\'article Au format PDF')->setFormtype(VichFileType::class)->hideOnIndex(),
             TextField::new('pdfName','PDF')->onlyOnIndex(),
             AssociationField::new('people','Auteur(s)' ),
             AssociationField::new('revue','Titre de la revue'),

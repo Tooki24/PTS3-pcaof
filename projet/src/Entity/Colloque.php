@@ -68,10 +68,7 @@ class Colloque
      * @ORM\Column(type="string", length=255, nullable=true)
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * NOTE: expression qui verifie si la fin du tring contiens ".pdf" (verification pour eviter d'upload des fichiers non voulus),
-     * @Assert\Regex("
-     *     pattern=/[^\s]+(?=\.(pdf))\./D",
-     *     message="Le fichier choisi dois etre au format PDF"
-     * ) //TODO faire verifier le message d'erreur
+     //TODO faire verifier le message d'erreur
      * @var File
      */
     private $planningPdfName;
@@ -81,7 +78,7 @@ class Colloque
      * @Vich\UploadableField(mapping="colloque_pdf", fileNameProperty="planningPdfName")
      * @var File
      */
-    private $planningPdfFile;
+    private File $planningPdfFile;
 
     /**
      * @ORM\Column(type="boolean")
@@ -226,7 +223,7 @@ class Colloque
 
     public function setPlanningPdfFile(?File $pdfFile = null): void
     {
-        $this->pdfFile = $pdfFile;
+        $this->planningPdfFile = $pdfFile;
 
         // It is required that at least one field changes if you are using doctrine
         // otherwise the event listeners won't be called and the file is lost
@@ -234,7 +231,7 @@ class Colloque
         if (null !== $pdfFile) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
-            $this->datePubli = new \DateTimeImmutable();
+            $this->dateD = new \DateTimeImmutable();
         }
 
     }
