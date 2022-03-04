@@ -9,7 +9,7 @@
 </style>
 
 <div class="bloc-revue-articles">
-        <div class="revue-liste-article-infos row">
+        <div class="revue-liste-article-infos">
             {% if revue.imageName is not null %}
                 <IMG src="{{ vich_uploader_asset(revue,'imageFile') }}" alt="image de la revue : {{ revue.imageName }}" width="150px">
             {% endif %}
@@ -22,10 +22,12 @@
                 <h4> - {{ colloque.name }}</h4>
             {% endfor %}
             </div>
-            <p>{{ revue.resume }}</p>
-
-
         </div>
+            <div class="revue-resume">
+                <p>{{ revue.resume }}</p>
+            </div>
+
+
             {% for article in articles %}
                 <div class ='bloc-revue col'>
                 <a href="{{ path('details_article', {'slug': article.slug}) }}">
