@@ -73,6 +73,10 @@ class Revue
 
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @Assert\File (
+     *      mimeTypes = {"image/jpeg", "image/png", "image/gif", "image/jpg"},
+     *      mimeTypesMessage = "Ce fichier doit être une image")
+     * )
      * @Vich\UploadableField(mapping="revue_image", fileNameProperty="imageName")
      * @var File
      */

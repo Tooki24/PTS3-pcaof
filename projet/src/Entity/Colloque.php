@@ -66,7 +66,6 @@ class Colloque
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * NOTE: expression qui verifie si la fin du tring contiens ".pdf" (verification pour eviter d'upload des fichiers non voulus),
      //TODO faire verifier le message d'erreur
      * @var File
@@ -74,7 +73,11 @@ class Colloque
     private $planningPdfName;
 
     /**
-     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * NOTE: This is not a mapped field of entity metadata, just a simple property
+     * @Assert\File(
+     *     mimeTypes = {"application/pdf", "application/x-pdf"},
+     *     mimeTypesMessage = "Le fichier doit être un PDF"
+     * )
      * @Vich\UploadableField(mapping="colloque_pdf", fileNameProperty="planningPdfName")
      * @var File
      */
