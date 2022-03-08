@@ -42,6 +42,14 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $eMail;
 
+
+    public function __construct(?string $ipAddress, ?string $username)
+    {
+        $this->ipAddress = $ipAddress;
+        $this->username = $username;
+        $this->date = new \DateTimeImmutable('now');
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -123,4 +131,5 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
 }
