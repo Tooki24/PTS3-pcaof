@@ -98,6 +98,8 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
+            // Sup LoginAtt si valid OK
+            $this->loginAttemptRepository->removeUserName($request->request->get('username'));
             return new RedirectResponse($targetPath);
         }
 

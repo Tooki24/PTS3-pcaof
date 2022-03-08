@@ -64,4 +64,13 @@ class LoginAttemptRepository extends ServiceEntityRepository
             ->getSingleScalarResult()
             ;
     }
+
+    public function removeUserName(string $username)
+    {
+        // Parcours toute les elt avec $username et les supp
+        foreach ($this->findBy(array('username' => $username)) as $value)
+        {
+            $this->remove($value, true);
+        }
+    }
 }
