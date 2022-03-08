@@ -27,16 +27,17 @@
                 <p>{{ revue.resume }}</p>
         </div>
     <div id="bloc-bar-revue">
+        <p>Les Articles</p>
         <div id="revue-article-bar"></div>
     </div>
 
 
-
+            <div id="bloc-liste-tout-articles">
             {% for article in articles %}
-                <div class ='bloc-ombre' id="bloc-liste-article-revue">
+                <div id="bloc-liste-article-revue">
                 <a href="{{ path('details_article', {'slug': article.slug}) }}">
                     <div class="liste-bloc-article">
-                        <p>{{ article.title }}</p>
+                        <p id="titre-article">{{ article.title }}</p>
                         <p>{{ article.getDatePubli()|date('d/m/Y') }}</p>
                         <p>Nombre de participants : {{ article.getNbPeople() }}</p>
                         {% if article.pdfName is not null %}
@@ -48,6 +49,7 @@
                 </a>
                 </div>
             {% endfor %}
+            </div>
 
 </div>
 {% endblock %}
