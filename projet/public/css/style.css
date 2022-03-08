@@ -214,7 +214,10 @@ a {
 .lastRevueAcceuil{
     margin: 0;
 }
-.bloc-ombre {
+.bloc-ombre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: #004E5A;
     border-radius: 10px;
     padding-left: 2%;
