@@ -378,6 +378,8 @@ a {
 .noHighlight:hover{
     text-decoration: none;
 }
+
+/*******revue******/
 #liste-bloc-revue{
     text-decoration: none;
     display: flex;
@@ -423,6 +425,16 @@ a {
     justify-content: flex-start;
 }
 
+
+/*******colloque******/
+
+.liste-bloc-colloque:hover{
+    background-color: rgba(0, 78, 90, 0.3);
+}
+#bloc-colloque-name{
+    font-size:3em;
+    font-weight:bold;
+}
 @media screen and (max-width: 900px)
 {
     #header-title h2 {
