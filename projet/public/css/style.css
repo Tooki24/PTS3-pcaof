@@ -4,6 +4,12 @@ body{
     padding : 0;
     margin: 0;
 }
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
 
 h1{
     font-family: 'Passion One', cursive;
@@ -208,21 +214,7 @@ a {
 .lastRevueAcceuil{
     margin: 0;
 }
-
-#revue-home{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    color: #004E5A;
-    border-radius: 10px;
-    padding-left: 2%;
-    padding-right: 2%;
-    margin:5% 10%;
-    -webkit-box-shadow: 0px 0px 8px 5px rgba(186,186,186,0.5);
-    box-shadow: 0px 0px 8px 5px rgba(186,186,186,0.5);
-
-}
-#publi-home {
+.bloc-ombre {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -234,6 +226,7 @@ a {
     -webkit-box-shadow: 0px 0px 8px 5px rgba(186, 186, 186, 0.5);
     box-shadow: 0px 0px 8px 5px rgba(186, 186, 186, 0.5);
 }
+
 #revue-home-img{
     width:30%;
 }
@@ -241,18 +234,31 @@ a {
 #revue-home:hover{
     background-color: rgba(0, 78, 90, 0.3);
 }
-.publi-hover:hover{
+#publi-home:hover{
     background-color: #004E5A;
+    color:white;
 }
-.publi-hover:hover h2{
-    color: white;
+#publi-home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.publi-hover:hover p{
-    color: white;
+#revue-home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#colloque-home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #revue-home-text{
     display: flex;
     justify-content: space-evenly;
+}
+#revue-home:hover{
+    color: #004E5A;
 }
 
 .lastPubliAcceuil{
@@ -289,18 +295,6 @@ a {
     display: flex;
     justify-content: center;
 }
-.colloque-home{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #004E5A;
-    border-radius: 10px;
-    padding-left: 2%;
-    padding-right: 2%;
-    margin: 5% 10%;
-    -webkit-box-shadow: 0px 0px 8px 5px rgba(186, 186, 186, 0.5);
-    box-shadow: 0px 0px 8px 5px rgba(186, 186, 186, 0.5);
-}
 .bouton-colloque-home{
     text-decoration: none;
     background-color: #004E5A ;
@@ -319,14 +313,14 @@ a {
     border: solid #004E5A 1.50px;
     color: #004E5A;
 }
-.bloc-theme-date-place-home{
+.bloc-colloque-theme-date-place-home{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     width: 100%;
     font-size: 100%;
 }
-.bloc-date-place-home{
+.bloc-colloque-date-place-home{
     display: flex;
     flex-flow: column nowrap;
     font-size: 80%;
@@ -336,7 +330,7 @@ a {
     justify-content: center;
     margin-top: 2%;
 }
-#place-home{
+#colloque-place-home{
     color: #6999A0;
 }
 
@@ -384,18 +378,11 @@ a {
 .noHighlight:hover{
     text-decoration: none;
 }
-.bloc-revue{
+#liste-bloc-revue{
     text-decoration: none;
     display: flex;
     flex-direction: row;
     align-items: center;
-    color: #004E5A;
-    border-radius: 10px;
-    padding-left: 2%;
-    padding-right: 2%;
-    margin: 5% 10%;
-    -webkit-box-shadow: 0px 0px 8px 5px rgba(186, 186, 186, 0.5);
-    box-shadow: 0px 0px 8px 5px rgba(186, 186, 186, 0.5);
 }
 .info-revue{
     font-size: 80%;

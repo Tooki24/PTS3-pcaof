@@ -20,7 +20,7 @@
                     <p class="lastNomAcceuil">Dernières publications</p>
                 </div>
                 {% for publication in publications %}
-                    <a href="{{ path('details_publication', {'slug': publication.slug}) }}" id="publi-home" class="publi-hover">
+                    <a href="{{ path('details_publication', {'slug': publication.slug}) }}" id="publi-home" class="bloc-ombre">
                         <div class="publi-home-text">
                             <h2 class="titre-publi-revue">{{ publication.title }}</h2>
                             <p class ="dateAccueil">{{ publication.datePubli|date('d/m/Y') }}</p>
@@ -34,7 +34,7 @@
                     <p class="lastNomAcceuil">Dernière Revue</p>
                 </div>
                 {% if revue is not null %}
-                    <a href="{{ path('detail_revue', {'slug': revue.slug}) }}" id="revue-home">
+                    <a href="{{ path('detail_revue', {'slug': revue.slug}) }}" id="revue-home" class ="bloc-ombre">
                         <div id="revue-home-text">
                             <div id="revue-home-block1">
                                 <h2 class = titre-publi-revue>{{ revue.title }}</h2>
@@ -54,12 +54,12 @@
                 <p class="lastNomAcceuil">Colloque à venir</p>
             </div>
             {% if colloque is not null %}
-                <div class="colloque-home">
+                <div id="colloque-home" class="bloc-ombre">
                     <h1 class="nom-colloque">{{ colloque.name }} </h1>
-                    <div class ="bloc-theme-date-place-home">
+                    <div class ="bloc-colloque-theme-date-place-home">
                         <p>Theme ...</p>
-                        <div class="bloc-date-place-home">
-                            <p id="place-home">à  {{ colloque.place }}</p>
+                        <div class="bloc-colloque-date-place-home">
+                            <p id="colloque-place-home">à  {{ colloque.place }}</p>
                             <p>Du {{ colloque.dateD|date('d/m/Y') }} au {{ colloque.dateF|date('d/m/Y') }}</p>
 
                         </div>

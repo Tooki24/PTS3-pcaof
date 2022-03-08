@@ -14,7 +14,7 @@
 
     {% for revue in revues %}
             <a href="{{ path('detail_revue', {'slug': revue.slug}) }}" class="noHighlight">
-                <div class="bloc-revue">
+                <div class="bloc-ombre" id="liste-bloc-revue">
                     {% if revue.imageName is not null %}
                         <IMG src="{{ vich_uploader_asset(revue,'imageFile') }}" alt="image de la revue : {{ revue.imageName }}" width="150px">
                     {% endif %}
