@@ -214,7 +214,7 @@ a {
 .lastRevueAcceuil{
     margin: 0;
 }
-.bloc-ombre {
+.bloc-ombre{
     display: flex;
     flex-direction: column;
     align-items: center;
