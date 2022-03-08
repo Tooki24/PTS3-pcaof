@@ -386,6 +386,7 @@ a {
 
 #liste-bloc-revue:hover{
     background-color: rgba(0, 78, 90, 0.3);
+    transition: 0.5s;
 }
 .info-revue{
     font-size: 80%;
@@ -393,6 +394,7 @@ a {
 }
 .bloc-revue:hover {
     background-color: rgba(0, 78, 90, 0.3);
+    transition: 0.5s;
 }
 #revue-title-bar{
     background-color: #004E5A;
