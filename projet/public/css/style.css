@@ -431,9 +431,36 @@ a {
 .liste-bloc-colloque:hover{
     background-color: rgba(0, 78, 90, 0.3);
 }
-#bloc-colloque-name{
-    font-size:3em;
-    font-weight:bold;
+#bloc-colloque-name {
+    font-size: 3em;
+    font-weight: bold;
+}
+#liste-bloc-revue:hover{
+    background-color: rgba(0, 78, 90, 0.3);
+}
+.liste-bloc-article p{
+    color: #004E5A;
+    margin:0;
+}
+#bloc-liste-article-revue{
+    margin:15px;
+}
+#bloc-liste-article-revue:hover{
+    background-color: rgba(0, 78, 90, 0.3);
+}
+#bloc-bar-revue{
+    display: flex;
+    justify-content: center;
+}
+#revue-article-bar {
+    display: flex;
+    align-items: center;
+    background-color:#004E5A;
+    margin-top: 0;
+    padding-bottom: 0.5%;
+    border: 3px;
+    width:80%;
+
 }
 @media screen and (max-width: 900px)
 {
