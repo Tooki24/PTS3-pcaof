@@ -1,64 +1,36 @@
 <header>
-
-        <h1 class="text-center text-white d-none d-lg-block site-heading" style="background: var(--bs-gray-100);margin-bottom: 10px;margin-top: 10px;">
-            <span class="text-primary site-heading-upper mb-3" style="padding: 0px;margin: 0px;margin-top: 0px;margin-bottom: 0px;">
-                <div id="header-title">
-                    <a href={{ path('home') }}>
-                    <h2 > Popular Culture Association of France</h2>
-                    <p>Association Française d'Etude des Cultures Populaires</p>
-                    <hr id="header-title-bar">
-                    </a>
-                </div>
-            </a>
-            <img id="logo-header" src="{{ asset('img/logo/logoColor.png') }}" alt="Logo">
-        </div>
-            </span>
-        </h1>
-
-        <div id="header-title">
-            <a href={{ path('home') }}>
-                <h2 > Popular Culture Association of France</h2>
-                <p>Association Française d'Etude des Cultures Populaires</p>
-                <hr id="header-title-bar">
-            </a>
-            <img id="logo-header" src="{{ asset('img/logo/logoColor.png') }}" alt="Logo">
-        </div>
-        <div id="navbar">
-
-            <a  class="navbar-select" href="{{ path('revues') }}">Revues</a>
-            <a  class="navbar-select" href="{{ path('colloques') }}">Colloques</a>
-            <a  class="navbar-select" href="">Publications</a>
-            <div class="dropdown navbar-select">
-                <button class="btn dropdown-toggle text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    Association
-                </button>
-                <ul class="dropdown-menu " id="menuDrop" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Association</a></li>
-                    <li><a class="dropdown-item" href="#">Bureau</a></li>
-                    <li><a class="dropdown-item" href="{{path("adherants") }}">Devenir adhérent</a></li>
-                </ul>
-            </div>
-        </div>
-
-    <nav class="navbar navbar-dark navbar-expand-lg bg-dark py-lg-4" id="mainNav" style="color: #212529;border-color: #004E5A;--bs-dark: #004e5a;--bs-dark-rgb: 0,78,90;">
-        <div class="container"><a class="navbar-brand text-uppercase d-lg-none text-expanded" href="#"></a><img class="d-lg-none d-xl-none d-xxl-none" src="assets/img/logomasquecolors.png" style="max-width: 333px;min-width: 111px;width: 199px;"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarResponsive"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div id="header-title">
+        <a href={{ path('home') }}>
+            <h2> Popular Culture Association of France</h2>
+            <p>Association Française d'Etude des Cultures Populaires</p>
+            <hr id="header-title-bar">
+        </a>
+        <img id="logo-header" src="{{ asset('img/logo/logoColor.png') }}" alt="Logo">
+    </div>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark py-lg-4" id="mainNav"
+         style="color: #212529;border-color: #004E5A;--bs-dark: #004e5a;--bs-dark-rgb: 0,78,90;">
+        <div class="container"><a class="navbar-brand text-uppercase d-lg-none text-expanded" href="{{ path('home') }}"><img
+                    class="d-lg-none d-xl-none d-xxl-none" src="{{ asset('img/logo/logoColor.png') }}"
+                    style="width: 130px;"></a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarResponsive"><span
+                        class="visually-hidden">Menu</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Revues</a>
+                        <a class="nav-link" href="{{ path('revues') }}">Revues</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">Colloques</a>
+                        <a class="nav-link" href="{{ path('colloques') }}">Colloques</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="products.html">Publications</a>
+                        <a class="nav-link" href="#">Publications</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">Association</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">Association</a>
                             <a class="dropdown-item" href="#">Bureau</a>
-                            <a class="dropdown-item" href="#">Devenir adherent</a>
+                            <a class="dropdown-item" href="{{ path("adherants") }}">Devenir adherent</a>
                         </div>
                     </li>
                 </ul>

@@ -423,7 +423,7 @@ a {
     justify-content: flex-start;
 }
 
-@media screen and (max-width: 900px)
+@media screen and (max-width: 992px)
 {
     #header-title h2 {
         font-size: 1.2em;
@@ -440,8 +440,7 @@ a {
         display: none;
     }
     #logo-header {
-        width: 10em;
-        margin:15px auto;
+        display: none;
     }
     #navbar {
         justify-content: space-evenly;
