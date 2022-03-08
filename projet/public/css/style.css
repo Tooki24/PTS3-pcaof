@@ -215,9 +215,6 @@ a {
     margin: 0;
 }
 .bloc-ombre{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     color: #004E5A;
     border-radius: 10px;
     padding-left: 2%;
@@ -386,6 +383,10 @@ a {
     flex-direction: row;
     align-items: center;
 }
+
+#liste-bloc-revue:hover{
+    background-color: rgba(0, 78, 90, 0.3);
+}
 .info-revue{
     font-size: 80%;
     margin: 0;
@@ -426,18 +427,7 @@ a {
 }
 
 
-/*******colloque******/
 
-.liste-bloc-colloque:hover{
-    background-color: rgba(0, 78, 90, 0.3);
-}
-#bloc-colloque-name {
-    font-size: 3em;
-    font-weight: bold;
-}
-#liste-bloc-revue:hover{
-    background-color: rgba(0, 78, 90, 0.3);
-}
 .liste-bloc-article p{
     color: #004E5A;
     margin:0;
@@ -462,6 +452,23 @@ a {
     width:80%;
 
 }
+
+
+/*******colloque******/
+
+.liste-bloc-colloque{
+    display: flex;
+    flex-direction: row;
+
+}
+.liste-bloc-colloque:hover{
+    background-color: rgba(0, 78, 90, 0.3);
+}
+#bloc-colloque-name {
+    font-size: 3em;
+    font-weight: bold;
+}
+
 @media screen and (max-width: 900px)
 {
     #header-title h2 {

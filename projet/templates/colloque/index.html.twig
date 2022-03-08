@@ -15,16 +15,20 @@
         {% if colloque.getOnLine() == 1 %}
             {% if (colloque.dateD|date('Y-m-d') >= 'now'|date('Y-m-d')) %}
                 <a href="{{ path('details_colloque', {'slug': colloque.slug}) }}">
-                <div class="bloc-ombre liste-bloc-colloque">
+                <div class="bloc-ombre">
+                    <div class="liste-bloc-colloque">
                     <p id="bloc-colloque-name">{{ colloque.name }}</p>
                     <p>Du {{ colloque.dateD|format_datetime(locale='fr',pattern="d MMMM Y") }} au
                         {{ colloque.dateF|format_datetime(locale='fr',pattern="d MMMM Y") }}</p>
                     <p>à {{ colloque.place }}</p>
                     <p>Thème : {{ colloque.theme }}</p>
+                    </div>
+
                     {% if colloque.getIsPcaof() == 1 %}
                         <img src="{{ asset('img/logo/logoColor.png') }}" alt="logo pcaof">
                     {% endif%}
                 </div>
+
                 </a>
             {%  endif %}
         {% endif %}
@@ -42,10 +46,11 @@
                     <p>Du {{ colloque.dateD|date('d/m/Y') }} au {{ colloque.dateF|date('d/m/Y') }}</p>
                     <p>à {{ colloque.place }}</p>
                     <p>Thème : {{ colloque.theme }}</p>
+                </div>
                     {% if colloque.getIsPcaof() == 1 %}
                         <img src="{{ asset('img/logo/logoColor.png') }}" alt="logo pcaof">
                     {% endif%}
-                    </div>
+
                 </a>
             {%  endif %}
         {% endif %}
