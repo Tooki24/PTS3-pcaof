@@ -8,18 +8,20 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <p>De{% for auteur in publication.getPeople %}  
-         {{ auteur.firstName }} {{ auteur.name }},
-        {%  endfor %}
-    </p>
-    <h3>{{ publication.title }}</h3>
-    <p>{{ publication.datePubli|format_datetime(locale='fr',pattern="d MMMM Y") }}</p>
-    {% if publication.imageName is not null %}
-        <img src="{{asset (vich_uploader_asset (publication, 'imageFile'))}}" width="100%">
-    {% endif %}
+<div class="bloc-ombre" id="bloc-publi-detail">
+    <div id="nom-date-auteur-publi-detail">
+        <div id="nom-date-publi-detail">
+            <h3>{{ publication.title }}</h3>
+            <p id="date-publi-detail">{{ publication.datePubli|format_datetime(locale='fr',pattern="d MMMM Y") }}</p>
+        </div>
+        <p id="auteur-publi-detail">De{% for auteur in publication.getPeople %}
+         {{ auteur.firstName }} {{ auteur.name }}
+        {%  endfor %}</p>
+    </div>
     <p>{{ publication.resume }}</p>
-    <a href="{{asset (vich_uploader_asset (publication, 'pdfFile'))}}" download><img src="{{ asset('img/telecharger.png') }}" width="50px" ></a>
-    <p><a href="{{asset (vich_uploader_asset (publication, 'pdfFile'))}}" target="_blank">Lire la publication</a></p>
+    <div id="bouton-tel-publi-detail">
+        <a id="bouton-publi-detail" href="{{asset (vich_uploader_asset (publication, 'pdfFile'))}}" target="_blank">Lire la publication</a>
+        <a id="tel-publi-detail" href="{{asset (vich_uploader_asset (publication, 'pdfFile'))}}" download><img src="{{ asset('img/telecharger.png') }}" width="50px" ></a>
+    </div>
 </div>
 {% endblock %}

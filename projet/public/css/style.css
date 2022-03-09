@@ -497,6 +497,63 @@ a {
     font-size: 3em;
     font-weight: bold;
 }
+/*******publication******/
+#nom-date-auteur-publi-detail{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+#auteur-publi-detail{
+    color: rgba(0, 78, 90, 0.5);
+    margin-bottom: 8%;
+}
+#auteur-publi-detail:hover{
+    color: #004E5A;
+    transition:0.5s;
+}
+#date-publi-detail{
+    color: rgba(0, 78, 90, 0.3);
+}
+#bloc-publi-detail{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 20%;
+    margin-top: 10%;
+}
+#bouton-tel-publi-detail{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#bouton-publi-detail{
+    text-decoration: none;
+    background-color: #004E5A ;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 3%;
+    padding:1.5% 7%;
+    height: 70%;
+    width: 80%;
+    display:flex;
+    justify-content: center;
+    transition: 0.5s;
+    border: solid #004E5A 1.50px;
+}
+#bouton-publi-detail:hover {
+    background-color: white;
+    border: solid #004E5A 1.50px;
+    color: #004E5A;
+}
+#tel-publi-detail{
+    margin-right: 5%;
+    margin-bottom: 1%;
+}
+#img-publi-detail{
+    display: flex;
+    justify-content: center;
+}
 
 @media screen and (max-width: 900px)
 {
