@@ -99,7 +99,7 @@ a {
     align-items: center;
 }
 #header-title a{
-    padding-left: 0;
+    padding-left: 10%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -135,6 +135,7 @@ a {
 #logo-header{
     margin: 1%;
     width: 20%;
+    margin-right: 10%;
 }
 
 /*navbar*/
@@ -683,8 +684,7 @@ a {
         display: none;
     }
     #logo-header {
-        width: 10em;
-        margin:15px auto;
+        display: none;
     }
     #navbar {
         justify-content: space-evenly;
@@ -750,8 +750,4 @@ a {
     .blocBleuDetailColloque{
         border-radius:0;
     }
-
-
 }
-
-
