@@ -220,8 +220,7 @@ a {
     padding-left: 2%;
     padding-right: 2%;
     margin: 5% 10%;
-    -webkit-box-shadow: 0px 0px 8px 5px rgba(186, 186, 186, 0.5);
-    box-shadow: 0px 0px 8px 5px rgba(186, 186, 186, 0.5);
+    box-shadow: 0px 0px 5px #9ca3af;
 }
 
 #revue-home-img{
@@ -230,10 +229,15 @@ a {
 
 #revue-home:hover{
     background-color: rgba(0, 78, 90, 0.3);
+    transition:0.3s;
+    border: solid #004E5A 2px;
+    color: #004E5A;
 }
 #publi-home:hover{
-    background-color: #004E5A;
-    color:white;
+    background-color: rgba(0, 78, 90, 0.3);
+    transition:0.3s;
+    border: solid #004E5A 2px;
+    color: #004E5A;
 }
 #publi-home{
     display: flex;
@@ -253,9 +257,6 @@ a {
 #revue-home-text{
     display: flex;
     justify-content: space-evenly;
-}
-#revue-home:hover{
-    color: #004E5A;
 }
 
 .lastPubliAcceuil{
@@ -309,6 +310,10 @@ a {
     background-color: white;
     border: solid #004E5A 1.50px;
     color: #004E5A;
+}
+#nom-colloque-home{
+    font-size:2vw;
+    font-weight: bold;
 }
 .bloc-colloque-theme-date-place-home{
     display: flex;
@@ -377,6 +382,10 @@ a {
 }
 
 /*******revue******/
+#Revues{
+    font-size:2vw;
+    font-weight: bold;
+}
 #liste-bloc-revue{
     text-decoration: none;
     display: flex;
@@ -630,7 +639,10 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
+}
+#Publication{
+    font-size:2vw;
+    font-weight: bold;
 }
 
 @media screen and (max-width: 900px)
