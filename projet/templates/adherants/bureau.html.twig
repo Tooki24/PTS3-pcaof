@@ -3,28 +3,30 @@
 {% block title %}<title> Membre | PCAoF</title>{% endblock %}
 
 {% block body %}
-    <section class="container mt-4">
-        <h1>Membres du bureau</h1>
-
+    <section>
+        <p id="Bureau" class="text-center">Membres du bureau</p>
+        <hr id="title-bar">
+        <div id="liste-auteur-bureau">
         {% for person in persons %}
             {% if person.isOffice == 1 %}
-                <div class="mb-3 mt-2">
+                <div class="bloc-ombre" id="bloc-auteur-bureau">
 
                     {% if person.photoName is not null %}
-                        <img src="{{asset (vich_uploader_asset (person, 'photoFile'))}}" width="20%">
+                        <img class ="img-bureau" src="{{asset (vich_uploader_asset (person, 'photoFile'))}}" width="20%">
                     {% else %}
-                        <img src="{{ asset('img/person.png') }}" width="20%">
+                        <img class="img-bureau" src="{{ asset('img/person.png') }}" width="20%">
                     {% endif %}
 
-                    <p>{{ person.name }} {{ person.firstname }}</p>
+                    <p id="nom-bureau">{{ person.name }} {{ person.firstname }}</p>
 
                     {% if person.role is not null %}
-                        <p>Role : {{ person.role }}</p>
+                        <p>{{ person.role }}</p>
                     {% else %}
-                        <p>Role : Membre</p>
+                        <p>Membre</p>
                     {% endif %}
                 </div>
             {% endif %}
         {% endfor %}
+        </div>
     </section>
 {% endblock %}

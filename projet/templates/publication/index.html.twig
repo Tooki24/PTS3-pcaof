@@ -10,7 +10,7 @@
 
 <div class="example-wrapper">
     <p id="Publication" class="text-center">Publications</p>
-    <hr id="revue-title-bar">
+    <hr id="title-bar">
     {% for publication in publications %}
         <div class="bloc-ombre" id ="bloc-liste-publication">
             <a href="{{ path('details_publication', {'slug': publication.slug}) }}">

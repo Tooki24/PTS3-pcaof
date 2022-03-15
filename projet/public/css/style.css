@@ -407,7 +407,7 @@ a {
     background-color: rgba(0, 78, 90, 0.3);
     transition: 0.5s;
 }
-#revue-title-bar{
+#title-bar{
     background-color: #004E5A;
     margin-top: 0;
     padding-bottom: 0.5%;
@@ -664,6 +664,35 @@ a {
 }
 #Publication{
     font-size:2vw;
+    font-weight: bold;
+}
+/**********bureau******/
+#bloc-auteur-bureau{
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:2%;
+
+}
+#liste-auteur-bureau{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+#Bureau{
+    margin-top:2%;
+    font-weight: bold;
+    font-size:2vw;
+}
+.img-bureau{
+    width: 50%;
+}
+#nom-bureau{
     font-weight: bold;
 }
 
