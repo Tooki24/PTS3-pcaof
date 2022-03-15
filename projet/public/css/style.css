@@ -535,12 +535,36 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 5% 20%;
+    text-align:center;
 }
 
 .img-detail-colloque{
     width: 10%;
     height:10%;
+    padding-bottom: 3%;
 }
+
+.event-detail-colloque{
+    font-weight:bolder;
+}
+
+.button-cont-detail-colloque{
+    text-decoration: none;
+    background-color: #004E5A ;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 3%;
+    padding:1.5% 7%;
+    transition: 0.5s;
+    border: solid #004E5A 1.50px;
+}
+
+.button-cont-detail-colloque:hover{
+    background-color:white;
+    color: #004E5A;
+}
+
 
 
 /*******publication******/
@@ -712,6 +736,25 @@ a {
         width: 20%;
         height: 20%;
     }
+
+    .img-detail-colloque{
+        width: 30%;
+        height:30%;
+        padding-bottom: 3%;
+    }
+    .bloc-detail-colloque{
+        padding: 0;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 5% 10%;
+    }
+    .blocBleuDetailColloque{
+        border-radius:0;
+    }
+
+
 }
 
 
