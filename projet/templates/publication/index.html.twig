@@ -9,14 +9,19 @@
 </style>
 
 <div class="example-wrapper">
+    <h1 class="text-center">Publications</h1>
+    <hr id="revue-title-bar">
     {% for publication in publications %}
-        <div class="mb-4 mt-2">
+        <div class="bloc-ombre" id ="bloc-liste-publication">
             <a href="{{ path('details_publication', {'slug': publication.slug}) }}">
-                <h3>{{ publication.title }}</h3>
-                <p>{{ publication.datePubli|format_datetime(locale='fr',pattern="d MMMM Y") }}</p>
-                <p>De
+                <div id="nom-date-liste-publication">
+                <p id="titre-liste-publication">{{ publication.title }}</p>
+                <p id="date-liste-publication">{{ publication.datePubli|format_datetime(locale='fr',pattern="d MMMM Y") }}</p>
+                </div>
+                <div id="bloc-pdf-auteur-liste-publication">
+                <p id="auteur-liste-publication">De
                     {% for auteur in publication.getPeople %}
-                     {{ auteur.firstName }} {{ auteur.name }},
+                     {{ auteur.firstName }} {{ auteur.name }}
                     {%  endfor %}
                 </p>
                 {% if publication.pdfName is not null %}
@@ -24,6 +29,7 @@
                         <img src="{{ asset('img/telecharger.png') }}" width="50px">
                     </a>
                 {% endif %}
+                </div>
             </a>
         </div>
     {% endfor %}
