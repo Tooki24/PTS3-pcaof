@@ -9,7 +9,7 @@
 </style>
 
 <div class="example-wrapper">
-    <h1 class="text-center">Revues</h1>
+    <p id="Revues" class="text-center">Revues</p>
     <hr id="revue-title-bar">
 
     {% for revue in revues %}
@@ -19,7 +19,7 @@
                         <IMG src="{{ vich_uploader_asset(revue,'imageFile') }}" alt="image de la revue : {{ revue.imageName }}" width="150px">
                     {% endif %}
                     <div class="bloc-revue-infos-titre">
-                        <h2>N°{{ loop.index }}  -- {{ revue.title }} --</h2>
+                        <p id="revue-titre"> {{ revue.title }} </p>
                         <div class="bloc-revue-info">
                             <p class ="info-revue">{{ revue.getDatePubli()|date('d/m/Y') }}</p>
                             <p class ="info-revue">Nombre d'articles : {{ revue.getNbArticle(revue) }}</p>

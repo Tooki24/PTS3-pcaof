@@ -8,35 +8,35 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-        <h2>{{ colloque.name }}</h2>
 
-        {% if colloque.getIsPcaof() is not null %}
-                <img src="{{ asset('img/logo/logoColor.png') }}" alt="logo pcaof">
-        {% endif%}
+        <h2 class="blocBleu blocBleuDetailColloque">{{ colloque.name }}</h2>
+        <div class="bloc-ombre bloc-detail-colloque">
+                {% if colloque.getIsPcaof() is not null %}
+                        <img class="img-detail-colloque" src="{{ asset('img/logo/logoColor.png') }}" alt="logo pcaof">
+                {% endif%}
 
-        <p>{{ colloque.description }}</p>
+                <p>{{ colloque.description }}</p>
 
-        {% if (colloque.dateD|date('Y-m-d') >= 'now'|date('Y-m-d')) %}
-                <p>Cet événement est prévu à {{ colloque.place }} du {{ colloque.dateD|format_datetime(locale='fr',pattern="d MMMM Y") }} au
-                        {{ colloque.dateD|format_datetime(locale='fr',pattern="d MMMM Y") }}</p>
-        {% else %}
-                <p>Cet événement était prévu à {{ colloque.place }} du {{ colloque.dateD|format_datetime(locale='fr',pattern="d MMMM Y") }} au
-                        {{ colloque.dateF|format_datetime(locale='fr',pattern="d MMMM Y") }}</p>
-        {% endif %}
+                {% if (colloque.dateD|date('Y-m-d') >= 'now'|date('Y-m-d')) %}
+                        <p class="event-detail-colloque">Cet événement est prévu à {{ colloque.place }} du {{ colloque.dateD|format_datetime(locale='fr',pattern="d MMMM Y") }} au
+                                {{ colloque.dateD|format_datetime(locale='fr',pattern="d MMMM Y") }}</p>
+                {% else %}
+                        <p class="event-detail-colloque">Cet événement était prévu à {{ colloque.place }} du {{ colloque.dateD|format_datetime(locale='fr',pattern="d MMMM Y") }} au
+                                {{ colloque.dateF|format_datetime(locale='fr',pattern="d MMMM Y") }}</p>
+                {% endif %}
 
-        <a href="{{ path('contact') }}">Y contribuer</a>
+                <a class="button-cont-detail-colloque" href="{{ path('contact') }}">Y contribuer</a>
 
-        {% if colloque.planningPdfName is not null %}
-                <iframe width="100%" height="500px" src="{{asset (vich_uploader_asset (colloque, 'planningPdfFile'))}}"></iframe>
-                <a href="{{asset (vich_uploader_asset (colloque, 'planningPdfFile'))}}" download>
-                        <img src="{{ asset('img/telecharger.png') }}" width="50px">
-                </a>
-        {% endif %}
+                {% if colloque.planningPdfName is not null %}
+                        <iframe width="100%" height="500px" src="{{asset (vich_uploader_asset (colloque, 'planningPdfFile'))}}"></iframe>
+                        <a href="{{asset (vich_uploader_asset (colloque, 'planningPdfFile'))}}" download>
+                                <img src="{{ asset('img/telecharger.png') }}" width="50px">
+                        </a>
+                {% endif %}
 
-        {% if colloque.revues is not null %}
-                <p><a href="{{ path('detail_revue',{'slug': revue.slug}) }}">Voir la revue</a></p>
-        {% endif %}
+                {% if colloque.revues is not null %}
+                        <p><a href="{{ path('detail_revue',{'slug': revue.slug}) }}">Voir la revue</a></p>
+                {% endif %}
 
-</div>
+        </div>
 {% endblock %}
