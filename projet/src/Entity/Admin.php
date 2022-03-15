@@ -35,12 +35,17 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
-    private $password;
+    private $password = "admin";
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $eMail;
+
+
+    public function __construct()
+    {
+    }
 
     public function getId(): ?int
     {
@@ -123,4 +128,5 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
 }

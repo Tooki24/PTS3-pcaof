@@ -49,6 +49,10 @@ class Article
 
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @Assert\File(
+     *     mimeTypes = {"application/pdf", "application/x-pdf"},
+     *     mimeTypesMessage = "Le fichier doit être un PDF"
+     * )
      * @Vich\UploadableField(mapping="article_pdf", fileNameProperty="pdfName")
      * @var File
      */
@@ -64,6 +68,10 @@ class Article
 
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @Assert\File (
+     *      mimeTypes = {"image/jpeg", "image/png", "image/gif", "image/jpg"},
+     *      mimeTypesMessage = "Ce fichier doit être une image")
+     * )
      * @Vich\UploadableField(mapping="article_image", fileNameProperty="imageName")
      * @var File
      */

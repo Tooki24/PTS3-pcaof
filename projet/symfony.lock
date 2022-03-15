@@ -2,6 +2,9 @@
     "composer/package-versions-deprecated": {
         "version": "1.11.99.4"
     },
+    "dflydev/dot-access-data": {
+        "version": "v3.0.1"
+    },
     "doctrine/annotations": {
         "version": "1.13",
         "recipe": {
@@ -124,11 +127,23 @@
     "laminas/laminas-code": {
         "version": "4.5.0"
     },
+    "league/commonmark": {
+        "version": "2.2.3"
+    },
+    "league/config": {
+        "version": "v1.1.1"
+    },
     "monolog/monolog": {
         "version": "2.3.5"
     },
     "myclabs/deep-copy": {
         "version": "1.10.2"
+    },
+    "nette/schema": {
+        "version": "v1.2.2"
+    },
+    "nette/utils": {
+        "version": "v3.2.7"
     },
     "nikic/php-parser": {
         "version": "v4.13.2"
@@ -394,6 +409,18 @@
     "symfony/intl": {
         "version": "v6.0.1"
     },
+    "symfony/lock": {
+        "version": "6.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.2",
+            "ref": "a1c8800e40ae735206bb14586fdd6c4630a51b8d"
+        },
+        "files": [
+            "config/packages/lock.yaml"
+        ]
+    },
     "symfony/mailer": {
         "version": "6.0",
         "recipe": {
@@ -501,6 +528,9 @@
     },
     "symfony/proxy-manager-bridge": {
         "version": "v6.0.1"
+    },
+    "symfony/rate-limiter": {
+        "version": "v6.0.3"
     },
     "symfony/routing": {
         "version": "6.0",

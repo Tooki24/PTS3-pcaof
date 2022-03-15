@@ -27,6 +27,13 @@ class PersonCrudController extends AbstractCrudController
         return Person::class;
     }
 
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setPageTitle('index', 'Auteurs')
+            ;
+    }
+
 
     public function configureFields(string $pageName): iterable
     {

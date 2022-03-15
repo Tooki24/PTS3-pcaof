@@ -6,6 +6,7 @@ use App\Entity\Article;
 use App\Entity\Colloque;
 use App\Entity\Intervention;
 use App\Entity\KeyWords;
+use App\Entity\LoginAttempt;
 use App\Entity\Person;
 use App\Entity\Publication;
 use App\Entity\Revue;
@@ -80,14 +81,16 @@ class DashboardController extends AbstractDashboardController
     {
         //TODO ajouter des jolies icones pour chaques categories
         //yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToDashboard('Accueil', 'fa fa-home');
         yield MenuItem::linkToCrud('Colloques', 'fa fa-solid fa-calendar', Colloque::class);
         yield MenuItem::linkToCrud('Revue', 'fa fa-file', Revue::class);
         yield MenuItem::linkToCrud('Article', 'fa fa-solid fa-newspaper', Article::class);
         yield MenuItem::linkToCrud('Publications', 'fa fa-file', Publication::class);
         yield MenuItem::linkToCrud('Auteurs', 'fa fa_secret fa-user', Person::class);
-        yield MenuItem::linkToCrud('KeyWords', 'fa fa-file', KeyWords::class);
+        yield MenuItem::linkToCrud('Mots clés', 'fa fa-file', KeyWords::class);
         yield MenuItem::linkToCrud('Paramètre','fa fa-solid fa-gear', Admin::class);
+        yield MenuItem::linkToCrud('Sécurité','fa fa-solid fa-lock', LoginAttempt::class);
+
     }
 
     public function configureUserMenu(UserInterface $user) : UserMenu{
