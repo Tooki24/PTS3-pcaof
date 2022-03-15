@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}<title> Membre | PCAoF</title>{% endblock %}
+
+{% block body %}
+    <section class="container mt-4">
+        <h1>Membres du bureau</h1>
+
+        {% for person in persons %}
+            {% if person.isOffice == 1 %}
+                <div class="mb-3 mt-2">
+
+                    {% if person.photoName is not null %}
+                        <img src="{{asset (vich_uploader_asset (person, 'photoFile'))}}" width="20%">
+                    {% else %}
+                        <img src="{{ asset('img/person.png') }}" width="20%">
+                    {% endif %}
+
+                    <p>{{ person.name }} {{ person.firstname }}</p>
+
+                    {% if person.role is not null %}
+                        <p>Role : {{ person.role }}</p>
+                    {% else %}
+                        <p>Role : Membre</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </section>
+{% endblock %}

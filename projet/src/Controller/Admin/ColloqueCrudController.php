@@ -7,7 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -30,13 +30,13 @@ class ColloqueCrudController extends AbstractCrudController
         return [
             TextField::new('name','Nom'),
             SlugField::new('slug')->setTargetFieldName('name')->setTemplatePath('admin/field_custom.html.twig'),
-            TextEditorField::new('description','Description'),
+            TextareaField::new('description','Description'),
             DateField::new('dateD','Date Debut'),
             DateField::new('dateF','Date Fin'),
             TextField::new('place','Lieu'),
             TextField::new('theme','Thème'),
             TextField::new('planningPdfFile','Le planning au format PDF')->setFormtype(VichFileType::class)->hideOnIndex(),
-            TextField::new('pdfName','PDF')->onlyOnIndex(),
+            TextField::new('planningPdfName','PDF')->onlyOnIndex(),
             AssociationField::new('keyWords','Mot(s)-clé(s)'),
             BooleanField::new('isPcaof','Par PCAoF'),
             BooleanField::new('onLine','En ligne'),
