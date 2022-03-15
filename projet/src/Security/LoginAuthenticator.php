@@ -89,7 +89,7 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
 
     public function checkCredentials($username){
         // Deuxième modification, la verif
-        if($this->loginAttemptRepository->countRecentLoginAttempts($username) > 3){
+        if($this->loginAttemptRepository->countRecentLoginAttempts($username) > 5){
             throw new CustomUserMessageAuthenticationException('Vous avez essayé de vous connecter avec un mot'
                 .' de passe incorrect de trop nombreuses fois. Veuillez réessayer dans 10 min svp.');
         }
