@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Repository\ArticleRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\PersonRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -215,5 +216,10 @@ class Person
         $this->imageName = $imageName;
 
         return $this;
+    }
+
+    public function articlesOnLineAndDesc(ArrayCollection $article)
+    {
+        return $article->articlesOnLine();
     }
 }
