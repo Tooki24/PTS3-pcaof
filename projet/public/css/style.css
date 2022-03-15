@@ -439,6 +439,10 @@ a {
     width: 80%;
     margin: 1%;
 }
+#revue-titre{
+    font-size:2vw;
+    font-weight: bold;
+}
 .liste-bloc-article p{
     margin-bottom:5px;
 }
@@ -575,7 +579,8 @@ a {
 }
 #titre-liste-publication{
     color: #004E5A;
-    font-size:2em;
+    font-size:2vw;
+    font-weight: bold;
 }
 #nom-date-liste-publication{
     height:50%;
