@@ -3,7 +3,7 @@
 {% block title %}<title>Popular Culture Association of France</title>{% endblock %}
 
 {% block body %}
-    <div class=" container blocAvecToutDedans">
+    <div class="blocAvecToutDedans">
         <div class="blocPresentationAcceuil ">
             <p class="text-black text">PCAoF (Popular Culture Association of France) est une association qui regroupe des chercheurs et des amateurs et passionnés de culture populaire.</p>
             <p class="titreObj">Objectifs de l'association</p>
@@ -14,16 +14,16 @@
             </ul>
         </div>
         {# Publication #}
-        <div class="container LastPubliRevuesAccueil">
+        <div class="LastPubliRevuesAccueil">
             <div class="blocLastPubliAcceuil">
-                <div class ="blocBleu" id="blocBleuPubli">
+                <div class ="blocBleu blocBleuPubli">
                     <p class="lastNomAcceuil">Dernières publications</p>
                 </div>
                 {% for publication in publications %}
-                    <a href="{{ path('details_publication', {'slug': publication.slug}) }}" id="publi-home" class="publi-hover">
+                    <a href="{{ path('details_publication', {'slug': publication.slug}) }}" id="publi-home" class="bloc-ombre">
                         <div class="publi-home-text">
-                            <h2 id="titre-publi">{{ publication.title }}</h2>
-                            <p>{{ publication.datePubli|date('d/m/Y') }}</p>
+                            <h2 class="titre-publi-revue">{{ publication.title }}</h2>
+                            <p class ="dateAccueil">{{ publication.datePubli|date('d/m/Y') }}</p>
                         </div>
                     </a>
                 {% endfor %}
@@ -34,12 +34,11 @@
                     <p class="lastNomAcceuil">Dernière Revue</p>
                 </div>
                 {% if revue is not null %}
-                    <a href="{{ path('detail_revue', {'slug': revue.slug}) }}" id="revue-home">
+                    <a href="{{ path('detail_revue', {'slug': revue.slug}) }}" id="revue-home" class ="bloc-ombre">
                         <div id="revue-home-text">
-                            <h1>{{ revue.id }}</h1>
                             <div id="revue-home-block1">
-                                <h2>{{ revue.title }}</h2>
-                                <p>{{ revue.datePubli|date('d/m/Y') }}</p>
+                                <h2 class = titre-publi-revue>{{ revue.title }}</h2>
+                                <p class ="dateAccueil">{{ revue.datePubli|date('d/m/Y') }}</p>
                             </div>
                         </div>
                         {% if revue.imageName is not null %}
@@ -51,17 +50,22 @@
         </div>
         {# Colloque #}
         <div class="blocLastColoqueAcceuil ">
-            <div class  ="blocBleu" id="blocBleuColloque">
+            <div class  ="blocBleu blocBleuColloque">
                 <p class="lastNomAcceuil">Colloque à venir</p>
             </div>
             {% if colloque is not null %}
-                <div class="container mt-4">
-                    <h1 class="text-center">{{ colloque.name }} </h1>
-                    <h4>Theme ...</h4>
+                <div id="colloque-home" class="bloc-ombre">
+                    <h1 class="nom-colloque">{{ colloque.name }} </h1>
+                    <div class ="bloc-colloque-theme-date-place-home">
+                        <p>Theme ...</p>
+                        <div class="bloc-colloque-date-place-home">
+                            <p id="colloque-place-home">à  {{ colloque.place }}</p>
+                            <p>Du {{ colloque.dateD|date('d/m/Y') }} au {{ colloque.dateF|date('d/m/Y') }}</p>
+
+                        </div>
+                    </div>
                     <p>{{ colloque.description|u.truncate(200, ' ...', false) }}</p>
-                    <p>Du {{ colloque.dateD|date('d/m/Y') }} au {{ colloque.dateF|date('d/m/Y') }}</p>
-                    <p>Lieu : {{ colloque.place }}</p>
-                    <a href="{{ path('details_colloque', {'slug':colloque.slug}) }}" class="align-top"><button type="button" class="btn btn-primary">Voir PLUS</button></a>
+                    <a href="{{ path('details_colloque', {'slug':colloque.slug}) }}" class="bouton-colloque-home"> Voir plus</a>
                 </div>
             {% endif %}
 

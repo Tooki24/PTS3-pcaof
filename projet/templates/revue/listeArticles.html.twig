@@ -8,24 +8,28 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-        <div class="">
+<div class="bloc-revue-articles">
+        <div class="revue-liste-article-infos">
             {% if revue.imageName is not null %}
                 <IMG src="{{ vich_uploader_asset(revue,'imageFile') }}" alt="image de la revue : {{ revue.imageName }}" width="150px">
             {% endif %}
-            <h2>{{ revue.title }}</h2>
-            <h3>{{ revue.DatePubli()|date('d/m/Y') }}</h3>
-            <h3>Revue de la/les colloques : </h3>
+            <div class="col">
+            <p>{{ revue.title }}</p>
+            <p>{{ revue.DatePubli()|date('d/m/Y') }}</p>
+            <p>Revue de la/les colloques : </p>
 
             {% for colloque in colloques %}
                 <h4> - {{ colloque.name }}</h4>
             {% endfor %}
+            </div>
+        </div>
+            <div class="revue-resume">
+                <p>{{ revue.resume }}</p>
+            </div>
 
-            <h3>Résumé :</h3>
-            <p>{{ revue.resume }}</p>
 
-            <h3>Liste des articles :</h3>
             {% for article in articles %}
+                <div class ='bloc-revue col'>
                 <a href="{{ path('details_article', {'slug': article.slug}) }}">
                     <div class="m-4">
                         <h1>{{ loop.index }}</h1>
@@ -39,8 +43,8 @@
                         {% endif %}
                     </div>
                 </a>
+                </div>
             {% endfor %}
-        </div>
 
 </div>
 {% endblock %}
