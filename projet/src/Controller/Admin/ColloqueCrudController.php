@@ -30,7 +30,7 @@ class ColloqueCrudController extends AbstractCrudController
         return [
             TextField::new('name','Nom'),
             SlugField::new('slug')->setTargetFieldName('name')->setTemplatePath('admin/field_custom.html.twig'),
-            TextareaField::new('description','Description'),
+            TextareaField::new('description','Description')->setTemplatePath('admin/desc_field_custom.html.twig'),
             DateField::new('dateD','Date Debut'),
             DateField::new('dateF','Date Fin'),
             TextField::new('place','Lieu'),

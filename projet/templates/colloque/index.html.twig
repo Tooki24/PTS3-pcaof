@@ -8,44 +8,50 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Colloque(s) à venir</h1>
+    <h1 class="blocBleu blocBleuColloque">Colloque(s) à venir</h1>
+<div class="example-wrapper ">
+
     {% for colloque in colloquesAsc %}
         {% if colloque.getOnLine() == 1 %}
             {% if (colloque.dateD|date('Y-m-d') >= 'now'|date('Y-m-d')) %}
-                <a href="{{ path('details_colloque', {'slug': colloque.slug}) }}">
-                <div class="m-5 p-2 border">
-                    <p>{{ colloque.name }}</p>
-                    <p>Du {{ colloque.dateD|format_datetime(locale='fr',pattern="d MMMM Y") }} au
-                        {{ colloque.dateF|format_datetime(locale='fr',pattern="d MMMM Y") }}</p>
-                    <p>à {{ colloque.place }}</p>
-                    <p>Thème : {{ colloque.theme }}</p>
-                    {% if colloque.getIsPcaof() == 1 %}
-                        <img src="{{ asset('img/logo/logoColor.png') }}" alt="logo pcaof">
-                    {% endif%}
-                </div>
-                </a>
-            {%  endif %}
-        {% endif %}
-    {% endfor %}
 
-    <h1>Colloques déjà réalisées</h1>
-    {% for colloque in colloquesDesc %}
-        {% if colloque.getOnLine() == 1 %}
-            {% if (colloque.dateD|date('Y-m-d') < 'now'|date('Y-m-d')) %}
-                <a href="{{ path('details_colloque', {'slug': colloque.slug}) }}">
-                <div class="m-5 p-2 border">
-                    <p>{{ colloque.name }}</p>
-                    <p>Du {{ colloque.dateD|date('d/m/Y') }} au {{ colloque.dateF|date('d/m/Y') }}</p>
-                    <p>à {{ colloque.place }}</p>
-                    <p>Thème : {{ colloque.theme }}</p>
-                    {% if colloque.getIsPcaof() == 1 %}
-                        <img src="{{ asset('img/logo/logoColor.png') }}" alt="logo pcaof">
-                    {% endif%}
+                    <a class="bloc-ombre bloc-colloque"href="{{ path('details_colloque', {'slug': colloque.slug}) }}">
+                    <div class="liste-bloc-colloque">
+                        <p class="bloc-colloque-name">{{ colloque.name }}</p>
+                        <p>Du {{ colloque.dateD|format_datetime(locale='fr',pattern="d MMMM Y") }} au
+                        {{ colloque.dateF|format_datetime(locale='fr',pattern="d MMMM Y") }}</p>
+                        <p>à {{ colloque.place }}</p>
+                        <p>Thème : {{ colloque.theme }}</p>
                     </div>
-                </a>
+                    {% if colloque.getIsPcaof() == 1 %}
+                        <img class="img-bloc-colloque" src="{{ asset('img/logo/logoColor.png') }}" alt="logo pcaof">
+                    {% endif%}
+                    </a>
+
+
             {%  endif %}
         {% endif %}
     {% endfor %}
 </div>
+    <h1 class="blocBleu blocBleuColloque">Colloques déjà réalisées</h1>
+    <div class="example-wrapper ">
+
+    {% for colloque in colloquesDesc %}
+        {% if colloque.getOnLine() == 1 %}
+            {% if (colloque.dateD|date('Y-m-d') < 'now'|date('Y-m-d')) %}
+                    <a class="bloc-ombre bloc-colloque"href="{{ path('details_colloque', {'slug': colloque.slug}) }}">
+                        <div class="liste-bloc-colloque">
+                            <p class="bloc-colloque-name">{{ colloque.name }}</p>
+                            <p>Du {{ colloque.dateD|date('d/m/Y') }} au {{ colloque.dateF|date('d/m/Y') }}</p>
+                            <p>à {{ colloque.place }}</p>
+                            <p>Thème : {{ colloque.theme }}</p>
+                        </div>
+                        {% if colloque.getIsPcaof() == 1 %}
+                            <img class="img-bloc-colloque" src="{{ asset('img/logo/logoColor.png') }}" alt="logo pcaof">
+                        {% endif%}
+                    </a>
+            {%  endif %}
+        {% endif %}
+    {% endfor %}
+    </div>
 {% endblock %}

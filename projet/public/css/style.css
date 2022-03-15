@@ -4,6 +4,12 @@ body{
     padding : 0;
     margin: 0;
 }
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
 
 h1{
     font-family: 'Passion One', cursive;
@@ -11,7 +17,7 @@ h1{
 p, h2, h3, h4, h5, h6{
     font-family: 'Merriweather', serif;
 }
-            /******************footer********************/
+/******************footer********************/
 .main-footer {
     background-color: #004E5A;
     display: flex;
@@ -84,7 +90,7 @@ a {
     text-decoration: none;
 }
 
-/*header*/
+/*****************header***************/
 #header-title {
     margin-left :1%;
     display: flex;
@@ -166,6 +172,7 @@ a {
     width: 100%;
 }
 
+
 #menuDrop li {
     text-align: center;
 }
@@ -188,7 +195,11 @@ a {
     border-bottom-left-radius: 30px;
     border-top-left-radius: 30px;
 }
-#blocBleuColloque , #blocBleuPubli{
+
+.blocBleuColloque, .blocBleuDetailColloque{
+    margin-top:30px;
+}
+.blocBleuColloque , .blocBleuDetailColloque, .blocBleuPubli{
     border-top-right-radius: 30px;
     border-bottom-right-radius:30px;
 }
@@ -203,47 +214,45 @@ a {
 .lastRevueAcceuil{
     margin: 0;
 }
-
-#revue-home{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    color: #004E5A;
-    border-radius: 10px;
-    padding-left: 2%;
-    padding-right: 2%;
-    margin:5% 10%;
-    -webkit-box-shadow: 0px 0px 8px 5px rgba(186,186,186,0.5);
-    box-shadow: 0px 0px 8px 5px rgba(186,186,186,0.5);
-
-}
-#publi-home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.bloc-ombre{
     color: #004E5A;
     border-radius: 10px;
     padding-left: 2%;
     padding-right: 2%;
     margin: 5% 10%;
-    -webkit-box-shadow: 0px 0px 8px 5px rgba(186, 186, 186, 0.5);
-    box-shadow: 0px 0px 8px 5px rgba(186, 186, 186, 0.5);
+    box-shadow: 0px 0px 5px #9ca3af;
 }
+
 #revue-home-img{
     width:30%;
 }
 
 #revue-home:hover{
     background-color: rgba(0, 78, 90, 0.3);
+    transition:0.3s;
+    border: solid #004E5A 2px;
+    color: #004E5A;
 }
-.publi-hover:hover{
-    background-color: #004E5A;
+#publi-home:hover{
+    background-color: rgba(0, 78, 90, 0.3);
+    transition:0.3s;
+    border: solid #004E5A 2px;
+    color: #004E5A;
 }
-.publi-hover:hover h2{
-    color: white;
+#publi-home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.publi-hover:hover p{
-    color: white;
+#revue-home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#colloque-home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #revue-home-text{
     display: flex;
@@ -267,88 +276,66 @@ a {
     margin: 20px auto;
     padding: 0;
     border-radius:15px ;
+    width: 80vw;
 }
-
+.dateAccueil{
+    display: flex;
+    justify-content: center;
+}
 .lastNomAcceuil{
     width: 35vw;
     margin: 0;
     display: flex;
     justify-content: center;
 }
-#titre-publi{
+.titre-publi-revue{
     font-size: 25px;
+    display: flex;
+    justify-content: center;
+}
+.bouton-colloque-home{
+    text-decoration: none;
+    background-color: #004E5A ;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 3%;
+    padding:1.5% 7%;
+    height: 70%;
+    display:flex;
+    align-items: center;
+    transition: 0.5s;
+    border: solid #004E5A 1.50px;
+}
+.bouton-colloque-home:hover {
+    background-color: white;
+    border: solid #004E5A 1.50px;
+    color: #004E5A;
+}
+#nom-colloque-home{
+    font-size:2vw;
+    font-weight: bold;
+}
+.bloc-colloque-theme-date-place-home{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 100%;
+}
+.bloc-colloque-date-place-home{
+    display: flex;
+    flex-flow: column nowrap;
+    font-size: 80%;
+}
+.nom-colloque{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+#colloque-place-home{
+    color: #6999A0;
 }
 
-
-
-
-
-@media screen and (max-width: 900px)
-{
-
-    #header-title h2 {
-        font-size: 1.2em;
-    }
-
-    #header-title p {
-        font-size: 0.7em;
-    }
-
-    #header-title {
-        flex-direction: column;
-
-
-    }
-
-    #header-title a {
-        justify-content: center;
-        align-items: center;
-        display: none;
-    }
-
-    #logo-header {
-        width: 10em;
-        margin:15px auto;
-    }
-
-    #navbar {
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-    }
-
-    .navbar-select {
-        border-right: transparent;
-        padding-right: 2%;
-        padding-left: 2%;
-        font-size: 0.9em;
-    }
-
-    .LastPubliRevuesAccueil{
-        display: flex;
-        flex-flow: column nowrap;
-    }
-    .blocLastPubliAcceuil p{
-        display: flex;
-        flex-wrap: nowrap;
-        width: 90vw;
-    }
-    .blocBleu{
-        padding-left: 0;
-        padding-right: 0;
-        width: 100%;
-    }
-    #blocBleuPubli,#blocBleuColloque,#blocBleuRevue{
-        border-radius:0;
-    }
-    .blocAvecToutDedans{
-        box-shadow: 0px 0px 0px #4b5563;
-        margin: 0px;
-    }
-    .publi-home-text{
-        width: 100%;
-    }
-
-}
 
 /*Style Page Mentions Légales*/
 
@@ -381,8 +368,6 @@ a {
     color: #0e7490;
 }
 
-
-
 /* Style Page co et reset MDP*/
 .btn-co{
     background-color: #04414d;
@@ -391,6 +376,385 @@ a {
 }
 .btn-co:hover{
     background-color: #00CC94;
+}
+.noHighlight:hover{
+    text-decoration: none;
+}
+
+/*******revue******/
+#Revues{
+    font-size:2vw;
+    font-weight: bold;
+}
+#liste-bloc-revue{
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#liste-bloc-revue:hover{
+    background-color: rgba(0, 78, 90, 0.3);
+    transition: 0.3s;
+    border: solid #004E5A 2px;
+}
+.info-revue{
+    font-size: 80%;
+    margin: 0;
+}
+.bloc-revue:hover {
+    background-color: rgba(0, 78, 90, 0.3);
+    transition: 0.5s;
+}
+#revue-title-bar{
+    background-color: #004E5A;
+    margin-top: 0;
+    padding-bottom: 0.5%;
+    border: 3px;
+    width:80%;
+}
+.bloc-revue-articles{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    color: #004E5A;
+    border-radius: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin: 5% 10%;
+    -webkit-box-shadow: 0px 0px 8px 5px rgba(186, 186, 186, 0.5);
+    box-shadow: 0px 0px 8px 5px rgba(186, 186, 186, 0.5);
+}
+.revue-resume{
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+}
+.revue-liste-article-infos{
+    margin-top:5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+
+
+.liste-bloc-article p{
+    color: #004E5A;
+    margin:0;
+}
+#bloc-liste-article-revue{
+    width: 80%;
+    margin: 1%;
+}
+#revue-titre{
+    font-size:2vw;
+    font-weight: bold;
+}
+.liste-bloc-article p{
+    margin-bottom:5px;
+}
+#bloc-liste-article-revue:hover{
+    background-color: rgba(0, 78, 90, 0.3);
+    transition:0.5s;
+    border: solid #004E5A 2px;
+}
+#bloc-liste-article-revue{
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 5%;
+    border: solid rgba(0, 78, 90, 0.3) 2px;
+    border-radius: 20px;
+
+}
+#bloc-bar-revue{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#bloc-bar-revue p{
+    margin-bottom:1%;
+    font-weight: bolder;
+}
+#titre-article{
+    font-weight: bold;
+}
+#revue-article-bar {
+    display: flex;
+    align-items: center;
+    background-color:#004E5A;
+    margin-top: 0;
+    padding-bottom: 0.5%;
+    border: 3px;
+    width:80%;
+}
+#bloc-liste-tout-articles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/*******colloque******/
+
+.liste-bloc-colloque{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.bloc-colloque{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+
+}
+.bloc-colloque:hover{
+    background-color: rgba(0, 78, 90, 0.3);
+    color: #004E5A;
+}
+.bloc-colloque-name {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.img-bloc-colloque{
+    width: 10%;
+    height: 10%;
+    padding-bottom: 2%
+}
+
+/**********details colloque***********/
+
+.bloc-detail-colloque{
+    padding: 0;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 20%;
+    text-align:center;
+}
+
+.img-detail-colloque{
+    width: 10%;
+    height:10%;
+    padding-bottom: 3%;
+}
+
+.event-detail-colloque{
+    font-weight:bolder;
+}
+
+.button-cont-detail-colloque{
+    text-decoration: none;
+    background-color: #004E5A ;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 3%;
+    padding:1.5% 7%;
+    transition: 0.5s;
+    border: solid #004E5A 1.50px;
+}
+
+.button-cont-detail-colloque:hover{
+    background-color:white;
+    color: #004E5A;
+}
+
+
+
+/*******publication******/
+#nom-date-auteur-publi-detail{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+#auteur-publi-detail{
+    color: rgba(0, 78, 90, 0.5);
+    margin-bottom: 8%;
+}
+#auteur-publi-detail:hover{
+    color: #004E5A;
+    transition:0.5s;
+}
+#date-publi-detail{
+    color: rgba(0, 78, 90, 0.3);
+}
+#bloc-publi-detail{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 20%;
+    margin-top: 10%;
+}
+#bouton-tel-publi-detail{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#bouton-publi-detail{
+    text-decoration: none;
+    background-color: #004E5A ;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 3%;
+    padding:1.5% 7%;
+    height: 70%;
+    width: 80%;
+    display:flex;
+    justify-content: center;
+    transition: 0.5s;
+    border: solid #004E5A 1.50px;
+}
+#bouton-publi-detail:hover {
+    background-color: white;
+    border: solid #004E5A 1.50px;
+    color: #004E5A;
+}
+#tel-publi-detail{
+    margin-right: 5%;
+    margin-bottom: 1%;
+}
+#img-publi-detail{
+    display: flex;
+    justify-content: center;
+}
+/*******liste publication******/
+#bloc-liste-publication{
+    padding-bottom:1%;
+}
+#bloc-liste-publication:hover{
+    background-color: rgba(0, 78, 90, 0.3);
+    transition:0.3s;
+    border: solid #004E5A 2px;
+}
+#nom-date-liste-publication{
+    padding-top:2%;
+    display: flex;
+    justify-content:space-between;
+    flex-direction: row;
+}
+#date-liste-publication{
+    color: rgba(0, 78, 90, 0.3);
+}
+#titre-liste-publication{
+    color: #004E5A;
+    font-size:2vw;
+    font-weight: bold;
+}
+#nom-date-liste-publication{
+    height:50%;
+}
+#auteur-liste-publication{
+    color: #004E5A;
+    margin-left:5%;
+    font-size:90%;
+    width: 100%;
+}
+#auteur-liste-publication:hover{
+    color: rgba(0, 78, 90, 0.6);
+}
+#bloc-pdf-auteur-liste-publication{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#Publication{
+    font-size:2vw;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 900px)
+{
+    #header-title h2 {
+        font-size: 1.2em;
+    }
+    #header-title p {
+        font-size: 0.7em;
+    }
+    #header-title {
+        flex-direction: column;
+    }
+    #header-title a {
+        justify-content: center;
+        align-items: center;
+        display: none;
+    }
+    #logo-header {
+        width: 10em;
+        margin:15px auto;
+    }
+    #navbar {
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    .navbar-select {
+        border-right: transparent;
+        padding-right: 2%;
+        padding-left: 2%;
+        font-size: 0.9em;
+    }
+    .LastPubliRevuesAccueil{
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    .blocLastPubliAcceuil p{
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+    .blocBleu{
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+    }
+    .blocBleuPubli,.blocBleuColloque,#blocBleuRevue{
+        border-radius:0;
+    }
+    .blocAvecToutDedans{
+        box-shadow: 0px 0px 0px #4b5563;
+        margin: 0px;
+        width: 100%;
+    }
+    .publi-home-text{
+        width: 100%;
+    }
+    .bloc-revue-articles{
+        box-shadow: 0px 0px 0px #4b5563;
+        margin: 0px;
+        width: 100%;
+    }
+    .liste-bloc-colloque{
+        font-size: 0.5em;
+    }
+    .img-bloc-colloque{
+        width: 20%;
+        height: 20%;
+    }
+
+    .img-detail-colloque{
+        width: 30%;
+        height:30%;
+        padding-bottom: 3%;
+    }
+    .bloc-detail-colloque{
+        padding: 0;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 5% 10%;
+    }
+    .blocBleuDetailColloque{
+        border-radius:0;
+    }
+
+
 }
 
 

@@ -9,18 +9,23 @@
 </style>
 
 <div class="example-wrapper">
-    <h1 class="text-center">Revues</h1>
+    <p id="Revues" class="text-center">Revues</p>
+    <hr id="revue-title-bar">
 
     {% for revue in revues %}
-            <a href="{{ path('detail_revue', {'slug': revue.slug}) }}">
-                <div class="m-4">
+            <a href="{{ path('detail_revue', {'slug': revue.slug}) }}" class="noHighlight">
+                <div class="bloc-ombre" id="liste-bloc-revue">
                     {% if revue.imageName is not null %}
                         <IMG src="{{ vich_uploader_asset(revue,'imageFile') }}" alt="image de la revue : {{ revue.imageName }}" width="150px">
                     {% endif %}
-                    <h2>N°{{ loop.index }} / {{ revue.title }}</h2>
-                    <h3>{{ revue.getDatePubli()|date('d/m/Y') }}</h3>
-                    <h3>Nombre d'articles : {{ revue.getNbArticle(revue) }}</h3>
-                    <h3>Thème : {{ revue.theme }}</h3>
+                    <div class="bloc-revue-infos-titre">
+                        <p id="revue-titre"> {{ revue.title }} </p>
+                        <div class="bloc-revue-info">
+                            <p class ="info-revue">{{ revue.getDatePubli()|date('d/m/Y') }}</p>
+                            <p class ="info-revue">Nombre d'articles : {{ revue.getNbArticle(revue) }}</p>
+                            <p class ="info-revue">Thème : {{ revue.theme }}</p>
+                        </div>
+                    </div>
                 </div>
             </a>
     {% endfor %}

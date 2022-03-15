@@ -7,7 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -29,7 +29,7 @@ class ArticleCrudController extends AbstractCrudController
         return [
             TextField::new('title','Titre'),
             SlugField::new('slug')->setTargetFieldName('title')->setTemplatePath('admin/field_custom.html.twig'),
-            TextEditorField::new('resume','Résumé'),
+            TextareaField::new('resume','Résumé')->setTemplatePath('admin/desc_field_custom.html.twig'),
             TextField::new('imageFile','Image')->setFormtype(VichImageType::class)->hideOnIndex(),
             ImageField::new('imageName','Image')->setBasePath('/uploads/article/image')->onlyOnIndex(),
             TextField::new('pdfFile','L\'article Au format PDF')->setFormtype(VichFileType::class)->hideOnIndex(),
