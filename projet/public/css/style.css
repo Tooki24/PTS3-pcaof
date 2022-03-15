@@ -437,9 +437,6 @@ a {
     flex-direction: row;
     justify-content: flex-start;
 }
-
-
-
 .liste-bloc-article p{
     color: #004E5A;
     margin:0;
@@ -669,7 +666,7 @@ a {
     font-weight: bold;
 }
 
-@media screen and (max-width: 900px)
+@media screen and (max-width: 992px)
 {
     #header-title h2 {
         font-size: 1.2em;
