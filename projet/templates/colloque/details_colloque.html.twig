@@ -18,14 +18,14 @@
                 <p>{{ colloque.description }}</p>
 
                 {% if (colloque.dateD|date('Y-m-d') >= 'now'|date('Y-m-d')) %}
-                        <p>Cet événement est prévu à {{ colloque.place }} du {{ colloque.dateD|format_datetime(locale='fr',pattern="d MMMM Y") }} au
+                        <p class="event-detail-colloque">Cet événement est prévu à {{ colloque.place }} du {{ colloque.dateD|format_datetime(locale='fr',pattern="d MMMM Y") }} au
                                 {{ colloque.dateD|format_datetime(locale='fr',pattern="d MMMM Y") }}</p>
                 {% else %}
-                        <p>Cet événement était prévu à {{ colloque.place }} du {{ colloque.dateD|format_datetime(locale='fr',pattern="d MMMM Y") }} au
+                        <p class="event-detail-colloque">Cet événement était prévu à {{ colloque.place }} du {{ colloque.dateD|format_datetime(locale='fr',pattern="d MMMM Y") }} au
                                 {{ colloque.dateF|format_datetime(locale='fr',pattern="d MMMM Y") }}</p>
                 {% endif %}
 
-                <a href="{{ path('contact') }}">Y contribuer</a>
+                <a class="button-cont-detail-colloque" href="{{ path('contact') }}">Y contribuer</a>
 
                 {% if colloque.planningPdfName is not null %}
                         <iframe width="100%" height="500px" src="{{asset (vich_uploader_asset (colloque, 'planningPdfFile'))}}"></iframe>
