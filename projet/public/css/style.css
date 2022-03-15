@@ -386,7 +386,8 @@ a {
 
 #liste-bloc-revue:hover{
     background-color: rgba(0, 78, 90, 0.3);
-    transition: 0.5s;
+    transition: 0.3s;
+    border: solid #004E5A 2px;
 }
 .info-revue{
     font-size: 80%;
@@ -553,6 +554,46 @@ a {
 #img-publi-detail{
     display: flex;
     justify-content: center;
+}
+/*******liste publication******/
+#bloc-liste-publication{
+    padding-bottom:1%;
+}
+#bloc-liste-publication:hover{
+    background-color: rgba(0, 78, 90, 0.3);
+    transition:0.3s;
+    border: solid #004E5A 2px;
+}
+#nom-date-liste-publication{
+    padding-top:2%;
+    display: flex;
+    justify-content:space-between;
+    flex-direction: row;
+}
+#date-liste-publication{
+    color: rgba(0, 78, 90, 0.3);
+}
+#titre-liste-publication{
+    color: #004E5A;
+    font-size:2em;
+}
+#nom-date-liste-publication{
+    height:50%;
+}
+#auteur-liste-publication{
+    color: #004E5A;
+    margin-left:5%;
+    font-size:90%;
+    width: 100%;
+}
+#auteur-liste-publication:hover{
+    color: rgba(0, 78, 90, 0.6);
+}
+#bloc-pdf-auteur-liste-publication{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
 }
 
 @media screen and (max-width: 900px)
