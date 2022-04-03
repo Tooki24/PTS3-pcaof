@@ -12,10 +12,19 @@ a:hover{
 }
 
 h1{
+    font-size: 2em;
     font-family: 'Passion One', cursive;
 }
 p, h2, h3, h4, h5, h6{
     font-family: 'Merriweather', serif;
+}
+
+strong{
+    font-weight: normal;
+}
+span{
+    font-weight: bold;
+    color: #004E5A;
 }
 /******************footer********************/
 .main-footer {
@@ -140,46 +149,42 @@ a {
 
 /*navbar*/
 
-#navbar{
-    height: 4em;
-    width: 100%;
-    padding-top: 1em;
-    padding-bottom: 1em;
+#mainNav{
     background-color: #004E5A;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
 }
-.navbar-select{
-    padding-right: 9%;
-    padding-left:9%;
-    color:white;
-    border-right: solid;
-    border-right-width: 3px;
-    border-right-color: white;
+
+#mainNav .navbar-nav .nav-item a{
+    color: white;
+    font-size: 1.7em;
     transition: 0.5s;
 }
-.navbar-select:hover {
-    color: #00CC94;
+
+#mainNav .navbar-nav .nav-item a:hover{
+    color: #4f5050;
 }
 
-#navbar-adherent{
-    border-right: transparent;
+#mainNav .navbar-nav .nav-item {
+    margin-left: 2.2em;
+    margin-right: 2.2em;
+
+}
+#mainNav .navbar-nav .nav-item .dropdown-item{
+    color: black;
 }
 
-#menuDrop{
-    width: 100%;
+#mainNav .navbar-nav .nav-item a:hover{
+    color: white;
 }
 
-
-#menuDrop li {
-    text-align: center;
+#mainNav img{
+    width: 50%;
 }
-
+#mainNav button{
+    color: rgba(255,255,255,1);
+    border-color: rgba(255,255,255,.5);
+}
 /*Accueil*/
-
+/****************************************************REVUE*****************************/
 .blocBleu{
     color: white;
     background-color: #004E5A;
@@ -195,6 +200,7 @@ a {
 #blocBleuRevue{
     border-bottom-left-radius: 30px;
     border-top-left-radius: 30px;
+    margin-left: auto;
 }
 
 .blocBleuColloque, .blocBleuDetailColloque{
@@ -225,7 +231,9 @@ a {
 }
 
 #revue-home-img{
-    width:30%;
+    position: relative;
+    width:40%;
+    margin-bottom: 5px;
 }
 
 #revue-home:hover{
@@ -249,6 +257,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 30vw;
 }
 #colloque-home{
     display: flex;
@@ -384,7 +393,7 @@ a {
 
 /*******revue******/
 #Revues{
-    font-size:2vw;
+    font-size:2em;
     font-weight: bold;
 }
 #liste-bloc-revue{
@@ -392,6 +401,9 @@ a {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+#liste-bloc-revue .block-img{
+    margin-right: 5%;
 }
 
 #liste-bloc-revue:hover{
@@ -622,6 +634,12 @@ a {
     display: flex;
     justify-content: center;
 }
+
+.img-publi {
+    width: 60%;
+    text-align: center;
+    margin-bottom: 2em;
+}
 /*******liste publication******/
 #bloc-liste-publication{
     padding-bottom:1%;
@@ -663,7 +681,7 @@ a {
     justify-content: space-between;
 }
 #Publication{
-    font-size:2vw;
+    font-size:2.4em;
     font-weight: bold;
 }
 
@@ -689,6 +707,9 @@ a {
     #navbar {
         justify-content: space-evenly;
         flex-wrap: wrap;
+    }
+    #revue-home{
+        width: auto;
     }
     .navbar-select {
         border-right: transparent;
@@ -733,6 +754,12 @@ a {
         width: 20%;
         height: 20%;
     }
+    #liste-bloc-revue{
+        flex-direction: column;
+    }
+    #revue-titre{
+        font-size: 1.3em;
+    }
 
     .img-detail-colloque{
         width: 30%;
@@ -749,5 +776,8 @@ a {
     }
     .blocBleuDetailColloque{
         border-radius:0;
+    }
+    .back-footer{
+        height: 7em;
     }
 }

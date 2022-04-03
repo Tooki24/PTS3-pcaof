@@ -81,7 +81,7 @@ class Colloque
      * @Vich\UploadableField(mapping="colloque_pdf", fileNameProperty="planningPdfName")
      * @var File
      */
-    private File $planningPdfFile;
+    private $planningPdfFile;
 
     /**
      * @ORM\Column(type="boolean")

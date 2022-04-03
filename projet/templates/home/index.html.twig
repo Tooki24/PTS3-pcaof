@@ -2,22 +2,38 @@
 
 {% block title %}<title>Popular Culture Association of France</title>{% endblock %}
 
+{% block metaTag %}
+    <!-- Balise Meta -->
+    <meta name="description" content="PCAoF (Popular Culture Association of France) est une association qui regroupe des chercheurs et des amateurs de culture populaire.">
+    <meta content="PCAoF, Popular Culture Association of France, Culture Populaire, La Rochelle, " name="keywords">
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Popular Culture Association of France" />
+    <meta property="og:description" content="PCAoF (Popular Culture Association of France) est une association qui regroupe des chercheurs et des amateurs de culture populaire." />
+    <meta property="og:url" content="https://pcaof.com/" />
+    <meta property="og:site_name" content="PCAoF" />
+
+
+
+{% endblock %}
+
 {% block body %}
+    <h1 class="text-center mt-4">Popular Culture Association of France</h1>
     <div class="blocAvecToutDedans">
         <div class="blocPresentationAcceuil ">
-            <p class="text-black text">PCAoF (Popular Culture Association of France) est une association qui regroupe des chercheurs et des amateurs et passionnés de culture populaire.</p>
+            <p class="text-black text"><strong><span>PCAoF</span></strong> (<strong>Popular Culture Association of France</strong>) est une <strong>association</strong> qui regroupe des chercheurs et des amateurs et passionnés de <strong>culture populaire</strong>.</p>
             <p class="titreObj">Objectifs de l'association</p>
             <ul>
-                <li>promouvoir et de développer les études et la recherche sur les cultures populaires (trans- et inter- nationales, disciplinaires, etc.)</li>
-                <li>organiser des manifestations scientifiques et/ou grand public (colloques, séminaires, expositions, conférences, documentaires…)</li>
-                <li>publier, de diffuser ou d’éditer des ouvrages scientifiques, essais, articles, comptes rendus, œuvres de fiction, traductions…</li>
+                <li><span>Promouvoir</span> et de <span>développer</span> les études et la recherche sur les <strong><span>cultures populaires</span></strong> (trans- et inter- nationales, disciplinaires, etc.)</li>
+                <li><span>Organiser</span> des <strong>manifestations scientifiques</strong> et/ou grand public (<strong>colloques</strong>, <strong>séminaires</strong>, <strong>expositions</strong>, <strong>conférences</strong>, <strong>documentaires</strong>…)</li>
+                <li><span>Publier</span>, <span>diffuser</span> ou <span>éditer des ouvrages scientifiques</span> essais, <strong>articles</strong>, comptes rendus, œuvres de <strong>fiction</strong>, traductions…</li>
             </ul>
         </div>
         {# Publication #}
         <div class="LastPubliRevuesAccueil">
             <div class="blocLastPubliAcceuil">
                 <div class ="blocBleu blocBleuPubli">
-                    <p class="lastNomAcceuil">Dernières publications</p>
+                    <p class="lastNomAcceuil">Dernières <strong>publications</strong></p>
                 </div>
                 {% for publication in publications %}
                     <a href="{{ path('details_publication', {'slug': publication.slug}) }}" id="publi-home" class="bloc-ombre">
@@ -31,18 +47,18 @@
             {# Revue #}
             <div class="blocLastRevueAcceuil">
                 <div class="blocBleu" id="blocBleuRevue">
-                    <p class="lastNomAcceuil">Dernière Revue</p>
+                    <p class="lastNomAcceuil">Dernière <strong>Revue</strong></p>
                 </div>
                 {% if revue is not null %}
                     <a href="{{ path('detail_revue', {'slug': revue.slug}) }}" id="revue-home" class ="bloc-ombre">
                         <div id="revue-home-text">
                             <div id="revue-home-block1">
-                                <h2 class = titre-publi-revue>{{ revue.title }}</h2>
+                                <h2 class="titre-publi-revue">{{ revue.title }}</h2>
                                 <p class ="dateAccueil">{{ revue.datePubli|date('d/m/Y') }}</p>
                             </div>
                         </div>
                         {% if revue.imageName is not null %}
-                            <img id="revue-home-img" src="{{ vich_uploader_asset(revue, 'imageFile') }}" alt="Logo revue">
+                            <img id="revue-home-img" class="img-fluid" src="{{ vich_uploader_asset(revue, 'imageFile') }}" alt="Image liée à la revue">
                         {% endif %}
                     </a>
                 {% endif %}
@@ -51,11 +67,11 @@
         {# Colloque #}
         <div class="blocLastColoqueAcceuil ">
             <div class  ="blocBleu blocBleuColloque">
-                <p class="lastNomAcceuil">Colloque à venir</p>
+                <p class="lastNomAcceuil"><strong>Colloque</strong> à venir</p>
             </div>
             {% if colloque is not null %}
                 <div id="colloque-home" class="bloc-ombre">
-                    <p id="nom-colloque-home" class="nom-colloque">{{ colloque.name }} </p>
+                    <h2 id="titre-publi-revue" class="nom-colloque">{{ colloque.name }} </h2>
                     <div class ="bloc-colloque-theme-date-place-home">
                         <p>Theme ...</p>
                         <div class="bloc-colloque-date-place-home">

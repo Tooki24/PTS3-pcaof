@@ -2,10 +2,36 @@
 <html lang="fr" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
     <head>
         {% block title %}{% endblock %}
+        {% block metaTag %}
+        {% endblock %}
 
         <!-- Meta -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "PCAoF",
+            "image": " {{ asset('img/logo/logoColor.png') }}",
+            "@id": "",
+            "url": "https://pcaof.com/",
+            "telephone": "",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "",
+                "addressLocality": "La Rochelle",
+                "postalCode": "17000",
+                "addressCountry": "FR"
+            },
+            "sameAs": [
+                "https://www.facebook.com/Popular-Culture-Association-of-France-240165316556260/",
+                "https://www.instagram.com/pcaofrance/"
+            ]
+        }
+    </script>
 
         <!-- Bootstrap core CSS -->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">

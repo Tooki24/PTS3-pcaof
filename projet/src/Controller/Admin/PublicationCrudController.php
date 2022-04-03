@@ -36,7 +36,6 @@ class PublicationCrudController extends AbstractCrudController
             TextField::new('pdfFile', 'L\'article Au format PDF')->setFormtype(VichFileType::class)->hideOnIndex(),
             TextField::new('pdfName', 'PDF')->onlyOnIndex(),
             AssociationField::new('people', 'Auteur'),
-            //TODO créé un obtion pour créé un nouvelle entitér depuis le crud de la Publication
             AssociationField::new('keyWords', 'Mot(s)-clé(s)'),
             BooleanField::new('onLine', 'En ligne'),
             DateTimeField::new('datePubli')->onlyOnIndex(),

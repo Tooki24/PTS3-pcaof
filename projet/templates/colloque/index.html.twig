@@ -2,13 +2,23 @@
 
 {% block title %}<title>Appel à Colloque| PCAoF</title>{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block metaTag %}
+    <meta name="description" content="La colloque des cultures populaires" />
+    <link rel="canonical" href="http://pcaof.com/colloque/" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:type" content="colloque" />
+    <meta property="og:title" content="Colloque | PCAoF" />
+    <meta property="og:description" content="La colloque des cultures populaires" />
+    <meta property="og:url" content="http://pcaof.com/revue/" />
+    <meta property="og:site_name" content="PCAoF" />
+{% endblock %}
 
-    <h1 class="blocBleu blocBleuColloque">Colloque(s) à venir</h1>
+{% block body %}
+
+    <h1 class="text-center mt-4">Colloque de Popular Culture Association of France</h1>
+
+
+    <h1 class="blocBleu blocBleuColloque"><strong>Colloque</strong>(s) à venir</h1>
 <div class="example-wrapper ">
 
     {% for colloque in colloquesAsc %}
@@ -33,7 +43,7 @@
         {% endif %}
     {% endfor %}
 </div>
-    <h1 class="blocBleu blocBleuColloque">Colloques déjà réalisées</h1>
+    <h1 class="blocBleu blocBleuColloque"><strong>Colloques</strong> déjà réalisées</h1>
     <div class="example-wrapper ">
 
     {% for colloque in colloquesDesc %}
