@@ -47,5 +47,15 @@
                         <p><a href="{{ path('detail_revue',{'slug': revue.slug}) }}">Voir la revue</a></p>
                 {% endif %}
 
+                <div class="container">
+                        <br><br><br>
+                        <h5>Tags : </h5>
+                        <h6>
+                                {% for key in colloque.keyWords %}
+                                        <span class="badge bg-primary"><strong>{{key.word}}</strong></span>
+                                {% endfor %}
+                        </h6>
+                </div>
+
         </div>
 {% endblock %}

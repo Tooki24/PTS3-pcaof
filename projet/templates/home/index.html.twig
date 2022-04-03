@@ -33,7 +33,7 @@
         <div class="LastPubliRevuesAccueil">
             <div class="blocLastPubliAcceuil">
                 <div class ="blocBleu blocBleuPubli">
-                    <p class="lastNomAcceuil">Dernières <strong>publications</strong></p>
+                    <p class="lastNomAcceuil">Dernières publications</p>
                 </div>
                 {% for publication in publications %}
                     <a href="{{ path('details_publication', {'slug': publication.slug}) }}" id="publi-home" class="bloc-ombre">
@@ -47,7 +47,7 @@
             {# Revue #}
             <div class="blocLastRevueAcceuil">
                 <div class="blocBleu" id="blocBleuRevue">
-                    <p class="lastNomAcceuil">Dernière <strong>Revue</strong></p>
+                    <p class="lastNomAcceuil">Dernière Revue</p>
                 </div>
                 {% if revue is not null %}
                     <a href="{{ path('detail_revue', {'slug': revue.slug}) }}" id="revue-home" class ="bloc-ombre">
@@ -67,7 +67,7 @@
         {# Colloque #}
         <div class="blocLastColoqueAcceuil ">
             <div class  ="blocBleu blocBleuColloque">
-                <p class="lastNomAcceuil"><strong>Colloque</strong> à venir</p>
+                <p class="lastNomAcceuil">Colloque à venir</p>
             </div>
             {% if colloque is not null %}
                 <div id="colloque-home" class="bloc-ombre">

@@ -34,9 +34,11 @@
         <a id="bouton-publi-detail" href="{{asset (vich_uploader_asset (publication, 'pdfFile'))}}" target="_blank">Lire la publication</a>
         <a id="tel-publi-detail" href="{{asset (vich_uploader_asset (publication, 'pdfFile'))}}" download><img src="{{ asset('img/telecharger.png') }}" width="50px" ></a>
     </div>
-    {% for key in publication.keyWords %}
-        <h5>Tags : </h5>
-        <h6><span class="badge badge-secondary"><strong>{{key.word}}</strong></span></h6>
-    {% endfor %}
+    <h5>Tags : </h5>
+    <h6>
+        {% for key in publication.keyWords %}
+            <span class="badge bg-primary"><strong>{{key.word}}</strong></span>
+        {% endfor %}
+    </h6>
 </div>
 {% endblock %}
