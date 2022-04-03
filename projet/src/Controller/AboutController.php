@@ -13,4 +13,10 @@ class AboutController extends AbstractController
     {
         return $this->render('about/mentions-legales.html.twig');
     }
+
+    #[Route('/association', name: 'association')]
+    public function association(): Response
+    {
+        return $this->render('about/association.html.twig');
+    }
 }
