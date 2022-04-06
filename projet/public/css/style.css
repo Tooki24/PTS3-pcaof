@@ -154,7 +154,9 @@ a {
 #mainNav{
     background-color: #004E5A;
 }
-
+.container .navbar-brand{
+    width: 70% !important;
+}
 #mainNav .navbar-nav .nav-item a{
     color: white;
     font-size: 1.4em;
