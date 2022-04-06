@@ -13,25 +13,39 @@
 {% endblock %}
 {% block body %}
 
-<div class="example-wrapper">
-    <h2>{{ article.title }}</h2>
-    <p>Fait le {{ article.datePubli|date('d/m/Y') }}</p>
-    <p>Par
-        {% for person in article.getPeople() %}
-            {{ person.name }} {{ person.firstName}},
-        {% endfor %}
-    </p>
-    <h3>Résumé</h3>
-    <p>{{ article.resume }}</p>
+<div class="bloc-ombre" id="bloc-publi-detail">
+    <div id="nom-date-auteur-publi-detail">
+        <div id="nom-date-publi-detail">
+            <h1 class="text-center">{{ article.title }}</h1>
+            <p id="date-publi-detail">Fait le {{ article.datePubli|format_datetime(locale='fr',pattern="d MMMM Y") }}</p>
+        </div>
+        <p id="auteur-publi-detail">De
+            {% for person in article.getPeople() %}
+                {{ person.name }} {{ person.firstName}},
+            {% endfor %}
+        </p>
+    </div>
+    <div class="container img-publi">
+        {% if article.imageName is not null %}
+            <img class="img-fluid" src="{{ asset(vich_uploader_asset (article, 'imageFile')) }}">
+        {% endif %}
+    </div>
+    <p class="text-center">{{ article.resume }}</p>
 
-    {% if article.pdfName is not null %}
-        <a href="{{asset (vich_uploader_asset (article, 'pdfFile'))}}" target="_blank"><p>Lire l'article</p></a>
-    {% endif %}
+    <div id="bouton-tel-publi-detail">
+        {% if article.pdfName is not null %}
+            <a id="bouton-publi-detail" href="{{asset (vich_uploader_asset (article, 'pdfFile'))}}" target="_blank"><p>Lire l'article</p></a>
+        {% endif %}
 
-    {% if article.pdfName is not null %}
-        <a href="{{asset (vich_uploader_asset (article, 'pdfFile'))}}" download>
-            <img src="{{ asset('img/telecharger.png') }}" width="50px">
-        </a>
-    {% endif %}
+        {% if article.pdfName is not null %}
+            <a id="tel-publi-detail" href="{{asset (vich_uploader_asset (article, 'pdfFile'))}}" download>
+                <img  src="{{ asset('img/telecharger.png') }}" width="50px">
+            </a>
+        {% endif %}
+    </div>
+
+
 </div>
+
+
 {% endblock %}

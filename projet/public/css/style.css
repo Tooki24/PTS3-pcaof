@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap');
 body{
     padding : 0;
@@ -13,7 +13,8 @@ a:hover{
 
 h1{
     font-size: 2em;
-    font-family: 'Passion One', cursive;
+    font-family: 'Oswald', sans-serif;
+    fon-width: 400;
 }
 p, h2, h3, h4, h5, h6{
     font-family: 'Merriweather', serif;
@@ -27,6 +28,7 @@ span{
     color: #004E5A;
 }
 /******************footer********************/
+
 .main-footer {
     background-color: #004E5A;
     display: flex;
@@ -155,7 +157,7 @@ a {
 
 #mainNav .navbar-nav .nav-item a{
     color: white;
-    font-size: 1.7em;
+    font-size: 1.4em;
     transition: 0.5s;
 }
 
@@ -449,6 +451,12 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+}
+.revue-liste-article-infos div{
+    flex: 40%;
+}
+.revue-liste-article-infos img{
+    flex: 5%;
 }
 .liste-bloc-article p{
     color: #004E5A;

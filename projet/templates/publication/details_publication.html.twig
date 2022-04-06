@@ -27,9 +27,11 @@
         {%  endfor %}</p>
     </div>
     <div class="container img-publi">
-        <img class="img-fluid" src="{{ asset(vich_uploader_asset (publication, 'imageFile')) }}">
+        {% if publication.imageName is not null %}
+            <img class="img-fluid" src="{{ asset(vich_uploader_asset (publication, 'imageFile')) }}">
+        {% endif %}
     </div>
-    <p>{{ publication.resume }}</p>
+    <p class="text-center">{{ publication.resume }}</p>
     <div id="bouton-tel-publi-detail">
         <a id="bouton-publi-detail" href="{{asset (vich_uploader_asset (publication, 'pdfFile'))}}" target="_blank">Lire la publication</a>
         <a id="tel-publi-detail" href="{{asset (vich_uploader_asset (publication, 'pdfFile'))}}" download><img src="{{ asset('img/telecharger.png') }}" width="50px" ></a>
